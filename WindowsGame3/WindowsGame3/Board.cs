@@ -80,7 +80,7 @@ namespace Foldit3D
             
             vertices = new VertexPositionNormalTexture[vNum];            
             camera = Game1.camera;
-            device = Game.device;
+            device = Game1.device;
             input = Game1.input;
             worldMatrix = Matrix.Identity;
             state = BoardState.chooseEdge1;

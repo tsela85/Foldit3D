@@ -107,10 +107,16 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Board.cs" />
+    <Compile Include="Camera.cs" />
     <Compile Include="DuplicatePlayer.cs" />
     <Compile Include="GameManager.cs" />
     <Compile Include="Hole.cs" />
     <Compile Include="HoleManager.cs" />
+    <Compile Include="IInputHandler.cs" />
+    <Compile Include="InputHandler.cs" />
+    <Compile Include="KeyboardHandler.cs" />
+    <Compile Include="MouseHandler.cs" />
     <Compile Include="NormalPlayer.cs" />
     <Compile Include="Player.cs" />
     <Compile Include="PlayerManager.cs" />

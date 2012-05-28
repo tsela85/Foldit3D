@@ -96,8 +96,8 @@ namespace Foldit3D
             //spriteBatch.Draw(texture, new Rectangle((int)WorldPosition.X, (int)WorldPosition.Y, frameWidth, frameHeight), color);
             effect.CurrentTechnique = effect.Techniques["TexturedNoShading"];
             effect.Parameters["xWorld"].SetValue(worldMatrix);
-            effect.Parameters["xView"].SetValue(Game1.camara.viewMatrix);
-            effect.Parameters["xProjection"].SetValue(Game1.camara.projectionMatrix);
+            effect.Parameters["xView"].SetValue(Game1.camera.View);
+            effect.Parameters["xProjection"].SetValue(Game1.camera.Projection);
             effect.Parameters["xTexture"].SetValue(texture);
 
             foreach (EffectPass pass in effect.CurrentTechnique.Passes)
