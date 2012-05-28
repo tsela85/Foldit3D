@@ -10,7 +10,7 @@ namespace Foldit3D
     class StaticPlayer : Player
     {
 
-        public StaticPlayer(Texture2D texture, int x, int y, PlayerManager pm) : base(texture, x, y, pm) { }
+        public StaticPlayer(Texture2D texture, int x, int y, PlayerManager pm, Effect effect) : base(texture, x, y, pm, effect) { }
 
         #region fold
 

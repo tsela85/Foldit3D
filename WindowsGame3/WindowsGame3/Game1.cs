@@ -20,6 +20,7 @@ namespace Foldit3D
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
         GameManager ourGame;
+        public static GraphicsDevice device;
 
         public Game1()
         {
@@ -56,12 +57,13 @@ namespace Foldit3D
         /// </summary>
         protected override void LoadContent()
         {
+            device = graphics.GraphicsDevice;
             // Create a new SpriteBatch, which can be used to draw textures.
             spriteBatch = new SpriteBatch(GraphicsDevice);
             SpriteFont font = Content.Load<SpriteFont>("font");
             SpriteFont scoreFont = Content.Load<SpriteFont>("scoreFont");
             HoleManager holeManager = new HoleManager(Content.Load<Texture2D>("hole"));
-            PlayerManager playerManager = new PlayerManager(Content.Load<Texture2D>("ball"));
+            PlayerManager playerManager = new PlayerManager(Content.Load<Texture2D>("ball"), Content.Load<Effect>("effect"));
             PowerUpManager powerupManager = new PowerUpManager(Content.Load<Texture2D>("ball"));
             ourGame = new GameManager(font, scoreFont, holeManager, playerManager, powerupManager);
             ourGame.loadCurrLevel();

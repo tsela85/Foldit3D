@@ -9,8 +9,8 @@ namespace Foldit3D
 {
     class NormalPlayer : Player
     {
-        
-        public NormalPlayer(Texture2D texture,int x, int y, PlayerManager pm) : base(texture,x,y,pm){}
+
+        public NormalPlayer(Texture2D texture, int x, int y, PlayerManager pm, Effect effect) : base(texture, x, y, pm, effect) { }
 
         #region fold
 

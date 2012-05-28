@@ -10,13 +10,14 @@ namespace Foldit3D
 {
     class PlayerManager
     {
-        Texture2D texture;
+        private Texture2D texture;
         private List<Player> players;
-
-        public PlayerManager(Texture2D texture)
+        private Effect effect;
+        public PlayerManager(Texture2D texture, Effect effect)
         {
             this.texture = texture;
             players = new List<Player>();
+            this.effect = effect;
             //List<IDictionary<string, string>> data = XMLReader.Get("player");
             //initLevel(data);
         }
@@ -68,15 +69,15 @@ namespace Foldit3D
             Player newP = null;
             if (type.CompareTo("normal") == 0)
             {
-                newP = new NormalPlayer(texture, x, y, this);
+                newP = new NormalPlayer(texture, x, y, this, effect);
             }
             else if (type.CompareTo("static") == 0)
             {
-                newP = new StaticPlayer(texture, x, y, this);
+                newP = new StaticPlayer(texture, x, y, this, effect);
             }
             else if (type.CompareTo("duplicate") == 0)
             {
-                newP =new DuplicatePlayer(texture, x, y, this);
+                newP = new DuplicatePlayer(texture, x, y, this, effect);
             }
             return newP;
         }
