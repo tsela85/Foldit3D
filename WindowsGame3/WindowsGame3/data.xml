@@ -1,0 +1,55 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<data>
+  <level1>
+    <board>
+      <point>
+        <x>10</x>
+        <y>10</y>
+      </point>
+      <point>
+        <x>20</x>
+        <y>10</y>
+      </point>
+    </board>
+  
+    <player>
+      <playerObj>
+        <type>normal</type>
+        <x>100</x>
+        <y>100</y>
+      </playerObj>
+      <playerObj>
+        <type>static</type>
+        <x>200</x>
+        <y>200</y>
+      </playerObj>
+    </player>
+
+    <exit>
+      <exitObj>
+        <x>100</x>
+        <y>100</y>
+      </exitObj>
+    </exit>
+	
+    <holes>
+      <holeObj>
+        <x>1000</x>
+        <y>200</y>
+      </holeObj>
+	</holes>
+	
+    <powerups>
+      <powerupObj>
+        <type>0</type>
+        <x>300</x>
+        <y>300</y>
+      </powerupObj>
+	  <powerupObj>
+        <type>1</type>
+        <x>400</x>
+        <y>400</y>
+      </powerupObj>
+    </powerups>
+  </level1>
+</data>
