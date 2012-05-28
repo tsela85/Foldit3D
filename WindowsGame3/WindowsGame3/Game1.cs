@@ -21,6 +21,8 @@ namespace Foldit3D
         SpriteBatch spriteBatch;
         GameManager ourGame;
 
+        public static Camera camera;
+        public static InputHandler input;
         public Game1()
         {
             graphics = new GraphicsDeviceManager(this);
@@ -38,12 +40,12 @@ namespace Foldit3D
         protected override void Initialize()
         {
             #region screenInit
-            graphics.PreferredBackBufferWidth = 1200;
+            graphics.PreferredBackBufferWidth = 800;
             graphics.PreferredBackBufferHeight = 600;
             //graphics.IsFullScreen = false;
             graphics.ApplyChanges();
             // Window.AllowUserResizing = true; 
-            Window.Title = "Fold It";
+            Window.Title = "Let's Fold It!!!";
             this.IsMouseVisible = true;
             #endregion
 
@@ -63,7 +65,10 @@ namespace Foldit3D
             HoleManager holeManager = new HoleManager(Content.Load<Texture2D>("hole"));
             PlayerManager playerManager = new PlayerManager(Content.Load<Texture2D>("ball"));
             PowerUpManager powerupManager = new PowerUpManager(Content.Load<Texture2D>("ball"));
-            ourGame = new GameManager(font, scoreFont, holeManager, playerManager, powerupManager);
+            Board board = new Board(Content.Load<Texture2D>("paper3"), Content.Load<Effect>("effects"));
+            camera = new Camera(this);
+            input = new InputHandler(this);
+            ourGame = new GameManager(font, scoreFont, holeManager, playerManager, powerupManager,board);
             ourGame.loadCurrLevel();
             
         }

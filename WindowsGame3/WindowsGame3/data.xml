@@ -3,13 +3,34 @@
   <level1>
     <board>
       <point>
-        <x>10</x>
-        <y>10</y>
+        <x>-25</x>
+        <y>0</y>
+        <z>20</z>
+        <texX>0</texX>
+        <texY>0</texY>
       </point>
       <point>
-        <x>20</x>
-        <y>10</y>
+        <x>25</x>
+        <y>0</y>
+        <z>20</z>
+        <texX>1</texX>
+        <texY>0</texY>
       </point>
+      <point>
+        <x>25</x>
+        <y>0</y>
+        <z>-20</z>
+        <texX>1</texX>
+        <texY>1</texY>
+      </point>
+      <point>
+        <x>-25</x>
+        <y>0</y>
+        <z>-20</z>
+        <texX>0</texX>
+        <texY>1</texY>
+      </point>
+
     </board>
   
     <player>

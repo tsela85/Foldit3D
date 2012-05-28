@@ -18,6 +18,8 @@ namespace Foldit3D
         HoleManager holeManager;
         PlayerManager playerManager;
         PowerUpManager powerupManager;
+        Board board;
+
 
         int level;
         int endLevel;
@@ -28,13 +30,15 @@ namespace Foldit3D
         List<IDictionary<string, string>> levels = new List<IDictionary<string, string>>();
 
         // XXX need to recieve all the instances: bordMan, playerMan, holeMan etc.
-        public GameManager(SpriteFont f, SpriteFont sf, HoleManager h, PlayerManager p, PowerUpManager pu)
+        public GameManager(SpriteFont f, SpriteFont sf, HoleManager h, PlayerManager p, PowerUpManager pu,
+            Board bo)
         {
             font = f;
             scoreFont = sf;
             holeManager = h;
             playerManager = p;
             powerupManager = pu;
+            board = bo;
             gamestate = GameState.chooseEdge1;
             folds = 0;
             level = 1;
@@ -49,13 +53,27 @@ namespace Foldit3D
             holeManager.initLevel(XMLReader.Get(level, "holes"));
             powerupManager.restartLevel();
             powerupManager.initLevel(XMLReader.Get(level, "powerups"));
+            Vector3[] points = new Vector3[4] {
+                new Vector3(-25f, 0f, 20f),
+                new Vector3(25f, 0f, 20f),
+                new Vector3(25f, 0f, -20f),
+                new Vector3(-25f, 0f, -20f)
+             };
+            Vector2[] texCords = new Vector2[4] {
+                new Vector2(0,0),
+                new Vector2(1,0),
+                new Vector2(1,1),
+                new Vector2(0,1)  
+             };
+            Game1.camera.Initialize();
+            board.Initialize(4, points, texCords);
         } 
 
         #region Update
         public void Update(GameTime gameTime)
         {
             playerManager.Update(gameTime, gamestate);
-            //gamestate = board.Update(gamestate, gameTime);
+            board.update();
             if (Keyboard.GetState().IsKeyDown(Keys.R))
             {
                 folds = 0;
