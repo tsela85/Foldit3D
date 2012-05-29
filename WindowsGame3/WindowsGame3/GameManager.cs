@@ -9,6 +9,7 @@ using Microsoft.Xna.Framework.Input;
 namespace Foldit3D
 {
     enum GameState { normal, folding, scored };
+    public enum BoardState { chooseEdge1, onEdge1, chooseEdge2, onEdge2, preFold, folding1, folding2 };
 
     class GameManager
     {

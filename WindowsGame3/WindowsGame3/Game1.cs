@@ -20,6 +20,8 @@ namespace Foldit3D
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
         GameManager ourGame;
+        public static float closeRate = 0.7f;
+        public static float openRate = 0.4f;
         public static GraphicsDevice device;
 
         public static Camera camera;
