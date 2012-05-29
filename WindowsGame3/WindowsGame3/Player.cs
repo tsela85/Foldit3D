@@ -25,8 +25,8 @@ namespace Foldit3D
         protected PlayerManager playerManager;
         protected bool dataWasCalced = false;
         protected VertexPositionTexture[] vertices;
-        protected Matrix viewMatrix;
-        protected Matrix projectionMatrix;
+        //protected Matrix viewMatrix;
+        //protected Matrix projectionMatrix;
         protected Matrix worldMatrix;
         protected Effect effect;
 

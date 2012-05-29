@@ -74,7 +74,8 @@ namespace Foldit3D
         {
             playerManager.Update(gameTime, gamestate);
             board.update();
-            Game1.input.Update(gamestate);
+            Game1.input.Update(gameTime);
+            Game1.camera.UpdateCamera(gameTime);
             if (Keyboard.GetState().IsKeyDown(Keys.R))
             {
                 folds = 0;
@@ -101,6 +102,12 @@ namespace Foldit3D
         #region Draw
         public void Draw(GameTime gameTime, SpriteBatch spriteBatch, GraphicsDeviceManager graphics)
         {
+            Game1.device.Clear(ClearOptions.Target | ClearOptions.DepthBuffer, Color.DarkSlateBlue, 1.0f, 0);
+            RasterizerState rs = new RasterizerState();
+            rs.CullMode = CullMode.None;
+         //   rs.FillMode = FillMode.WireFrame;
+            Game1.device.RasterizerState = rs;
+
             //holeManager.Draw(spriteBatch);
             //powerupManager.Draw(spriteBatch);
             playerManager.Draw(spriteBatch);
