@@ -119,22 +119,22 @@ namespace Foldit3D
             if (state == BoardState.folding1)
             {
                 one.foldShape(angle);
-                one.Draw();
                 two.Draw();
+                one.Draw();            
                 angle += 0.07f;
                 if (angle > MathHelper.Pi - 0.07f)
                     state = BoardState.folding2;
             }
             else
-			if (state == BoardState.folding2)
-			{
-				one.foldShape(angle);
-				one.Draw();
-				two.Draw();				
-				angle -= 0.04f;				
-			    if (angle < 0)
-				    state = BoardState.chooseEdge1;				
-			}
+                if (state == BoardState.folding2)
+                {
+                    one.foldShape(angle);
+                    two.Draw();
+                    one.Draw();                  
+                    angle -= 0.04f;
+                    if (angle < 0)
+                        state = BoardState.chooseEdge1;
+                }
                 else
                 {
 

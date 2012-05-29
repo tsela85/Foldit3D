@@ -105,12 +105,12 @@ namespace Foldit3D
             Game1.device.Clear(ClearOptions.Target | ClearOptions.DepthBuffer, Color.DarkSlateBlue, 1.0f, 0);
             RasterizerState rs = new RasterizerState();
             rs.CullMode = CullMode.None;
-         //   rs.FillMode = FillMode.WireFrame;
+          //  rs.FillMode = FillMode.WireFrame;
             Game1.device.RasterizerState = rs;
 
             //holeManager.Draw(spriteBatch);
             //powerupManager.Draw(spriteBatch);
-            playerManager.Draw(spriteBatch);
+         //   playerManager.Draw(spriteBatch);
             board.Draw();
 
             //spriteBatch.DrawString(font, "Fold the page, till the ink-stain is in the hole", new Vector2(50, 15), Color.Black);

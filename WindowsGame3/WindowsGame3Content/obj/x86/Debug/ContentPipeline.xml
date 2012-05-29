@@ -8,7 +8,7 @@
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\Tom\Documents\Visual Studio 2010\Projects\Foldit3D\WindowsGame3\WindowsGame3\bin\x86\Debug\Content\ball.xnb</Output>
-      <Time>2012-05-29T10:52:36.7546383+03:00</Time>
+      <Time>2012-05-29T13:45:03.7215131+03:00</Time>
     </Item>
     <Item>
       <Source>edged.png</Source>
@@ -62,7 +62,7 @@
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\Tom\Documents\Visual Studio 2010\Projects\Foldit3D\WindowsGame3\WindowsGame3\bin\x86\Debug\Content\paper3.xnb</Output>
-      <Time>2012-05-28T23:27:08.2985575+03:00</Time>
+      <Time>2012-05-29T13:45:03.7527131+03:00</Time>
     </Item>
     <Item>
       <Source>effects.fx</Source>
@@ -71,7 +71,7 @@
       <Processor>EffectProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\Tom\Documents\Visual Studio 2010\Projects\Foldit3D\WindowsGame3\WindowsGame3\bin\x86\Debug\Content\effects.xnb</Output>
-      <Time>2012-05-28T23:27:08.2985575+03:00</Time>
+      <Time>2012-05-29T13:45:03.7371131+03:00</Time>
     </Item>
     <BuildSuccessful>true</BuildSuccessful>
     <Settings>
