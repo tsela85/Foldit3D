@@ -106,13 +106,17 @@ namespace Foldit3D
 
         }
 
-        public void initLevel(List<IDictionary<string, string>> data)
-        {
-            foreach (IDictionary<string, string> item in data)
-            {
-               
-            }
-        }
+        //public void initLevel(List<IDictionary<string, string>> data)
+        //{
+        //    List<Vector3> vecs = new List<Vector3>();
+        //    List<Vector2> tex = new List<Vector2>();
+        //    foreach (IDictionary<string, string> item in data)
+        //    {
+        //       Vector3 temp = new Vector3();
+        //       temp.X = Convert.To (item["x"])  ( item["x"];
+
+        //    }
+        //}
 
         public void Draw()
         {
