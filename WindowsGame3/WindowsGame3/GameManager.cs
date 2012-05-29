@@ -110,7 +110,11 @@ namespace Foldit3D
             //powerupManager.Draw(spriteBatch);
             board.Draw();
             playerManager.Draw();
+<<<<<<< HEAD
             
+=======
+           
+>>>>>>> 61db2fb34c5c3bb868e4a45d56fe29e8790ad495
 
             //spriteBatch.DrawString(font, "Fold the page, till the ink-stain is in the hole", new Vector2(50, 15), Color.Black);
             //spriteBatch.DrawString(font, "Mouse Left Button - choose, Mouse Right Button - cancel", new Vector2(50, graphics.PreferredBackBufferHeight - 50), Color.Black);

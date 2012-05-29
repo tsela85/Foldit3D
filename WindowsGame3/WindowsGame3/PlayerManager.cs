@@ -26,6 +26,7 @@ namespace Foldit3D
 
         public void initLevel(List<IDictionary<string, string>> data)
         {
+            
             foreach (IDictionary<string, string> item in data)
             {
                 players.Add(makeNewPlayer(item["type"], Convert.ToInt32(item["x"]), Convert.ToInt32(item["y"])));
@@ -40,10 +41,10 @@ namespace Foldit3D
 
         #region Update and Draw
 
-        public void Draw(SpriteBatch spriteBatch) {
+        public void Draw() {
             foreach (Player p in players)
             {
-                p.Draw(spriteBatch);
+                p.Draw();
             }
         }
         public void Update(GameTime gameTime, GameState state) {
