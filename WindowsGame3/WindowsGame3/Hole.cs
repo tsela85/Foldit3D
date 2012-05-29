@@ -78,7 +78,7 @@ namespace Foldit3D
         #endregion
 
         #region Fold
-        public void foldData(Vector3 axis, Vector3 point)
+        public void foldData(Vector3 axis, Vector3 point, float angle)
         {
             if (rotAngle < 180)
             {
