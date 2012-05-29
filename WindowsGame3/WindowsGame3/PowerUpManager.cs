@@ -43,6 +43,22 @@ namespace Foldit3D
         }
         #endregion
 
+        #region Update
+        public void Update(GameState state)
+        {
+            foreach (PowerUp p in powerups)
+                p.Update(state);
+        }
+        #endregion
+
+        #region Public Methods
+        public void calcBeforeFolding(Vector2 point1, Vector2 point2, int direction)
+        {
+            foreach (PowerUp p in powerups)
+                p.calcBeforeFolding(point1, point2, direction);
+        }
+        #endregion
+
         #region Collision
         public static void checkCollision(Player player)
         {

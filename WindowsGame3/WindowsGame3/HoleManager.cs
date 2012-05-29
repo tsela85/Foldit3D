@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using Microsoft.Xna.Framework.Graphics;
 using System.Diagnostics;
+using Microsoft.Xna.Framework;
 
 namespace Foldit3D
 {
@@ -39,6 +40,22 @@ namespace Foldit3D
         {
             foreach (Hole hole in holes)
                 hole.Draw(spriteBatch);
+        }
+        #endregion
+
+        #region Update
+        public void Update(GameState state)
+        {
+            foreach (Hole h in holes)
+                h.Update(state);
+        }
+        #endregion
+
+        #region Public Methods
+        public void calcBeforeFolding(Vector2 point1, Vector2 point2, int direction)
+        {
+            foreach (Hole h in holes)
+                h.calcBeforeFolding(point1, point2, direction);
         }
         #endregion
 
