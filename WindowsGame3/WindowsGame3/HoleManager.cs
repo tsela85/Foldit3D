@@ -12,11 +12,13 @@ namespace Foldit3D
     {
         Texture2D texture;
         private static List<Hole> holes;
+        private Effect effect;
 
-        public HoleManager(Texture2D texture)
+        public HoleManager(Texture2D texture, Effect e)
         {
             this.texture = texture;
             holes = new List<Hole>();
+            effect = e;
         }
 
         #region Levels
@@ -25,7 +27,7 @@ namespace Foldit3D
         {
             foreach (IDictionary<string, string> item in data)
             {
-                holes.Add(new Hole(texture, Convert.ToInt32(item["x"]), Convert.ToInt32(item["y"])));
+                holes.Add(new Hole(texture, Convert.ToInt32(item["x"]), Convert.ToInt32(item["y"]), effect));
             }
         }
 
@@ -36,10 +38,10 @@ namespace Foldit3D
         #endregion
 
         #region Draw
-        public void Draw(SpriteBatch spriteBatch)
+        public void Draw()
         {
             foreach (Hole hole in holes)
-                hole.Draw(spriteBatch);
+                hole.Draw();
         }
         #endregion
 
@@ -64,7 +66,7 @@ namespace Foldit3D
         {
             foreach (Hole h in holes)
             {
-                if (h.WorldRectangle.Contains(player.WorldRectangle.Center))
+                if (h.getBox().Contains(player.getBox()) == ContainmentType.Contains)
                 {
                     // WIN!!!
                     GameManager.winLevel();

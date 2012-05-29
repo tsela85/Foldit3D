@@ -12,11 +12,13 @@ namespace Foldit3D
     {
         Texture2D texture;
         private static List<PowerUp> powerups;
+        private Effect effect;
 
-        public PowerUpManager(Texture2D texture)
+        public PowerUpManager(Texture2D texture, Effect e)
         {
             this.texture = texture;
             powerups = new List<PowerUp>();
+            effect = e;
         }
 
         #region Levels
@@ -25,7 +27,7 @@ namespace Foldit3D
         {
             foreach (IDictionary<string, string> item in data)
             {
-                powerups.Add(new PowerUp(texture, ConvertType(Convert.ToInt32(item["type"])), Convert.ToInt32(item["x"]), Convert.ToInt32(item["y"])));
+                powerups.Add(new PowerUp(texture, ConvertType(Convert.ToInt32(item["type"])), Convert.ToInt32(item["x"]), Convert.ToInt32(item["y"]), effect));
             }
         }
 
@@ -36,10 +38,10 @@ namespace Foldit3D
         #endregion
 
         #region Draw
-        public void Draw(SpriteBatch spriteBatch)
+        public void Draw()
         {
             foreach (PowerUp p in powerups)
-                p.Draw(spriteBatch);
+                p.Draw();
         }
         #endregion
 
@@ -64,7 +66,7 @@ namespace Foldit3D
         {
             foreach (PowerUp p in powerups)
             {
-                if (p.WorldRectangle.Contains(player.WorldRectangle.Center))
+                if (p.getBox().Contains(player.getBox()) == ContainmentType.Contains)
                 {
                     p.doYourThing(player);
                 }

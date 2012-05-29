@@ -213,6 +213,14 @@ namespace Foldit3D
             vertices[5].TextureCoordinate.X = 1;
             vertices[5].TextureCoordinate.Y = 0;
         }
+
+        public BoundingBox getBox()
+        {
+            Vector3[] p = new Vector3[2];
+            p[0] = vertices[2].Position;
+            p[1] = vertices[5].Position;
+            return BoundingBox.CreateFromPoints(p);
+        }
         #endregion
     }
 }

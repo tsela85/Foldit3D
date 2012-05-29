@@ -24,13 +24,19 @@ namespace Foldit3D
         Rectangle worldRectangle;
         PowerUpType type;
 
-        public PowerUp(Texture2D t, PowerUpType ty, int x, int y) 
+        protected VertexPositionTexture[] vertices;
+        protected Matrix worldMatrix = Matrix.Identity;
+        protected Effect effect;
+
+        public PowerUp(Texture2D t, PowerUpType ty, int x, int y, Effect e) 
         {
             texture = t;
             worldPosition.X = x;
             worldPosition.Y = y;
             worldRectangle = new Rectangle((int)WorldPosition.X,(int)WorldPosition.Y,texture.Width, texture.Height);
             type = ty;
+            effect = e;
+            setUpVertices();
         }
 
         #region Properties
@@ -137,9 +143,20 @@ namespace Foldit3D
         #endregion
 
         #region Draw
-        public void Draw(SpriteBatch spriteBatch)
+        public void Draw()
         {
-            spriteBatch.Draw(texture, worldRectangle, null, Color.Red, 0, new Vector2(worldRectangle.Width / 2, worldRectangle.Height / 2), SpriteEffects.None, 0);
+            effect.CurrentTechnique = effect.Techniques["TexturedNoShading"];
+            effect.Parameters["xWorld"].SetValue(worldMatrix);
+            effect.Parameters["xView"].SetValue(Game1.camera.View);
+            effect.Parameters["xProjection"].SetValue(Game1.camera.Projection);
+            effect.Parameters["xTexture"].SetValue(texture);
+
+            foreach (EffectPass pass in effect.CurrentTechnique.Passes)
+            {
+                pass.Apply();
+
+                Game1.device.DrawUserPrimitives(PrimitiveType.TriangleList, vertices, 0, 2, VertexPositionTexture.VertexDeclaration);
+            }
         }
         #endregion
 
@@ -155,6 +172,45 @@ namespace Foldit3D
             {
             }
             return true;
+        }
+        #endregion
+
+        #region 3D
+        private void setUpVertices()
+        {
+            vertices = new VertexPositionTexture[6];
+
+            vertices[0].Position = new Vector3(-3.5f, 0f, -2.5f);
+            vertices[0].TextureCoordinate.X = 0;
+            vertices[0].TextureCoordinate.Y = 0;
+
+            vertices[1].Position = new Vector3(-2.5f, 0f, -3.5f);
+            vertices[1].TextureCoordinate.X = 1;
+            vertices[1].TextureCoordinate.Y = 1;
+
+            vertices[2].Position = new Vector3(-3.5f, 0f, -3.5f);
+            vertices[2].TextureCoordinate.X = 0;
+            vertices[2].TextureCoordinate.Y = 1;
+
+            vertices[3].Position = new Vector3(-2.5f, 0f, -3.5f);
+            vertices[3].TextureCoordinate.X = 1;
+            vertices[3].TextureCoordinate.Y = 1;
+
+            vertices[4].Position = new Vector3(-3.5f, 0f, -2.5f);
+            vertices[4].TextureCoordinate.X = 0;
+            vertices[4].TextureCoordinate.Y = 0;
+
+            vertices[5].Position = new Vector3(-2.5f, 0f, -2.5f);
+            vertices[5].TextureCoordinate.X = 1;
+            vertices[5].TextureCoordinate.Y = 0;
+        }
+        
+        public BoundingBox getBox()
+        {
+            Vector3[] p = new Vector3[2];
+            p[0] = vertices[2].Position;
+            p[1] = vertices[5].Position;
+            return BoundingBox.CreateFromPoints(p);
         }
         #endregion
     }

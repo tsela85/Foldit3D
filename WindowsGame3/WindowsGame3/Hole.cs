@@ -20,12 +20,19 @@ namespace Foldit3D
         Texture2D texture;
         Vector2 worldPosition;
         Rectangle worldRectangle;
-        public Hole(Texture2D texture,int x, int y)
+
+        protected VertexPositionTexture[] vertices;
+        protected Matrix worldMatrix = Matrix.Identity;
+        protected Effect effect;
+
+        public Hole(Texture2D texture,int x, int y, Effect e)
         {
             this.texture = texture;
             worldPosition.X = x;
             worldPosition.Y = y;
             worldRectangle = new Rectangle((int)WorldPosition.X, (int)WorldPosition.Y, texture.Width, texture.Height);
+            effect = e;
+            setUpVertices();
         }
 
         #region Properties
@@ -45,9 +52,20 @@ namespace Foldit3D
         #endregion
 
         #region Draw
-        public void Draw(SpriteBatch spriteBatch)
+        public void Draw()
         {
-            spriteBatch.Draw(texture, worldRectangle, null, Color.LightSeaGreen, 0, new Vector2(worldRectangle.Width / 2, worldRectangle.Height / 2), SpriteEffects.None, 0);
+            effect.CurrentTechnique = effect.Techniques["TexturedNoShading"];
+            effect.Parameters["xWorld"].SetValue(worldMatrix);
+            effect.Parameters["xView"].SetValue(Game1.camera.View);
+            effect.Parameters["xProjection"].SetValue(Game1.camera.Projection);
+            effect.Parameters["xTexture"].SetValue(texture);
+
+            foreach (EffectPass pass in effect.CurrentTechnique.Passes)
+            {
+                pass.Apply();
+
+                Game1.device.DrawUserPrimitives(PrimitiveType.TriangleList, vertices, 0, 2, VertexPositionTexture.VertexDeclaration);
+            }
         }
         #endregion
 
@@ -59,7 +77,20 @@ namespace Foldit3D
         }
         #endregion
 
-        #region fold
+        #region Fold
+        public void foldData(Vector3 axis, Vector3 point)
+        {
+            if (rotAngle < 180)
+            {
+                worldMatrix = Matrix.Identity;
+                worldMatrix *= Matrix.CreateTranslation(-point);
+                worldMatrix *= Matrix.CreateFromAxisAngle(axis, angle);
+                worldMatrix *= Matrix.CreateTranslation(point);
+                rotAngle += ROTATION_DEGREE;
+            }
+        }
+
+
         public void calcBeforeFolding(Vector2 loc1, Vector2 loc2, int direction)
         {
             // NEED to check if the hole is in the folding area. if NOT: dataWasCalced = false. if YES: dataWasCalced = true.
@@ -134,6 +165,45 @@ namespace Foldit3D
             {
             }
             return true;
+        }
+        #endregion
+
+        #region 3D
+        private void setUpVertices()
+        {
+            vertices = new VertexPositionTexture[6];
+
+            vertices[0].Position = new Vector3(-5.5f, 0f, -2.5f);
+            vertices[0].TextureCoordinate.X = 0;
+            vertices[0].TextureCoordinate.Y = 0;
+
+            vertices[1].Position = new Vector3(-2.5f, 0f, -5.5f);
+            vertices[1].TextureCoordinate.X = 1;
+            vertices[1].TextureCoordinate.Y = 1;
+
+            vertices[2].Position = new Vector3(-5.5f, 0f, -5.5f);
+            vertices[2].TextureCoordinate.X = 0;
+            vertices[2].TextureCoordinate.Y = 1;
+
+            vertices[3].Position = new Vector3(-2.5f, 0f, -5.5f);
+            vertices[3].TextureCoordinate.X = 1;
+            vertices[3].TextureCoordinate.Y = 1;
+
+            vertices[4].Position = new Vector3(-5.5f, 0f, -2.5f);
+            vertices[4].TextureCoordinate.X = 0;
+            vertices[4].TextureCoordinate.Y = 0;
+
+            vertices[5].Position = new Vector3(-2.5f, 0f, -2.5f);
+            vertices[5].TextureCoordinate.X = 1;
+            vertices[5].TextureCoordinate.Y = 0;
+        }
+
+        public BoundingBox getBox()
+        {
+            Vector3[] p = new Vector3[2];
+            p[0] = vertices[2].Position;
+            p[1] = vertices[5].Position;
+            return BoundingBox.CreateFromPoints(p);
         }
         #endregion
     }
