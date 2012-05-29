@@ -73,8 +73,8 @@ namespace Foldit3D
         public void Update(GameTime gameTime)
         {
             playerManager.Update(gameTime, gamestate);
+            //gamestate = board.update();
             board.update();
-            //gamestate = Game1.input.Update(gameTime);
             Game1.input.Update(gameTime);
             Game1.camera.UpdateCamera(gameTime);
             if (Keyboard.GetState().IsKeyDown(Keys.R))
@@ -83,6 +83,7 @@ namespace Foldit3D
             }
             if ((gamestate == GameState.scored) && (Mouse.GetState().LeftButton == ButtonState.Pressed))
             {
+                gamestate = GameState.normal;
                 folds = 0;
                 level++;
                 if (level<=endLevel)
@@ -90,6 +91,7 @@ namespace Foldit3D
             }
             if (gamestate == GameState.folding)
             {
+
                 // NEED to recive points from the bord
                 //playerManager.calcBeforeFolding(Vector2 point1, Vector2 point2);
                 folds++;

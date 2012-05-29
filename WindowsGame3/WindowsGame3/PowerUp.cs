@@ -180,27 +180,27 @@ namespace Foldit3D
         {
             vertices = new VertexPositionTexture[6];
 
-            vertices[0].Position = new Vector3(-3.5f, 0f, -2.5f);
+            vertices[0].Position = new Vector3(-1.5f, 0f, -0.5f);
             vertices[0].TextureCoordinate.X = 0;
             vertices[0].TextureCoordinate.Y = 0;
 
-            vertices[1].Position = new Vector3(-2.5f, 0f, -3.5f);
+            vertices[1].Position = new Vector3(-0.5f, 0f, -1.5f);
             vertices[1].TextureCoordinate.X = 1;
             vertices[1].TextureCoordinate.Y = 1;
 
-            vertices[2].Position = new Vector3(-3.5f, 0f, -3.5f);
+            vertices[2].Position = new Vector3(-1.5f, 0f, -1.5f);
             vertices[2].TextureCoordinate.X = 0;
             vertices[2].TextureCoordinate.Y = 1;
 
-            vertices[3].Position = new Vector3(-2.5f, 0f, -3.5f);
+            vertices[3].Position = new Vector3(-0.5f, 0f, -1.5f);
             vertices[3].TextureCoordinate.X = 1;
             vertices[3].TextureCoordinate.Y = 1;
 
-            vertices[4].Position = new Vector3(-3.5f, 0f, -2.5f);
+            vertices[4].Position = new Vector3(-1.5f, 0f, -0.5f);
             vertices[4].TextureCoordinate.X = 0;
             vertices[4].TextureCoordinate.Y = 0;
 
-            vertices[5].Position = new Vector3(-2.5f, 0f, -2.5f);
+            vertices[5].Position = new Vector3(-0.5f, 0f, -0.5f);
             vertices[5].TextureCoordinate.X = 1;
             vertices[5].TextureCoordinate.Y = 0;
         }
