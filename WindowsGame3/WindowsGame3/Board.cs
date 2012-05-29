@@ -26,7 +26,7 @@ namespace Foldit3D
         private Vector3 pointOnEdge;
         private DividingVert[] p;        
         private VertexPositionTexture[] ver;
-        private Board one, two;
+        public Board one, two;
         private float angle = 0;
         private Vector3 center;
         private Effect effect;
@@ -35,6 +35,7 @@ namespace Foldit3D
         private GraphicsDevice device;
         private InputHandler input;
         private BoardState state;
+        public Vector3 axis;
 
         public Board(Texture2D tex, Effect eff)
         {
@@ -65,6 +66,22 @@ namespace Foldit3D
         public Vector3 Center
         {
             get { return center; }            
+        }
+
+        public Vector3 getAxis()
+        {
+            return axis;
+        }
+
+        public Vector3 getAxisPoint()
+        {
+            return axis;
+        }
+
+
+        public float getAngle()
+        {
+            return angle;
         }
         #endregion
 
@@ -106,35 +123,39 @@ namespace Foldit3D
 
         }
 
-        public void initLevel(List<IDictionary<string, string>> data)
-        {
-            foreach (IDictionary<string, string> item in data)
-            {
-               
-            }
-        }
+        //public void initLevel(List<IDictionary<string, string>> data)
+        //{
+        //    List<Vector3> vecs = new List<Vector3>();
+        //    List<Vector2> tex = new List<Vector2>();
+        //    foreach (IDictionary<string, string> item in data)
+        //    {
+        //       Vector3 temp = new Vector3();
+        //       temp.X = Convert.To (item["x"])  ( item["x"];
+
+        //    }
+        //}
 
         public void Draw()
         {
             if (state == BoardState.folding1)
             {
                 one.foldShape(angle);
-                one.Draw();
                 two.Draw();
-                angle += 0.07f;
-                if (angle > MathHelper.Pi - 0.07f)
+                one.Draw();            
+                angle += Game1.closeRate;
+                if (angle > MathHelper.Pi - Game1.closeRate)
                     state = BoardState.folding2;
             }
             else
-			if (state == BoardState.folding2)
-			{
-				one.foldShape(angle);
-				one.Draw();
-				two.Draw();				
-				angle -= 0.04f;				
-			    if (angle < 0)
-				    state = BoardState.chooseEdge1;				
-			}
+                if (state == BoardState.folding2)
+                {
+                    one.foldShape(angle);
+                    two.Draw();
+                    one.Draw();
+                    angle -= Game1.openRate;
+                    if (angle < 0)
+                        state = BoardState.chooseEdge1;
+                }
                 else
                 {
 
@@ -372,7 +393,7 @@ namespace Foldit3D
         #region Folding
         public void foldShape(float angle)
         {
-            Vector3 axis = vertices[0].Position - vertices[vertNum - 1].Position;
+            axis = vertices[0].Position - vertices[vertNum - 1].Position;
             axis.Normalize();
 
             worldMatrix = Matrix.Identity;
@@ -382,7 +403,7 @@ namespace Foldit3D
         }
 
         #endregion
-        internal void update()
+        public BoardState update()
         {
             Vector3 mouse = GetPickedPosition(
                 new Vector2((float)input.MouseHandler.MouseState.X, (float)input.MouseHandler.MouseState.Y));
@@ -429,6 +450,8 @@ namespace Foldit3D
                 state = BoardState.chooseEdge1;
                 angle = 0;
             }
+
+            return state;
 
         }
     }
