@@ -27,7 +27,7 @@ namespace Foldit3D
         protected VertexPositionTexture[] vertices;
         //protected Matrix viewMatrix;
         //protected Matrix projectionMatrix;
-        protected Matrix worldMatrix;
+        protected Matrix worldMatrix = Matrix.Identity;
         protected Effect effect;
 
         #region Properties
@@ -91,9 +91,8 @@ namespace Foldit3D
             }*/
         }
 
-        public void Draw(SpriteBatch spriteBatch)
+        public void Draw()
         {
-            //spriteBatch.Draw(texture, new Rectangle((int)WorldPosition.X, (int)WorldPosition.Y, frameWidth, frameHeight), color);
             effect.CurrentTechnique = effect.Techniques["TexturedNoShading"];
             effect.Parameters["xWorld"].SetValue(worldMatrix);
             effect.Parameters["xView"].SetValue(Game1.camera.View);
@@ -190,11 +189,11 @@ namespace Foldit3D
         {
             vertices = new VertexPositionTexture[6];
 
-            vertices[0].Position = new Vector3(-10.5f, 0f, -9.5f);
+            vertices[0].Position = new Vector3(-10.5f, 0f, -8.5f);
             vertices[0].TextureCoordinate.X = 0;
             vertices[0].TextureCoordinate.Y = 0;
 
-            vertices[1].Position = new Vector3(-9.5f, 0f, -10.5f);
+            vertices[1].Position = new Vector3(-8.5f, 0f, -10.5f);
             vertices[1].TextureCoordinate.X = 1;
             vertices[1].TextureCoordinate.Y = 1;
 
@@ -202,17 +201,25 @@ namespace Foldit3D
             vertices[2].TextureCoordinate.X = 0;
             vertices[2].TextureCoordinate.Y = 1;
 
-            vertices[3].Position = new Vector3(-9.5f, 0f, -10.5f);
+            vertices[3].Position = new Vector3(-8.5f, 0f, -10.5f);
             vertices[3].TextureCoordinate.X = 1;
             vertices[3].TextureCoordinate.Y = 1;
 
-            vertices[4].Position = new Vector3(-10.5f, 0f, -9.5f);
+            vertices[4].Position = new Vector3(-10.5f, 0f, -8.5f);
             vertices[4].TextureCoordinate.X = 0;
             vertices[4].TextureCoordinate.Y = 0;
 
-            vertices[5].Position = new Vector3(-9.5f, 0f, -9.5f);
+            vertices[5].Position = new Vector3(-8.5f, 0f, -8.5f);
             vertices[5].TextureCoordinate.X = 1;
             vertices[5].TextureCoordinate.Y = 0;
+        }
+
+        public BoundingBox getBox()
+        {
+            Vector3[] p = new Vector3[2];
+            p[0] = vertices[2].Position;
+            p[1] = vertices[5].Position;
+            return BoundingBox.CreateFromPoints(p);
         }
         #endregion
     }

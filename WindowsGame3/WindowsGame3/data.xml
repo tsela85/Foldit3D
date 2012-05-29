@@ -39,11 +39,6 @@
         <x>100</x>
         <y>100</y>
       </playerObj>
-      <playerObj>
-        <type>static</type>
-        <x>200</x>
-        <y>200</y>
-      </playerObj>
     </player>
 
     <exit>
