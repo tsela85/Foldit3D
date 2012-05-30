@@ -79,6 +79,8 @@ namespace Foldit3D
             boardstate = board.update();
             if (boardstate == Board.BoardState.folding1 || boardstate == Board.BoardState.folding2)
                 gamestate = GameState.folding;
+            else
+                gamestate = GameState.normal;
             Game1.input.Update(gameTime);
             Game1.camera.UpdateCamera(gameTime);
             if (Keyboard.GetState().IsKeyDown(Keys.R))
@@ -115,8 +117,9 @@ namespace Foldit3D
             RasterizerState rs = new RasterizerState();
             rs.CullMode = CullMode.None;
 
-          //  rs.FillMode = FillMode.WireFrame;
+          //  rs.FillMode = FillMode.WireFrame;            
             Game1.device.RasterizerState = rs;
+
 
             //holeManager.Draw(spriteBatch);
             //powerupManager.Draw(spriteBatch);
