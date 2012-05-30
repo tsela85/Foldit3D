@@ -10,27 +10,19 @@ namespace Foldit3D
     class StaticPlayer : Player
     {
 
-        public StaticPlayer(Texture2D texture, int x, int y, PlayerManager pm, Effect effect) : base(texture, x, y, pm, effect) { }
+        public StaticPlayer(Texture2D texture, List<List<Vector3>> points, PlayerManager pm, Effect effect) : base(texture, points, pm, effect) { }
 
         #region fold
 
-        protected override void rotate()
+        public override void foldData(Vector3 axis, Vector3 point, float a)
         {
-            if (reverse)
+            worldMatrix = Matrix.Identity;
+            float angle = MathHelper.ToDegrees(a);
+            if (angle < 167 && angle >= 0 )
             {
-                reverseRotation();
-                return;
-            }
-            if (rotAngle < MathHelper.Pi)
-            {
-                rotAngle += ROTATION_DEGREE;
-                worldPosition.X = (int)(center.X - radius * Math.Cos(rotAngle + angle));
-                worldPosition.Y = (int)(center.Y - radius * Math.Sin(rotAngle + angle));
-            }
-            else
-            {
-                reverse = true;
-                reverseRotation();
+                worldMatrix *= Matrix.CreateTranslation(-point);
+                worldMatrix *= Matrix.CreateFromAxisAngle(axis, a);
+                worldMatrix *= Matrix.CreateTranslation(point);
             }
         }
 
