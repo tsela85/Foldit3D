@@ -59,5 +59,8 @@ _ReSharper*/
 #Subversion files
 .svn
 
+#my-ignore
+ContentPipeline.xml
+
 # Office Temp Files
 ~$*
