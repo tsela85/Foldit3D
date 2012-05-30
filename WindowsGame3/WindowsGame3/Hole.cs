@@ -80,14 +80,14 @@ namespace Foldit3D
         #region Fold
         public void foldData(Vector3 axis, Vector3 point, float angle)
         {
-            if (rotAngle < 180)
-            {
+           // if (rotAngle < 180)
+           // {
                 worldMatrix = Matrix.Identity;
                 worldMatrix *= Matrix.CreateTranslation(-point);
                 worldMatrix *= Matrix.CreateFromAxisAngle(axis, angle);
                 worldMatrix *= Matrix.CreateTranslation(point);
                 rotAngle += ROTATION_DEGREE;
-            }
+           // }
         }
 
 

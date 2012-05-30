@@ -38,15 +38,6 @@
       <Time>2012-05-29T23:49:52.0390798+03:00</Time>
     </Item>
     <Item>
-      <Source>paper3.jpg</Source>
-      <Name>paper3</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>C:\Users\Tzipi\Desktop\FoldIt!\Foldit3D\WindowsGame3\WindowsGame3\bin\x86\Debug\Content\paper3.xnb</Output>
-      <Time>2012-05-29T21:28:34.0301655+03:00</Time>
-    </Item>
-    <Item>
       <Source>font.spritefont</Source>
       <Name>font</Name>
       <Importer>FontDescriptionImporter</Importer>
@@ -72,6 +63,60 @@
       <Options>None</Options>
       <Output>C:\Users\Tzipi\Desktop\FoldIt!\Foldit3D\WindowsGame3\WindowsGame3\bin\x86\Debug\Content\effects.xnb</Output>
       <Time>2012-05-29T21:28:33.952161+03:00</Time>
+    </Item>
+    <Item>
+      <Source>paper2.jpg</Source>
+      <Name>paper2</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Tzipi\Desktop\FoldIt!\Foldit3D\WindowsGame3\WindowsGame3\bin\x86\Debug\Content\paper2.xnb</Output>
+      <Time>2012-05-29T21:28:34.0301655+03:00</Time>
+    </Item>
+    <Item>
+      <Source>paper1.jpg</Source>
+      <Name>paper1</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Tzipi\Desktop\FoldIt!\Foldit3D\WindowsGame3\WindowsGame3\bin\x86\Debug\Content\paper1.xnb</Output>
+      <Time>2012-05-30T22:40:07.8631401+03:00</Time>
+    </Item>
+    <Item>
+      <Source>gum.png</Source>
+      <Name>gum</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Tzipi\Desktop\FoldIt!\Foldit3D\WindowsGame3\WindowsGame3\bin\x86\Debug\Content\gum.xnb</Output>
+      <Time>2012-05-30T23:40:11.8622771+03:00</Time>
+    </Item>
+    <Item>
+      <Source>paper.png</Source>
+      <Name>paper</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Tzipi\Desktop\FoldIt!\Foldit3D\WindowsGame3\WindowsGame3\bin\x86\Debug\Content\paper.xnb</Output>
+      <Time>2012-05-30T23:47:00.1626305+03:00</Time>
+    </Item>
+    <Item>
+      <Source>inkspot.png</Source>
+      <Name>inkspot</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Tzipi\Desktop\FoldIt!\Foldit3D\WindowsGame3\WindowsGame3\bin\x86\Debug\Content\inkspot.xnb</Output>
+      <Time>2012-05-30T23:53:15.7791146+03:00</Time>
+    </Item>
+    <Item>
+      <Source>gummy.jpg</Source>
+      <Name>gummy</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Tzipi\Desktop\FoldIt!\Foldit3D\WindowsGame3\WindowsGame3\bin\x86\Debug\Content\gummy.xnb</Output>
+      <Time>2012-05-31T00:19:08.0989022+03:00</Time>
     </Item>
     <BuildSuccessful>true</BuildSuccessful>
     <Settings>

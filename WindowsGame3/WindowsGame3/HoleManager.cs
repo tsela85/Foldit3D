@@ -59,6 +59,14 @@ namespace Foldit3D
             foreach (Hole h in holes)
                 h.calcBeforeFolding(point1, point2, direction);
         }
+
+        public void foldData(Vector3 vec, Vector3 point, float angle)
+        {
+            foreach (Hole h in holes)
+            {
+                h.foldData(vec, point, angle);
+            }
+        }
         #endregion
 
         #region Collision
