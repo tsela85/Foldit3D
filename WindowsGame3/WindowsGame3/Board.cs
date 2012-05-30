@@ -26,7 +26,7 @@ namespace Foldit3D
         private Vector3 pointOnEdge;
         private DividingVert[] p;        
         private VertexPositionTexture[] ver;
-        private Board one, two;
+        public Board one, two;
         private float angle = 0;
         private Vector3 center;
         private Effect effect;
@@ -35,6 +35,7 @@ namespace Foldit3D
         private GraphicsDevice device;
         private InputHandler input;
         private BoardState state;
+      
 
         public Board(Texture2D tex, Effect eff)
         {
@@ -65,6 +66,24 @@ namespace Foldit3D
         public Vector3 Center
         {
             get { return center; }            
+        }
+
+        public Vector3 getAxis()
+        {
+            Vector3 axis = p[0].position - p[1].position;
+            axis.Normalize();
+            return axis;
+        }
+
+        public Vector3 getAxisPoint()
+        {
+            return p[0].position;
+        }
+
+
+        public float getAngle()
+        {
+            return angle;
         }
         #endregion
 
@@ -125,8 +144,8 @@ namespace Foldit3D
                 one.foldShape(angle);
                 two.Draw();
                 one.Draw();            
-                angle += 0.07f;
-                if (angle > MathHelper.Pi - 0.07f)
+                angle += Game1.closeRate;
+                if (angle > MathHelper.Pi - Game1.closeRate)
                     state = BoardState.folding2;
             }
             else
@@ -134,8 +153,8 @@ namespace Foldit3D
                 {
                     one.foldShape(angle);
                     two.Draw();
-                    one.Draw();                  
-                    angle -= 0.04f;
+                    one.Draw();
+                    angle -= Game1.openRate;
                     if (angle < 0)
                         state = BoardState.chooseEdge1;
                 }
@@ -386,7 +405,7 @@ namespace Foldit3D
         }
 
         #endregion
-        internal void update()
+        public BoardState update()
         {
             Vector3 mouse = GetPickedPosition(
                 new Vector2((float)input.MouseHandler.MouseState.X, (float)input.MouseHandler.MouseState.Y));
@@ -433,6 +452,8 @@ namespace Foldit3D
                 state = BoardState.chooseEdge1;
                 angle = 0;
             }
+
+            return state;
 
         }
     }
