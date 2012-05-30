@@ -35,7 +35,7 @@ namespace Foldit3D
         private GraphicsDevice device;
         private InputHandler input;
         private BoardState state;
-        public Vector3 axis;
+        
 
         public Board(Texture2D tex, Effect eff)
         {
@@ -70,12 +70,14 @@ namespace Foldit3D
 
         public Vector3 getAxis()
         {
+            Vector3 axis = p[0].position - p[1].position;
+            axis.Normalize();
             return axis;
         }
 
         public Vector3 getAxisPoint()
         {
-            return axis;
+            return p[0].position;
         }
 
 
@@ -393,7 +395,7 @@ namespace Foldit3D
         #region Folding
         public void foldShape(float angle)
         {
-            axis = vertices[0].Position - vertices[vertNum - 1].Position;
+            Vector3 axis = vertices[0].Position - vertices[vertNum - 1].Position;
             axis.Normalize();
 
             worldMatrix = Matrix.Identity;
