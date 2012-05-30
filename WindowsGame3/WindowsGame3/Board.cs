@@ -35,11 +35,6 @@ namespace Foldit3D
         private GraphicsDevice device;
         private InputHandler input;
         private BoardState state;
-<<<<<<< HEAD
-        
-=======
-      
->>>>>>> 66cb36b068016f3f243df32b9f60306ae52141a6
 
         public Board(Texture2D tex, Effect eff)
         {
