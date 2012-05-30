@@ -20,14 +20,15 @@ namespace Foldit3D
             float angle = MathHelper.ToDegrees(a);
             
             
-            if (angle < 167 && angle >= 0 && moving)
+          //  if (angle > -167 && angle < 0 && moving)
+            if ((a > -MathHelper.Pi + Game1.closeRate) && (moving))
             {
                 worldMatrix = Matrix.Identity;
                 worldMatrix *= Matrix.CreateTranslation(-point);
-                worldMatrix *= Matrix.CreateFromAxisAngle(axis, a);
+                worldMatrix *= Matrix.CreateFromAxisAngle(axis, -a);
                 worldMatrix *= Matrix.CreateTranslation(point);
             }
-            else if (angle > 167 && moving)
+            else if (moving)
             {
 
                 for (int i = 0; i < vertices.Length; i++)
