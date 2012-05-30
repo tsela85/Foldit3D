@@ -4,36 +4,42 @@ using System.Linq;
 using System.Text;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework;
+using System.Diagnostics;
 
 namespace Foldit3D
 {
     class NormalPlayer : Player
     {
 
-        public NormalPlayer(Texture2D texture, int x, int y, PlayerManager pm, Effect effect) : base(texture, x, y, pm, effect) { }
+        public NormalPlayer(Texture2D texture, List<List<Vector3>> points, PlayerManager pm, Effect effect) : base(texture, points, pm, effect) { }
 
         #region fold
 
-        protected override void rotate()
+        public override void foldData(Vector3 axis, Vector3 point, float a)
         {
-            if (reverse)
+            float angle = MathHelper.ToDegrees(a);
+            
+            
+            if (angle < 167 && angle >= 0 && moving)
             {
-                reverseRotation();
-                return;
+                worldMatrix = Matrix.Identity;
+                worldMatrix *= Matrix.CreateTranslation(-point);
+                worldMatrix *= Matrix.CreateFromAxisAngle(axis, a);
+                worldMatrix *= Matrix.CreateTranslation(point);
             }
-            if (rotAngle < MathHelper.Pi)
+            else if (angle > 167 && moving)
             {
-                rotAngle += ROTATION_DEGREE;
-                worldPosition.X = (int)(center.X - radius * Math.Cos(rotAngle + angle));
-                worldPosition.Y = (int)(center.Y - radius * Math.Sin(rotAngle + angle));
-            }
-            else
-            {
-                /*if (!isOnScreen(worldPosition.X,worldPosition.Y)) 
-                 {
-                     reverse = true;
-                     base.reverseRotation();
-                 }*/
+
+                for (int i = 0; i < vertices.Length; i++)
+                {
+                    worldMatrix = Matrix.Identity;
+                    worldMatrix *= Matrix.CreateTranslation(-point);
+                    worldMatrix *= Matrix.CreateFromAxisAngle(axis, MathHelper.Pi);
+                    worldMatrix *= Matrix.CreateTranslation(point);
+                    vertices[i].Position = Vector3.Transform(vertices[i].Position, worldMatrix);
+                }
+                worldMatrix = Matrix.Identity;
+                moving = false;
             }
         }
 

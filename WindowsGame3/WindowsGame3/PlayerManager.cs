@@ -18,18 +18,24 @@ namespace Foldit3D
             this.texture = texture;
             players = new List<Player>();
             this.effect = effect;
-            //List<IDictionary<string, string>> data = XMLReader.Get("player");
-            //initLevel(data);
         }
 
         #region Levels
 
         public void initLevel(List<IDictionary<string, string>> data)
         {
-            
             foreach (IDictionary<string, string> item in data)
             {
-                players.Add(makeNewPlayer(item["type"], Convert.ToInt32(item["x"]), Convert.ToInt32(item["y"])));
+                List<List<Vector3>> lst = new List<List<Vector3>>();
+                for(int i =1; i<7; i++){
+                    List<Vector3> pointsData = new List<Vector3>();
+                    Vector3 point = new Vector3((float)Convert.ToDouble(item["x" + i]), (float)Convert.ToDouble(item["y" + i]), (float)Convert.ToDouble(item["z" + i]));
+                    Vector3 texLoc = new Vector3(Convert.ToInt32(item["tX" + i]),Convert.ToInt32(item["tY" + i]),0);
+                    pointsData.Add(point);
+                    pointsData.Add(texLoc);
+                    lst.Add(pointsData);
+                }
+                players.Add(makeNewPlayer(item["type"], lst));
             }
         }
 
@@ -58,44 +64,37 @@ namespace Foldit3D
 
         #region Public Methods
 
-        public void calcBeforeFolding(Vector2 point1, Vector2 point2)
+        public Player makeNewPlayer(String type, List<List<Vector3>> lst)
         {
-            foreach (Player p in players)
-            {
-                p.calcBeforeFolding(point1,point2);
-            }
-        }
-
-        public Player makeNewPlayer(String type, int x, int y){
             Player newP = null;
             if (type.CompareTo("normal") == 0)
             {
-                newP = new NormalPlayer(texture, x, y, this, effect);
+                newP = new NormalPlayer(texture, lst,this, effect);
             }
             else if (type.CompareTo("static") == 0)
             {
-                newP = new StaticPlayer(texture, x, y, this, effect);
+                newP = new StaticPlayer(texture, lst, this, effect);
             }
             else if (type.CompareTo("duplicate") == 0)
             {
-                newP = new DuplicatePlayer(texture, x, y, this, effect);
+                newP = new DuplicatePlayer(texture, lst,this, effect);
             }
             return newP;
         }
 
-        public void foldOver()
+       /* public void foldOver()
         {
             foreach (Player p in players)
             {
                 p.foldOver();
             }
-        }
+        }*/
 
         public void changePlayerType(Player p,String type, int x, int y)
         {
             if (players.Contains(p))
             {
-                players.Add(makeNewPlayer(type, x, y));
+                //players.Add(makeNewPlayer(type, x, y));
                 players.Remove(p);
             }
             else Trace.WriteLine("changePlayerType Error!");

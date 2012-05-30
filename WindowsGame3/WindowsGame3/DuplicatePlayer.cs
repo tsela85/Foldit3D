@@ -9,29 +9,26 @@ namespace Foldit3D
 {
     class DuplicatePlayer : Player
     {
-
-        public DuplicatePlayer(Texture2D texture, int x, int y, PlayerManager pm, Effect effect) : base(texture, x, y, pm, effect) { }
+        private bool created = false;
+        public DuplicatePlayer(Texture2D texture, List<List<Vector3>> points, PlayerManager pm, Effect effect) : base(texture, points, pm, effect) { }
 
         #region fold
 
-        protected override void rotate()
+        public override void foldData(Vector3 axis, Vector3 point, float a)
         {
-            if (reverse)
+            worldMatrix = Matrix.Identity;
+            float angle = MathHelper.ToDegrees(a);
+            if (angle < 167 && angle >= 0)
             {
-                reverseRotation();
-                return;
+                worldMatrix *= Matrix.CreateTranslation(-point);
+                worldMatrix *= Matrix.CreateFromAxisAngle(axis, a);
+                worldMatrix *= Matrix.CreateTranslation(point);
             }
-            if (rotAngle < MathHelper.Pi)
+            else if (angle > 167 && !created)
             {
-                rotAngle += ROTATION_DEGREE;
-                worldPosition.X = (int)(center.X - radius * Math.Cos(rotAngle + angle));
-                worldPosition.Y = (int)(center.Y - radius * Math.Sin(rotAngle + angle));
-            }
-            else
-            {
-                playerManager.makeNewPlayer("normal", (int)worldPosition.X, (int)worldPosition.Y);
-                reverse = true;
-                reverseRotation();
+                moving = false;
+                created = true;
+               // playerManager.makeNewPlayer("normal", (int)worldPosition.X, (int)worldPosition.Y);
             }
         }
 
