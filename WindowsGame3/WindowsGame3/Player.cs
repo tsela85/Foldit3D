@@ -112,15 +112,19 @@ namespace Foldit3D
         #region Fold
         public void foldData(Vector3 axis, Vector3 point, float angle)
         {
-          //  if (angle < 180)
+<<<<<<< .mine          //  if (angle < 180)
           //  {
-                worldMatrix = Matrix.Identity;
+=======            //if (rotAngle < 180)
+            //{
+>>>>>>> .theirs                worldMatrix = Matrix.Identity;
                 worldMatrix *= Matrix.CreateTranslation(-point);
                 worldMatrix *= Matrix.CreateFromAxisAngle(axis, angle);
                 worldMatrix *= Matrix.CreateTranslation(point);
-
+<<<<<<< .mine
           //  }
-        }
+=======                rotAngle += ROTATION_DEGREE;
+            //}
+>>>>>>> .theirs        }
 
         public void foldOver()
         {
@@ -212,6 +216,14 @@ namespace Foldit3D
             vertices[5].Position = new Vector3(-8.5f, 0f, -8.5f);
             vertices[5].TextureCoordinate.X = 1;
             vertices[5].TextureCoordinate.Y = 0;
+        }
+
+        public BoundingBox getBox()
+        {
+            Vector3[] p = new Vector3[2];
+            p[0] = vertices[2].Position;
+            p[1] = vertices[5].Position;
+            return BoundingBox.CreateFromPoints(p);
         }
         #endregion
     }

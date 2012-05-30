@@ -20,6 +20,8 @@ namespace Foldit3D
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
         GameManager ourGame;
+        public static float closeRate = 0.07f;
+        public static float openRate = 0.04f;
         public static GraphicsDevice device;
 
         public static Camera camera;
@@ -64,9 +66,9 @@ namespace Foldit3D
             spriteBatch = new SpriteBatch(GraphicsDevice);
             SpriteFont font = Content.Load<SpriteFont>("font");
             SpriteFont scoreFont = Content.Load<SpriteFont>("scoreFont");
-            HoleManager holeManager = new HoleManager(Content.Load<Texture2D>("hole"));
+            HoleManager holeManager = new HoleManager(Content.Load<Texture2D>("hole"), Content.Load<Effect>("effects"));
             PlayerManager playerManager = new PlayerManager(Content.Load<Texture2D>("ball"), Content.Load<Effect>("effects"));
-            PowerUpManager powerupManager = new PowerUpManager(Content.Load<Texture2D>("ball"));
+            PowerUpManager powerupManager = new PowerUpManager(Content.Load<Texture2D>("ball"), Content.Load<Effect>("effects"));
             Board board = new Board(Content.Load<Texture2D>("paper3"), Content.Load<Effect>("effects"));
             camera = new Camera(this);
             input = new InputHandler(this);

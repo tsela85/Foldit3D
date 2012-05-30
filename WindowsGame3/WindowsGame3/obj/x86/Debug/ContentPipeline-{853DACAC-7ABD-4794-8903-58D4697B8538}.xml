@@ -7,8 +7,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Tzipi\Desktop\WindowsGame3\WindowsGame3\WindowsGame3\bin\x86\Debug\Content\ball.xnb</Output>
-      <Time>2012-04-09T12:51:32+03:00</Time>
+      <Output>C:\Users\Tzipi\Desktop\FoldIt!\Foldit3D\WindowsGame3\WindowsGame3\bin\x86\Debug\Content\ball.xnb</Output>
+      <Time>2012-05-29T21:28:33.9461607+03:00</Time>
     </Item>
     <Item>
       <Source>edged.png</Source>
@@ -16,8 +16,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Tzipi\Desktop\WindowsGame3\WindowsGame3\WindowsGame3\bin\x86\Debug\Content\edged.xnb</Output>
-      <Time>2012-05-18T17:07:09.589819+03:00</Time>
+      <Output>C:\Users\Tzipi\Desktop\FoldIt!\Foldit3D\WindowsGame3\WindowsGame3\bin\x86\Debug\Content\edged.xnb</Output>
+      <Time>2012-05-29T21:28:33.9481608+03:00</Time>
     </Item>
     <Item>
       <Source>empty.png</Source>
@@ -25,26 +25,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Tzipi\Desktop\WindowsGame3\WindowsGame3\WindowsGame3\bin\x86\Debug\Content\empty.xnb</Output>
-      <Time>2012-05-18T17:07:09.5948193+03:00</Time>
-    </Item>
-    <Item>
-      <Source>font.spritefont</Source>
-      <Name>font</Name>
-      <Importer>FontDescriptionImporter</Importer>
-      <Processor>FontDescriptionProcessor</Processor>
-      <Options>None</Options>
-      <Output>C:\Users\Tzipi\Desktop\WindowsGame3\WindowsGame3\WindowsGame3\bin\x86\Debug\Content\font.xnb</Output>
-      <Time>2012-05-18T17:07:09.60682+03:00</Time>
-    </Item>
-    <Item>
-      <Source>scoreFont.spritefont</Source>
-      <Name>scoreFont</Name>
-      <Importer>FontDescriptionImporter</Importer>
-      <Processor>FontDescriptionProcessor</Processor>
-      <Options>None</Options>
-      <Output>C:\Users\Tzipi\Desktop\WindowsGame3\WindowsGame3\WindowsGame3\bin\x86\Debug\Content\scoreFont.xnb</Output>
-      <Time>2012-05-18T17:07:09.6268212+03:00</Time>
+      <Output>C:\Users\Tzipi\Desktop\FoldIt!\Foldit3D\WindowsGame3\WindowsGame3\bin\x86\Debug\Content\empty.xnb</Output>
+      <Time>2012-05-29T21:28:33.9551612+03:00</Time>
     </Item>
     <Item>
       <Source>hole.png</Source>
@@ -52,20 +34,56 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Tzipi\Desktop\WindowsGame3\WindowsGame3\WindowsGame3\bin\x86\Debug\Content\hole.xnb</Output>
-      <Time>2012-05-18T17:07:09.6138204+03:00</Time>
+      <Output>C:\Users\Tzipi\Desktop\FoldIt!\Foldit3D\WindowsGame3\WindowsGame3\bin\x86\Debug\Content\hole.xnb</Output>
+      <Time>2012-05-29T23:49:52.0390798+03:00</Time>
+    </Item>
+    <Item>
+      <Source>paper3.jpg</Source>
+      <Name>paper3</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Tzipi\Desktop\FoldIt!\Foldit3D\WindowsGame3\WindowsGame3\bin\x86\Debug\Content\paper3.xnb</Output>
+      <Time>2012-05-29T21:28:34.0301655+03:00</Time>
+    </Item>
+    <Item>
+      <Source>font.spritefont</Source>
+      <Name>font</Name>
+      <Importer>FontDescriptionImporter</Importer>
+      <Processor>FontDescriptionProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Tzipi\Desktop\FoldIt!\Foldit3D\WindowsGame3\WindowsGame3\bin\x86\Debug\Content\font.xnb</Output>
+      <Time>2012-05-29T21:28:33.9571613+03:00</Time>
+    </Item>
+    <Item>
+      <Source>scoreFont.spritefont</Source>
+      <Name>scoreFont</Name>
+      <Importer>FontDescriptionImporter</Importer>
+      <Processor>FontDescriptionProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Tzipi\Desktop\FoldIt!\Foldit3D\WindowsGame3\WindowsGame3\bin\x86\Debug\Content\scoreFont.xnb</Output>
+      <Time>2012-05-29T21:28:34.0341657+03:00</Time>
+    </Item>
+    <Item>
+      <Source>effects.fx</Source>
+      <Name>effects</Name>
+      <Importer>EffectImporter</Importer>
+      <Processor>EffectProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Tzipi\Desktop\FoldIt!\Foldit3D\WindowsGame3\WindowsGame3\bin\x86\Debug\Content\effects.xnb</Output>
+      <Time>2012-05-29T21:28:33.952161+03:00</Time>
     </Item>
     <BuildSuccessful>true</BuildSuccessful>
     <Settings>
       <ContentProjectGUID>{853DACAC-7ABD-4794-8903-58D4697B8538}</ContentProjectGUID>
       <TargetPlatform>Windows</TargetPlatform>
-      <TargetProfile>HiDef</TargetProfile>
+      <TargetProfile>Reach</TargetProfile>
       <BuildConfiguration>Debug</BuildConfiguration>
       <CompressContent>false</CompressContent>
-      <RootDirectory>C:\Users\Tzipi\Desktop\WindowsGame3\WindowsGame3\WindowsGame3Content\</RootDirectory>
-      <LoggerRootDirectory>C:\Users\Tzipi\Desktop\WindowsGame3\WindowsGame3\WindowsGame3\</LoggerRootDirectory>
-      <IntermediateDirectory>C:\Users\Tzipi\Desktop\WindowsGame3\WindowsGame3\WindowsGame3\obj\x86\Debug\</IntermediateDirectory>
-      <OutputDirectory>C:\Users\Tzipi\Desktop\WindowsGame3\WindowsGame3\WindowsGame3\bin\x86\Debug\Content\</OutputDirectory>
+      <RootDirectory>C:\Users\Tzipi\Desktop\FoldIt!\Foldit3D\WindowsGame3\WindowsGame3Content\</RootDirectory>
+      <LoggerRootDirectory>C:\Users\Tzipi\Desktop\FoldIt!\Foldit3D\WindowsGame3\WindowsGame3\</LoggerRootDirectory>
+      <IntermediateDirectory>C:\Users\Tzipi\Desktop\FoldIt!\Foldit3D\WindowsGame3\WindowsGame3\obj\x86\Debug\</IntermediateDirectory>
+      <OutputDirectory>C:\Users\Tzipi\Desktop\FoldIt!\Foldit3D\WindowsGame3\WindowsGame3\bin\x86\Debug\Content\</OutputDirectory>
     </Settings>
     <Assemblies>
       <Assembly>

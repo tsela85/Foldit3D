@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using Microsoft.Xna.Framework.Graphics;
 using System.Diagnostics;
+using Microsoft.Xna.Framework;
 
 namespace Foldit3D
 {
@@ -11,11 +12,13 @@ namespace Foldit3D
     {
         Texture2D texture;
         private static List<Hole> holes;
+        private Effect effect;
 
-        public HoleManager(Texture2D texture)
+        public HoleManager(Texture2D texture, Effect e)
         {
             this.texture = texture;
             holes = new List<Hole>();
+            effect = e;
         }
 
         #region Levels
@@ -24,7 +27,7 @@ namespace Foldit3D
         {
             foreach (IDictionary<string, string> item in data)
             {
-                holes.Add(new Hole(texture, Convert.ToInt32(item["x"]), Convert.ToInt32(item["y"])));
+                holes.Add(new Hole(texture, Convert.ToInt32(item["x"]), Convert.ToInt32(item["y"]), effect));
             }
         }
 
@@ -35,10 +38,26 @@ namespace Foldit3D
         #endregion
 
         #region Draw
-        public void Draw(SpriteBatch spriteBatch)
+        public void Draw()
         {
             foreach (Hole hole in holes)
-                hole.Draw(spriteBatch);
+                hole.Draw();
+        }
+        #endregion
+
+        #region Update
+        public void Update(GameState state)
+        {
+            foreach (Hole h in holes)
+                h.Update(state);
+        }
+        #endregion
+
+        #region Public Methods
+        public void calcBeforeFolding(Vector2 point1, Vector2 point2, int direction)
+        {
+            foreach (Hole h in holes)
+                h.calcBeforeFolding(point1, point2, direction);
         }
         #endregion
 
@@ -47,7 +66,7 @@ namespace Foldit3D
         {
             foreach (Hole h in holes)
             {
-                if (h.WorldRectangle.Contains(player.WorldRectangle.Center))
+                if (h.getBox().Contains(player.getBox()) == ContainmentType.Contains)
                 {
                     // WIN!!!
                     GameManager.winLevel();

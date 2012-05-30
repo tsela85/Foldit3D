@@ -101,6 +101,13 @@ namespace Foldit3D
             else Trace.WriteLine("changePlayerType Error!");
         }
 
+        public void foldData(Vector3 vec, Vector3 point, float angle)
+        {
+            foreach (Player p in players)
+            {
+                p.foldData(vec, point, angle);
+            }
+        }
 
         #endregion
 

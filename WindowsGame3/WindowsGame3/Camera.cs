@@ -19,7 +19,7 @@ namespace Foldit3D
         // how fast does the camera zoom in and out?
         const float CameraZoomSpeed = .03f;
         // the camera can't be further away than this distance
-        const float CameraMaxDistance = 100.0f;
+        const float CameraMaxDistance = 120.0f;
         // and it can't be closer than this
         const float CameraMinDistance = 15f;
 
@@ -109,6 +109,20 @@ namespace Foldit3D
             if (input.KeyboardHandler.IsKeyDown(Keys.Down))
                 cameraPitch -= (spinRate * timeDelta);
 
+//#if !XBOX360
+//            if ((input.MouseHandler.PrevMouseState.X > input.MouseHandler.MouseState.X) &&
+//                (input.MouseHandler.IsHoldingLeftButton()))
+//                cameraYaw += (spinRate * timeDelta);
+//            else if ((input.MouseHandler.PrevMouseState.X < input.MouseHandler.MouseState.X) &&
+//                (input.MouseHandler.IsHoldingLeftButton()))
+//                cameraYaw -= (spinRate * timeDelta);
+//            if ((input.MouseHandler.PrevMouseState.Y > input.MouseHandler.MouseState.Y) &&
+//                (input.MouseHandler.IsHoldingLeftButton()))
+//                cameraPitch += (spinRate * timeDelta);
+//            else if ((input.MouseHandler.PrevMouseState.Y < input.MouseHandler.MouseState.Y) &&
+//                (input.MouseHandler.IsHoldingLeftButton()))
+//                cameraPitch -= (spinRate * timeDelta);
+//#endif
 
             if (cameraYaw > 360)
                 cameraYaw -= 360;
@@ -168,6 +182,8 @@ namespace Foldit3D
                 cameraArc -= time * CameraRotateSpeed;
             }
 
+            //cameraArc += currentGamePadState.ThumbSticks.Right.Y * time *
+            //    CameraRotateSpeed;
 
             // Limit the arc movement.
             cameraArc = MathHelper.Clamp(cameraArc, -90.0f, 90.0f);
@@ -185,6 +201,8 @@ namespace Foldit3D
                 cameraRotation -= time * CameraRotateSpeed;
             }
 
+            //cameraRotation += currentGamePadState.ThumbSticks.Right.X * time *
+            //    CameraRotateSpeed;
 
             // Check for input to zoom camera in and out.
             if (input.KeyboardHandler.IsKeyDown(Keys.Z))
@@ -193,6 +211,10 @@ namespace Foldit3D
             if (input.KeyboardHandler.IsKeyDown(Keys.X))
                 cameraDistance -= time * CameraZoomSpeed;
 
+            //cameraDistance += currentGamePadState.Triggers.Left * time
+            //    * CameraZoomSpeed;
+            //cameraDistance -= currentGamePadState.Triggers.Right * time
+            //    * CameraZoomSpeed;
 
             // clamp the camera distance so it doesn't get too close or too far away.
             cameraDistance = MathHelper.Clamp(cameraDistance,
