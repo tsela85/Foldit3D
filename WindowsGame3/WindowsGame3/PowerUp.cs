@@ -94,6 +94,18 @@ namespace Foldit3D
         #endregion
 
         #region fold
+        public void foldData(Vector3 axis, Vector3 point, float angle)
+        {
+            // if (rotAngle < 180)
+            // {
+            worldMatrix = Matrix.Identity;
+            worldMatrix *= Matrix.CreateTranslation(-point);
+            worldMatrix *= Matrix.CreateFromAxisAngle(axis, angle);
+            worldMatrix *= Matrix.CreateTranslation(point);
+            rotAngle += ROTATION_DEGREE;
+            // }
+        }
+
         public void calcBeforeFolding(Vector2 loc1, Vector2 loc2, int direction)
         {
             // NEED to check if the powerup is in the folding area. if NOT: dataWasCalced = false. if YES: dataWasCalced = true.
@@ -180,27 +192,27 @@ namespace Foldit3D
         {
             vertices = new VertexPositionTexture[6];
 
-            vertices[0].Position = new Vector3(-1.5f, 0f, -0.5f);
+            vertices[0].Position = new Vector3(-2.5f, 0f, 2.5f);
             vertices[0].TextureCoordinate.X = 0;
             vertices[0].TextureCoordinate.Y = 0;
 
-            vertices[1].Position = new Vector3(-0.5f, 0f, -1.5f);
+            vertices[1].Position = new Vector3(2.5f, 0f, -2.5f);
             vertices[1].TextureCoordinate.X = 1;
             vertices[1].TextureCoordinate.Y = 1;
 
-            vertices[2].Position = new Vector3(-1.5f, 0f, -1.5f);
+            vertices[2].Position = new Vector3(-2.5f, 0f, -2.5f);
             vertices[2].TextureCoordinate.X = 0;
             vertices[2].TextureCoordinate.Y = 1;
 
-            vertices[3].Position = new Vector3(-0.5f, 0f, -1.5f);
+            vertices[3].Position = new Vector3(2.5f, 0f, -2.5f);
             vertices[3].TextureCoordinate.X = 1;
             vertices[3].TextureCoordinate.Y = 1;
 
-            vertices[4].Position = new Vector3(-1.5f, 0f, -0.5f);
+            vertices[4].Position = new Vector3(-2.5f, 0f, 2.5f);
             vertices[4].TextureCoordinate.X = 0;
             vertices[4].TextureCoordinate.Y = 0;
 
-            vertices[5].Position = new Vector3(-0.5f, 0f, -0.5f);
+            vertices[5].Position = new Vector3(2.5f, 0f, 2.5f);
             vertices[5].TextureCoordinate.X = 1;
             vertices[5].TextureCoordinate.Y = 0;
         }

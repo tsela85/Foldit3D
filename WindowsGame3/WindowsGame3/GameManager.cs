@@ -56,10 +56,10 @@ namespace Foldit3D
             powerupManager.restartLevel();
             powerupManager.initLevel(XMLReader.Get(level, "powerups"));
             Vector3[] points = new Vector3[4] {
-                new Vector3(-25f, 0f, 20f),
-                new Vector3(25f, 0f, 20f),
-                new Vector3(25f, 0f, -20f),
-                new Vector3(-25f, 0f, -20f)
+                new Vector3(-40f, 0f, 25f),
+                new Vector3(40f, 0f, 25f),
+                new Vector3(40f, 0f, -25f),
+                new Vector3(-40f, 0f, -25f)
              };
             Vector2[] texCords = new Vector2[4] {
                 new Vector2(0,0),
@@ -99,6 +99,8 @@ namespace Foldit3D
                 Vector3 p = board.getAxisPoint();
                 float a = board.getAngle();
                 playerManager.foldData(v, p, a);
+                holeManager.foldData(v, p, a);
+                powerupManager.foldData(v, p, a);
                 // NEED to recive points from the bord
                 //playerManager.calcBeforeFolding(Vector2 point1, Vector2 point2);
                 folds++;

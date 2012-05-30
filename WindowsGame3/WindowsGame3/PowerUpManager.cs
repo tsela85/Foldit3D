@@ -59,6 +59,14 @@ namespace Foldit3D
             foreach (PowerUp p in powerups)
                 p.calcBeforeFolding(point1, point2, direction);
         }
+
+        public void foldData(Vector3 vec, Vector3 point, float angle)
+        {
+            foreach (PowerUp p in powerups)
+            {
+                p.foldData(vec, point, angle);
+            }
+        }
         #endregion
 
         #region Collision
