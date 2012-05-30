@@ -9,13 +9,14 @@ using Microsoft.Xna.Framework.Input;
 namespace Foldit3D
 {
     enum GameState { normal, folding, scored };
-    public enum BoardState { chooseEdge1, onEdge1, chooseEdge2, onEdge2, preFold, folding1, folding2 };
+    //public enum BoardState { chooseEdge1, onEdge1, chooseEdge2, onEdge2, preFold, folding1, folding2 };
 
     class GameManager
     {
         SpriteFont font, scoreFont;
         //Board board;
         static GameState gamestate;
+        Board.BoardState boardstate;
         HoleManager holeManager;
         PlayerManager playerManager;
         PowerUpManager powerupManager;
@@ -74,8 +75,10 @@ namespace Foldit3D
         public void Update(GameTime gameTime)
         {
             playerManager.Update(gameTime, gamestate);
-            board.update();
-            //gamestate = Game1.input.Update(gameTime);
+            //gamestate = board.update();
+            boardstate = board.update();
+            if (boardstate == Board.BoardState.folding1 || boardstate == Board.BoardState.folding2)
+                gamestate = GameState.folding;
             Game1.input.Update(gameTime);
             Game1.camera.UpdateCamera(gameTime);
             if (Keyboard.GetState().IsKeyDown(Keys.R))
@@ -84,6 +87,7 @@ namespace Foldit3D
             }
             if ((gamestate == GameState.scored) && (Mouse.GetState().LeftButton == ButtonState.Pressed))
             {
+                gamestate = GameState.normal;
                 folds = 0;
                 level++;
                 if (level<=endLevel)
@@ -91,6 +95,10 @@ namespace Foldit3D
             }
             if (gamestate == GameState.folding)
             {
+                Vector3 v = board.getAxis();
+                Vector3 p = board.getAxisPoint();
+                float a = board.getAngle();
+                playerManager.foldData(v, p, a);
                 // NEED to recive points from the bord
                 //playerManager.calcBeforeFolding(Vector2 point1, Vector2 point2);
                 folds++;
