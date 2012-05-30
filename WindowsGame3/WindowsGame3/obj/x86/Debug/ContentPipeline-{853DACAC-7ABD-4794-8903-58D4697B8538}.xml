@@ -118,6 +118,24 @@
       <Output>C:\Users\Tzipi\Desktop\FoldIt!\Foldit3D\WindowsGame3\WindowsGame3\bin\x86\Debug\Content\gummy.xnb</Output>
       <Time>2012-05-31T00:19:08.0989022+03:00</Time>
     </Item>
+    <Item>
+      <Source>gum1.png</Source>
+      <Name>gum1</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Tzipi\Desktop\FoldIt!\Foldit3D\WindowsGame3\WindowsGame3\bin\x86\Debug\Content\gum1.xnb</Output>
+      <Time>2012-05-31T00:32:23.3633887+03:00</Time>
+    </Item>
+    <Item>
+      <Source>gum3.png</Source>
+      <Name>gum3</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Tzipi\Desktop\FoldIt!\Foldit3D\WindowsGame3\WindowsGame3\bin\x86\Debug\Content\gum3.xnb</Output>
+      <Time>2012-05-31T00:46:19.0341863+03:00</Time>
+    </Item>
     <BuildSuccessful>true</BuildSuccessful>
     <Settings>
       <ContentProjectGUID>{853DACAC-7ABD-4794-8903-58D4697B8538}</ContentProjectGUID>
