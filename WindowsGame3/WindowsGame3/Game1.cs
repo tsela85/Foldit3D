@@ -67,7 +67,7 @@ namespace Foldit3D
             SpriteFont font = Content.Load<SpriteFont>("font");
             SpriteFont scoreFont = Content.Load<SpriteFont>("scoreFont");
             HoleManager holeManager = new HoleManager(Content.Load<Texture2D>("hole"), Content.Load<Effect>("effects"));
-            PlayerManager playerManager = new PlayerManager(Content.Load<Texture2D>("gum3"), Content.Load<Effect>("effects"));
+            PlayerManager playerManager = new PlayerManager(Content.Load<Texture2D>("gumball"), Content.Load<Effect>("effects"));
             PowerUpManager powerupManager = new PowerUpManager(Content.Load<Texture2D>("inkspot"), Content.Load<Effect>("effects"));
             Board board = new Board(Content.Load<Texture2D>("paper1"), Content.Load<Effect>("effects"));
             camera = new Camera(this);

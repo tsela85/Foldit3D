@@ -71,7 +71,7 @@
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\Tzipi\Desktop\FoldIt!\Foldit3D\WindowsGame3\WindowsGame3\bin\x86\Debug\Content\paper2.xnb</Output>
-      <Time>2012-05-29T21:28:34.0301655+03:00</Time>
+      <Time>2012-05-31T00:50:53.4728833+03:00</Time>
     </Item>
     <Item>
       <Source>paper1.jpg</Source>
@@ -80,7 +80,7 @@
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\Tzipi\Desktop\FoldIt!\Foldit3D\WindowsGame3\WindowsGame3\bin\x86\Debug\Content\paper1.xnb</Output>
-      <Time>2012-05-30T22:40:07.8631401+03:00</Time>
+      <Time>2012-05-31T00:50:53.466883+03:00</Time>
     </Item>
     <Item>
       <Source>gum.png</Source>
@@ -89,7 +89,7 @@
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\Tzipi\Desktop\FoldIt!\Foldit3D\WindowsGame3\WindowsGame3\bin\x86\Debug\Content\gum.xnb</Output>
-      <Time>2012-05-30T23:40:11.8622771+03:00</Time>
+      <Time>2012-05-31T00:50:53.2318695+03:00</Time>
     </Item>
     <Item>
       <Source>paper.png</Source>
@@ -98,7 +98,7 @@
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\Tzipi\Desktop\FoldIt!\Foldit3D\WindowsGame3\WindowsGame3\bin\x86\Debug\Content\paper.xnb</Output>
-      <Time>2012-05-30T23:47:00.1626305+03:00</Time>
+      <Time>2012-05-31T00:50:53.4118798+03:00</Time>
     </Item>
     <Item>
       <Source>inkspot.png</Source>
@@ -107,7 +107,7 @@
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\Tzipi\Desktop\FoldIt!\Foldit3D\WindowsGame3\WindowsGame3\bin\x86\Debug\Content\inkspot.xnb</Output>
-      <Time>2012-05-30T23:53:15.7791146+03:00</Time>
+      <Time>2012-05-31T00:50:53.3018735+03:00</Time>
     </Item>
     <Item>
       <Source>gummy.jpg</Source>
@@ -116,7 +116,7 @@
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\Tzipi\Desktop\FoldIt!\Foldit3D\WindowsGame3\WindowsGame3\bin\x86\Debug\Content\gummy.xnb</Output>
-      <Time>2012-05-31T00:19:08.0989022+03:00</Time>
+      <Time>2012-05-31T00:50:53.2498706+03:00</Time>
     </Item>
     <Item>
       <Source>gum1.png</Source>
@@ -125,7 +125,7 @@
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\Tzipi\Desktop\FoldIt!\Foldit3D\WindowsGame3\WindowsGame3\bin\x86\Debug\Content\gum1.xnb</Output>
-      <Time>2012-05-31T00:32:23.3633887+03:00</Time>
+      <Time>2012-05-31T00:50:53.2358698+03:00</Time>
     </Item>
     <Item>
       <Source>gum3.png</Source>
@@ -134,7 +134,16 @@
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\Tzipi\Desktop\FoldIt!\Foldit3D\WindowsGame3\WindowsGame3\bin\x86\Debug\Content\gum3.xnb</Output>
-      <Time>2012-05-31T00:46:19.0341863+03:00</Time>
+      <Time>2012-05-31T00:50:53.2388699+03:00</Time>
+    </Item>
+    <Item>
+      <Source>gumball.png</Source>
+      <Name>gumball</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Tzipi\Desktop\FoldIt!\Foldit3D\WindowsGame3\WindowsGame3\bin\x86\Debug\Content\gumball.xnb</Output>
+      <Time>2012-05-31T00:53:46.0787558+03:00</Time>
     </Item>
     <BuildSuccessful>true</BuildSuccessful>
     <Settings>
