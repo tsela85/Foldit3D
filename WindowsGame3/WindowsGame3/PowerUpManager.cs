@@ -77,6 +77,7 @@ namespace Foldit3D
         #region Collision
         public static void checkCollision(Player player)
         {
+            PowerUp pToRemove = null;
             foreach (PowerUp p in powerups)
             {
                 BoundingBox b1 = p.getBox();
@@ -90,8 +91,12 @@ namespace Foldit3D
                 if (b2.Intersects(b1))
                 {
                     p.doYourThing(player);
+                    pToRemove = p;
+                    break;
                 }
             }
+            if (pToRemove!=null)
+                powerups.Remove(pToRemove);
         }
         #endregion
 

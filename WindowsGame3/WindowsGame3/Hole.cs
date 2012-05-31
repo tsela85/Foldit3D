@@ -30,7 +30,7 @@ namespace Foldit3D
         public Hole(Texture2D texture, List<List<Vector3>> points, Effect e)
         {
             this.texture = texture;
-            worldRectangle = new Rectangle((int)WorldPosition.X, (int)WorldPosition.Y, texture.Width, texture.Height);
+           // worldRectangle = new Rectangle((int)WorldPosition.X, (int)WorldPosition.Y, texture.Width, texture.Height);
             effect = e;
             setUpVertices(points);
         }
@@ -147,16 +147,29 @@ namespace Foldit3D
         #endregion
 
         #region Public Methods
-        public void initializeHole(int posX, int posY)
+        public void initializeHole(int random)
         {
-            worldPosition.X = posX;
-            worldPosition.Y = posY;
+            for (int i = 0; i < 6; i++)
+            {
+                vertices[i].Position.X -= random;
+                vertices[i].Position.Z += random;
+            }
         }
 
         public void changeSize(double factor)
         {
-            worldRectangle.Height = (int)(worldRectangle.Height * factor);
-            worldRectangle.Width = (int)(worldRectangle.Width * factor);
+            vertices[0].Position.X -= 2;
+            vertices[0].Position.Z += 2;
+            vertices[1].Position.X += 2;
+            vertices[1].Position.Z -= 2;
+            vertices[2].Position.X -= 2;
+            vertices[2].Position.Z -= 2;
+            vertices[3].Position.X += 2;
+            vertices[3].Position.Z -= 2;
+            vertices[4].Position.X -= 2;
+            vertices[4].Position.Z += 2;
+            vertices[5].Position.X += 2;
+            vertices[5].Position.Z += 2;
         }
         #endregion
 

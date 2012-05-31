@@ -102,7 +102,7 @@ namespace Foldit3D
         public static void changeAllHolesPlace()
         {
             foreach (Hole h in holes)
-                h.initializeHole(new Random().Next(100, 1100), new Random().Next(50, 550));
+                h.initializeHole(new Random().Next(-10, 10));
         }
         public static void cangeAllHolesSize()
         {
