@@ -80,6 +80,8 @@ namespace Foldit3D
         #region Update and Draw
         public void Update(GameTime gameTime, GameState state)
         {
+            HoleManager.checkCollision(this);
+            PowerUpManager.checkCollision(this);
             if (state != GameState.folding)
             {
                 Trace.WriteLine(state);

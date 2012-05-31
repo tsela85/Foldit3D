@@ -69,7 +69,7 @@ namespace Foldit3D
         {
             foreach (PowerUp p in powerups)
             {
-                p.foldData(vec, point, angle);
+               // p.foldData(vec, point, angle);
             }
         }
         #endregion
@@ -79,7 +79,15 @@ namespace Foldit3D
         {
             foreach (PowerUp p in powerups)
             {
-                if (p.getBox().Contains(player.getBox()) == ContainmentType.Contains)
+                BoundingBox b1 = p.getBox();
+                b1.Max.X += 0.001f;
+                b1.Max.Y += 0.001f;
+                b1.Max.Z += 0.001f;
+                b1.Min.X -= 0.001f;
+                b1.Min.Y -= 0.001f;
+                b1.Min.Z -= 0.001f;
+                BoundingBox b2 = player.getBox();
+                if (b2.Intersects(b1))
                 {
                     p.doYourThing(player);
                 }
