@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework;
+using System.Diagnostics;
 
 namespace Foldit3D
 {
@@ -16,6 +17,7 @@ namespace Foldit3D
         Vector2 center = Vector2.Zero;
         double radius;
         bool dataWasCalced = false;
+        bool moving = true;
 
         Texture2D texture;
         Vector2 worldPosition;
@@ -70,43 +72,49 @@ namespace Foldit3D
         #region Update
         public void Update(GameState state)
         {
-            if (state == GameState.folding && dataWasCalced)
-                rotate();
+           // if (state == GameState.folding && dataWasCalced)
+           //     rotate();
+            if (state != GameState.folding)
+            {
+                Trace.WriteLine(state);
+                moving = true;
+                for (int i = 0; i < vertices.Length; i++)
+                    vertices[i].Position = Vector3.Transform(vertices[i].Position, worldMatrix);
+            }
         }
         #endregion
 
         #region Fold
-        public void foldData(Vector3 axis, Vector3 point, float angle)
+
+        public void foldData(Vector3 axis, Vector3 point, float a)
         {
-           // if (rotAngle < 180)
-           // {
+            float angle = MathHelper.ToDegrees(a);
+
+
+            //  if (angle > -167 && angle < 0 && moving)
+            if ((a > -MathHelper.Pi + Game1.closeRate) && (moving))
+            {
                 worldMatrix = Matrix.Identity;
                 worldMatrix *= Matrix.CreateTranslation(-point);
-                worldMatrix *= Matrix.CreateFromAxisAngle(axis, angle);
+                worldMatrix *= Matrix.CreateFromAxisAngle(axis, -a);
                 worldMatrix *= Matrix.CreateTranslation(point);
-                rotAngle += ROTATION_DEGREE;
-           // }
-        }
-
-
-        public void calcBeforeFolding(Vector2 loc1, Vector2 loc2, int direction)
-        {
-            // NEED to check if the hole is in the folding area. if NOT: dataWasCalced = false. if YES: dataWasCalced = true.
-            if (isHoleInFoldArea(loc1, loc2, direction))
-            {
-                double m1 = (((double)(loc2.Y)) - loc1.Y) / (loc2.X - loc1.X);
-                double m2 = (-1) / m1;
-                double pointX = ((-m2 * worldPosition.X) + worldPosition.Y + (m1 * loc1.X) - loc1.Y) / (m1 - m2);
-                double pointY = m1 * pointX + (-loc1.X * m1) + loc1.Y;
-                double test = m2 * pointX + (-worldPosition.X * m2) + worldPosition.Y;
-                center = new Vector2((int)pointX, (int)pointY);
-                radius = Math.Sqrt(Math.Pow((center.X - worldPosition.X), 2) + Math.Pow((center.Y - worldPosition.Y), 2));
-                angle = (float)Math.Atan((center.Y - worldPosition.Y) / (center.X - worldPosition.X));
-                dataWasCalced = true;
             }
-            else dataWasCalced = false;
-        }
+            else if (moving)
+            {
 
+                for (int i = 0; i < vertices.Length; i++)
+                {
+                    worldMatrix = Matrix.Identity;
+                    worldMatrix *= Matrix.CreateTranslation(-point);
+                    worldMatrix *= Matrix.CreateFromAxisAngle(axis, MathHelper.Pi);
+                    worldMatrix *= Matrix.CreateTranslation(point);
+                    vertices[i].Position = Vector3.Transform(vertices[i].Position, worldMatrix);
+                }
+                worldMatrix = Matrix.Identity;
+                moving = false;
+            }
+        }
+/*
         public void reverseRotation()
         {
             if (rotAngle > 0)
@@ -135,6 +143,7 @@ namespace Foldit3D
                 reverseRotation();
             }
         }
+ * */
         #endregion
 
         #region Public Methods
@@ -148,21 +157,6 @@ namespace Foldit3D
         {
             worldRectangle.Height = (int)(worldRectangle.Height * factor);
             worldRectangle.Width = (int)(worldRectangle.Width * factor);
-        }
-        #endregion
-
-        #region Private Methods
-        public bool isHoleInFoldArea(Vector2 loc1, Vector2 loc2, int dir)
-        {
-            // dir=left
-            if (dir == 0)
-            {
-            }
-            // dir=right
-            else
-            {
-            }
-            return true;
         }
         #endregion
 

@@ -64,11 +64,6 @@ namespace Foldit3D
         #endregion
 
         #region Public Methods
-        public void calcBeforeFolding(Vector2 point1, Vector2 point2, int direction)
-        {
-            foreach (PowerUp p in powerups)
-                p.calcBeforeFolding(point1, point2, direction);
-        }
 
         public void foldData(Vector3 vec, Vector3 point, float angle)
         {
