@@ -188,6 +188,12 @@ namespace Foldit3D
             p[1] = vertices[5].Position;
             return BoundingBox.CreateFromPoints(p);
         }
+
+        public Vector3 getCenter()
+        {
+            float xz = (vertices[0].Position.X + vertices[0].Position.Z) / 2;
+            return new Vector3(xz, 0, xz);
+        }
         #endregion
     }
 }

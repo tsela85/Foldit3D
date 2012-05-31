@@ -65,11 +65,12 @@ namespace Foldit3D
 
         #region Public Methods
 
-        public void foldData(Vector3 vec, Vector3 point, float angle)
+        public void foldData(Vector3 vec, Vector3 point, float angle, Board b)
         {
             foreach (Hole h in holes)
             {
-                //h.foldData(vec, point, angle);
+                if (b.PointInBeforeFold(h.getCenter()))
+                    h.foldData(vec, point, angle);
             }
         }
         #endregion

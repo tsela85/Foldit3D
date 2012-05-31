@@ -22,11 +22,11 @@ namespace Foldit3D
         PowerUpManager powerupManager;
         Board board;
 
-        string win = "EXCELLENT!!!";
+        string win = "      EXCELLENT!!!\n you did it with: ";
         int level;
         int endLevel;
         int folds;
-
+        int first = 1;
 
         ///////////////////////////
         List<IDictionary<string, string>> levels = new List<IDictionary<string, string>>();
@@ -49,6 +49,7 @@ namespace Foldit3D
 
         public void loadCurrLevel() 
         {
+            folds = 0;
             playerManager.restartLevel();
             playerManager.initLevel(XMLReader.Get(level, "player"));
             holeManager.restartLevel();
@@ -94,11 +95,19 @@ namespace Foldit3D
                     Vector3 v = board.getAxis();
                     Vector3 p = board.getAxisPoint();
                     float a = board.getAngle();
-                    playerManager.foldData(v, p, a);
-                    holeManager.foldData(v, p, a);
-                    powerupManager.foldData(v, p, a);
-                    folds++;
+                   // if (boardstate == Board.BoardState.folding1)
+                        playerManager.foldData(v, p, a, board);
+                  //  if (boardstate == Board.BoardState.folding2)
+                  //      playerManager.foldDataAfter(v, p, a, board);
+                    holeManager.foldData(v, p, a, board);
+                    powerupManager.foldData(v, p, a, board);
+                    if (first == 1)
+                    {
+                        folds++;
+                        first = 0;
+                    }
                 }
+                else first = 1;
             }
             if ((gamestate == GameState.scored) && (Mouse.GetState().LeftButton == ButtonState.Pressed))
             {
@@ -121,11 +130,6 @@ namespace Foldit3D
           //  rs.FillMode = FillMode.WireFrame;            
             Game1.device.RasterizerState = rs;
 
-
-            //holeManager.Draw(spriteBatch);
-            //powerupManager.Draw(spriteBatch);
-         //   playerManager.Draw(spriteBatch);
-
             //rs.FillMode = FillMode.WireFrame;
             Game1.device.RasterizerState = rs;
 
@@ -136,7 +140,7 @@ namespace Foldit3D
 
             if (gamestate == GameState.scored)
             {
-                spriteBatch.DrawString(font,win, new Vector2(500, 250), Color.Black);
+                spriteBatch.DrawString(font,win + folds.ToString() +" folds!", new Vector2(350, 250), Color.Black);
             }
 
             //spriteBatch.DrawString(font, "Fold the page, till the ink-stain is in the hole", new Vector2(50, 15), Color.Black);

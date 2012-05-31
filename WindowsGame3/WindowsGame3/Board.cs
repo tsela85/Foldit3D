@@ -353,7 +353,7 @@ namespace Foldit3D
         
         public bool PointInBeforeFold(Vector3 p)
         {            
-            for (int i = 0; i < one.indices.Length / 3; i+=3)
+            for (int i = 0; i < one.indices.Length ; i+=3)
             {
                 Vector2 a = new Vector2(one.vertices[one.indices[i+2]].Position.X,
                     one.vertices[one.indices[i+2]].Position.Z);

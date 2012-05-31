@@ -118,7 +118,7 @@ namespace Foldit3D
                 worldMatrix *= Matrix.CreateFromAxisAngle(axis, -a);
                 worldMatrix *= Matrix.CreateTranslation(point);
             }
-            else if (moving)
+          /*  else if (moving)
             {
 
                 for (int i = 0; i < vertices.Length; i++)
@@ -131,7 +131,7 @@ namespace Foldit3D
                 }
                 worldMatrix = Matrix.Identity;
                 moving = false;
-            }
+            }*/
         }
 /*
         public void reverseRotation()
@@ -201,6 +201,12 @@ namespace Foldit3D
             p[0] = vertices[2].Position;
             p[1] = vertices[5].Position;
             return BoundingBox.CreateFromPoints(p);
+        }
+
+        public Vector3 getCenter()
+        {
+            float xz = (vertices[0].Position.X + vertices[0].Position.Z) / 2;
+            return new Vector3(xz, 0, xz);
         }
         #endregion
     }
