@@ -26,6 +26,7 @@ namespace Foldit3D
         protected VertexPositionTexture[] vertices;
         protected Matrix worldMatrix = Matrix.Identity;
         protected Effect effect;
+        protected bool isDraw = true;
 
         #region Properties
 
@@ -84,7 +85,6 @@ namespace Foldit3D
             PowerUpManager.checkCollision(this);
             if (state != GameState.folding)
             {
-                Trace.WriteLine(state);
                 moving = true;
                 for(int i=0;i<vertices.Length; i++)
                     vertices[i].Position = Vector3.Transform(vertices[i].Position, worldMatrix);
@@ -93,24 +93,26 @@ namespace Foldit3D
 
         public void Draw()
         {
-            effect.CurrentTechnique = effect.Techniques["TexturedNoShading"];
-            effect.Parameters["xWorld"].SetValue(worldMatrix);
-            effect.Parameters["xView"].SetValue(Game1.camera.View);
-            effect.Parameters["xProjection"].SetValue(Game1.camera.Projection);
-            effect.Parameters["xTexture"].SetValue(texture);
-
-            foreach (EffectPass pass in effect.CurrentTechnique.Passes)
+            if (isDraw)
             {
-                pass.Apply();
+                effect.CurrentTechnique = effect.Techniques["TexturedNoShading"];
+                effect.Parameters["xWorld"].SetValue(worldMatrix);
+                effect.Parameters["xView"].SetValue(Game1.camera.View);
+                effect.Parameters["xProjection"].SetValue(Game1.camera.Projection);
+                effect.Parameters["xTexture"].SetValue(texture);
 
-                Game1.device.DrawUserPrimitives(PrimitiveType.TriangleList, vertices, 0, 2, VertexPositionTexture.VertexDeclaration);
+                foreach (EffectPass pass in effect.CurrentTechnique.Passes)
+                {
+                    pass.Apply();
+
+                    Game1.device.DrawUserPrimitives(PrimitiveType.TriangleList, vertices, 0, 2, VertexPositionTexture.VertexDeclaration);
+                }
             }
         }
 
         #endregion Update and Draw
 
         #region Fold
-
 
        /* public void foldOver()
         {

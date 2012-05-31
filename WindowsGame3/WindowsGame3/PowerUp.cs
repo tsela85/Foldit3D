@@ -20,6 +20,7 @@ namespace Foldit3D
         double radius;
         bool dataWasCalced = false;
         bool moving = true;
+        bool isDraw = true;
 
         Texture2D texture;
         Vector2 worldPosition;
@@ -113,6 +114,8 @@ namespace Foldit3D
             //  if (angle > -167 && angle < 0 && moving)
             if ((a > -MathHelper.Pi + Game1.closeRate) && (moving))
             {
+                if (angle < -90) isDraw = false;
+                else isDraw = true;
                 worldMatrix = Matrix.Identity;
                 worldMatrix *= Matrix.CreateTranslation(-point);
                 worldMatrix *= Matrix.CreateFromAxisAngle(axis, -a);
@@ -167,17 +170,20 @@ namespace Foldit3D
         #region Draw
         public void Draw()
         {
-            effect.CurrentTechnique = effect.Techniques["TexturedNoShading"];
-            effect.Parameters["xWorld"].SetValue(worldMatrix);
-            effect.Parameters["xView"].SetValue(Game1.camera.View);
-            effect.Parameters["xProjection"].SetValue(Game1.camera.Projection);
-            effect.Parameters["xTexture"].SetValue(texture);
-
-            foreach (EffectPass pass in effect.CurrentTechnique.Passes)
+            if (isDraw)
             {
-                pass.Apply();
+                effect.CurrentTechnique = effect.Techniques["TexturedNoShading"];
+                effect.Parameters["xWorld"].SetValue(worldMatrix);
+                effect.Parameters["xView"].SetValue(Game1.camera.View);
+                effect.Parameters["xProjection"].SetValue(Game1.camera.Projection);
+                effect.Parameters["xTexture"].SetValue(texture);
 
-                Game1.device.DrawUserPrimitives(PrimitiveType.TriangleList, vertices, 0, 2, VertexPositionTexture.VertexDeclaration);
+                foreach (EffectPass pass in effect.CurrentTechnique.Passes)
+                {
+                    pass.Apply();
+
+                    Game1.device.DrawUserPrimitives(PrimitiveType.TriangleList, vertices, 0, 2, VertexPositionTexture.VertexDeclaration);
+                }
             }
         }
         #endregion

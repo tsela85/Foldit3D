@@ -113,7 +113,7 @@
 	
   <powerups>
     <powerupObj>
-        <type>2</type>
+        <type>0</type>
         <x1>-2.5</x1>
         <y1>0</y1>
         <z1>2.5</z1>
