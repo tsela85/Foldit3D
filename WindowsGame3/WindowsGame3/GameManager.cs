@@ -22,7 +22,7 @@ namespace Foldit3D
         PowerUpManager powerupManager;
         Board board;
 
-
+        string win = "EXCELLENT!!!";
         int level;
         int endLevel;
         int folds;
@@ -74,38 +74,39 @@ namespace Foldit3D
         #region Update
         public void Update(GameTime gameTime)
         {
-            playerManager.Update(gameTime, gamestate);
-            //gamestate = board.update();
-            boardstate = board.update();
-            if (boardstate == Board.BoardState.folding1 || boardstate == Board.BoardState.folding2)
-                gamestate = GameState.folding;
-            else
-                gamestate = GameState.normal;
-            Game1.input.Update(gameTime);
-            Game1.camera.UpdateCamera(gameTime);
-            if (Keyboard.GetState().IsKeyDown(Keys.R))
+            if (gamestate != GameState.scored)
             {
-                folds = 0;
+                playerManager.Update(gameTime, gamestate);
+                //gamestate = board.update();
+                boardstate = board.update();
+                if (boardstate == Board.BoardState.folding1 || boardstate == Board.BoardState.folding2)
+                    gamestate = GameState.folding;
+                else if (gamestate != GameState.scored)
+                    gamestate = GameState.normal;
+                Game1.input.Update(gameTime);
+                Game1.camera.UpdateCamera(gameTime);
+                if (Keyboard.GetState().IsKeyDown(Keys.R))
+                {
+                    folds = 0;
+                }
+                if (gamestate == GameState.folding)
+                {
+                    Vector3 v = board.getAxis();
+                    Vector3 p = board.getAxisPoint();
+                    float a = board.getAngle();
+                    playerManager.foldData(v, p, a);
+                    holeManager.foldData(v, p, a);
+                    powerupManager.foldData(v, p, a);
+                    folds++;
+                }
             }
             if ((gamestate == GameState.scored) && (Mouse.GetState().LeftButton == ButtonState.Pressed))
             {
                 gamestate = GameState.normal;
                 folds = 0;
                 level++;
-                if (level<=endLevel)
+                if (level <= endLevel)
                     loadCurrLevel();
-            }
-            if (gamestate == GameState.folding)
-            {
-                Vector3 v = board.getAxis();
-                Vector3 p = board.getAxisPoint();
-                float a = board.getAngle();
-                playerManager.foldData(v, p, a);
-                holeManager.foldData(v, p, a);
-                powerupManager.foldData(v, p, a);
-                // NEED to recive points from the bord
-                //playerManager.calcBeforeFolding(Vector2 point1, Vector2 point2);
-                folds++;
             }
         }
         #endregion
@@ -132,6 +133,11 @@ namespace Foldit3D
             holeManager.Draw();
             powerupManager.Draw();
             playerManager.Draw();
+
+            if (gamestate == GameState.scored)
+            {
+                spriteBatch.DrawString(font,win, new Vector2(500, 250), Color.Black);
+            }
 
             //spriteBatch.DrawString(font, "Fold the page, till the ink-stain is in the hole", new Vector2(50, 15), Color.Black);
             //spriteBatch.DrawString(font, "Mouse Left Button - choose, Mouse Right Button - cancel", new Vector2(50, graphics.PreferredBackBufferHeight - 50), Color.Black);

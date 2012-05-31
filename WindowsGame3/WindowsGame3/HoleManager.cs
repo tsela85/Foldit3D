@@ -80,12 +80,12 @@ namespace Foldit3D
             foreach (Hole h in holes)
             {
                 BoundingBox b1 = h.getBox();
-                b1.Max.X += 0.001f;
-                b1.Max.Y += 0.001f;
-                b1.Max.Z += 0.001f;
-                b1.Min.X -= 0.001f;
-                b1.Min.Y -= 0.001f;
-                b1.Min.Z -= 0.001f;
+                b1.Max.X += 0.0001f;
+                b1.Max.Y += 0.0001f;
+                b1.Max.Z += 0.0001f;
+                b1.Min.X -= 0.0001f;
+                b1.Min.Y -= 0.0001f;
+                b1.Min.Z -= 0.0001f;
                 BoundingBox b2 = player.getBox();
                 if (b1.Intersects(b2))
                 {
@@ -102,7 +102,7 @@ namespace Foldit3D
         public static void changeAllHolesPlace()
         {
             foreach (Hole h in holes)
-                h.initializeHole(new Random().Next(-10, 10));
+                h.initializeHole(new Random().Next(-15, 15));
         }
         public static void cangeAllHolesSize()
         {

@@ -81,12 +81,12 @@ namespace Foldit3D
             foreach (PowerUp p in powerups)
             {
                 BoundingBox b1 = p.getBox();
-                b1.Max.X += 0.001f;
-                b1.Max.Y += 0.001f;
-                b1.Max.Z += 0.001f;
-                b1.Min.X -= 0.001f;
-                b1.Min.Y -= 0.001f;
-                b1.Min.Z -= 0.001f;
+                b1.Max.X += 0.0001f;
+                b1.Max.Y += 0.0001f;
+                b1.Max.Z += 0.0001f;
+                b1.Min.X -= 0.0001f;
+                b1.Min.Y -= 0.0001f;
+                b1.Min.Z -= 0.0001f;
                 BoundingBox b2 = player.getBox();
                 if (b2.Intersects(b1))
                 {
