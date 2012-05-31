@@ -27,7 +27,17 @@ namespace Foldit3D
         {
             foreach (IDictionary<string, string> item in data)
             {
-                powerups.Add(new PowerUp(texture, ConvertType(Convert.ToInt32(item["type"])), Convert.ToInt32(item["x"]), Convert.ToInt32(item["y"]), effect));
+                List<List<Vector3>> lst = new List<List<Vector3>>();
+                for (int i = 1; i < 7; i++)
+                {
+                    List<Vector3> pointsData = new List<Vector3>();
+                    Vector3 point = new Vector3((float)Convert.ToDouble(item["x" + i]), (float)Convert.ToDouble(item["y" + i]), (float)Convert.ToDouble(item["z" + i]));
+                    Vector3 texLoc = new Vector3(Convert.ToInt32(item["tX" + i]), Convert.ToInt32(item["tY" + i]), 0);
+                    pointsData.Add(point);
+                    pointsData.Add(texLoc);
+                    lst.Add(pointsData);
+                }
+                powerups.Add(new PowerUp(texture, ConvertType(Convert.ToInt32(item["type"])), lst, effect));
             }
         }
 

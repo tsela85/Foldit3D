@@ -42,9 +42,11 @@ C:\Users\Tzipi\Desktop\FoldIt!\Foldit3D\WindowsGame3\WindowsGame3\obj\x86\Debug\
 C:\Users\Tzipi\Desktop\FoldIt!\Foldit3D\WindowsGame3\WindowsGame3\bin\x86\Debug\Content\paper2.xnb
 C:\Users\Tzipi\Desktop\FoldIt!\Foldit3D\WindowsGame3\WindowsGame3\bin\x86\Debug\Content\paper1.xnb
 C:\Users\Tzipi\Desktop\FoldIt!\Foldit3D\WindowsGame3\WindowsGame3\bin\x86\Debug\Content\inkspot.xnb
-C:\Users\Tzipi\Desktop\FoldIt!\Foldit3D\WindowsGame3\WindowsGame3\bin\x86\Debug\Content\gum.xnb
 C:\Users\Tzipi\Desktop\FoldIt!\Foldit3D\WindowsGame3\WindowsGame3\bin\x86\Debug\Content\paper.xnb
 C:\Users\Tzipi\Desktop\FoldIt!\Foldit3D\WindowsGame3\WindowsGame3\bin\x86\Debug\Content\gummy.xnb
-C:\Users\Tzipi\Desktop\FoldIt!\Foldit3D\WindowsGame3\WindowsGame3\bin\x86\Debug\Content\gum1.xnb
-C:\Users\Tzipi\Desktop\FoldIt!\Foldit3D\WindowsGame3\WindowsGame3\bin\x86\Debug\Content\gum3.xnb
 C:\Users\Tzipi\Desktop\FoldIt!\Foldit3D\WindowsGame3\WindowsGame3\bin\x86\Debug\Content\gumball.xnb
+C:\Users\Tzipi\Desktop\FoldIt!\Foldit3D\WindowsGame3\WindowsGame3\bin\x86\Debug\Content\inkspot2.xnb
+C:\Users\Tzipi\Desktop\FoldIt!\Foldit3D\WindowsGame3\WindowsGame3\bin\x86\Debug\Content\gummy2.xnb
+C:\Users\Tzipi\Desktop\FoldIt!\Foldit3D\WindowsGame3\WindowsGame3\bin\x86\Debug\Content\hole2.xnb
+C:\Users\Tzipi\Desktop\FoldIt!\Foldit3D\WindowsGame3\WindowsGame3\bin\x86\Debug\Content\hole1.xnb
+C:\Users\Tzipi\Desktop\FoldIt!\Foldit3D\WindowsGame3\WindowsGame3\bin\x86\Debug\Content\inkspot1.xnb

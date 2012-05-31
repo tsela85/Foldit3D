@@ -59,8 +59,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>
-    <Compile Include="hole.png">
-      <Name>hole</Name>
+    <Compile Include="hole2.png">
+      <Name>hole2</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>
@@ -99,13 +99,6 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="gum.png">
-      <Name>gum</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-  </ItemGroup>
-  <ItemGroup>
     <Compile Include="paper.png">
       <Name>paper</Name>
       <Importer>TextureImporter</Importer>
@@ -120,29 +113,50 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="gummy.jpg">
+    <Compile Include="gumball.png">
+      <Name>gumball</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="gummy.png">
       <Name>gummy</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="gum1.png">
-      <Name>gum1</Name>
+    <Compile Include="inkspot2.png">
+      <Name>inkspot2</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="gum3.png">
-      <Name>gum3</Name>
+    <Compile Include="gummy2.png">
+      <Name>gummy2</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="gumball.png">
-      <Name>gumball</Name>
+    <Compile Include="hole.jpg">
+      <Name>hole</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="hole1.png">
+      <Name>hole1</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="inkspot1.png">
+      <Name>inkspot1</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>
