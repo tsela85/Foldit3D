@@ -107,7 +107,7 @@ namespace Foldit3D
         public static void cangeAllHolesSize()
         {
             foreach (Hole h in holes)
-                h.changeSize(2);
+                h.changeSize();
         }
         #endregion
     }

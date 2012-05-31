@@ -134,15 +134,29 @@ namespace Foldit3D
 
         //factor - by how much to inlarge (or to make smaller) the player
         //for example:  factor = 2 means that the player will be twice as big, factor = 0.5 half of the size 
-        public void changeSize(double factor)
+        public void changeSize()
         {
-            frameHeight = (int)(frameHeight * factor);
-            frameWidth = (int)(frameWidth * factor);
+            vertices[0].Position.X += -3;
+            //vertices[0].Position.Z += 3;
+            vertices[1].Position.X += 3;
+            //vertices[1].Position.Z += -3;
+            vertices[2].Position.X += -3;
+            //vertices[2].Position.Z += -3;
+            vertices[3].Position.X += 3;
+            //vertices[3].Position.Z += -3;
+            vertices[4].Position.X += -3;
+            //vertices[4].Position.Z += 3;
+            vertices[5].Position.X += 3;
+            //vertices[5].Position.Z += 3;
+
         }
 
-        public void changePos(int newX, int newY){
-            worldPosition.X = newX;
-            worldPosition.Y = newY;
+        public void changePos(int random){
+            for (int i = 0; i < 6; i++)
+            {
+                vertices[i].Position.X -= random;
+                vertices[i].Position.Z += random;
+            }
         }
 
         //!!!! i think that posx and posy need to be the postion of the powerup that the player took

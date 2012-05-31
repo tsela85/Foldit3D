@@ -156,7 +156,7 @@ namespace Foldit3D
             }
         }
 
-        public void changeSize(double factor)
+        public void changeSize()
         {
             vertices[0].Position.X -= 2;
             vertices[0].Position.Z += 2;

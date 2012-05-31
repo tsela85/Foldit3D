@@ -59,17 +59,21 @@ namespace Foldit3D
         {
             switch (type)
             {
+                // V
                 case PowerUpType.HoleSize:
                     HoleManager.cangeAllHolesSize();
                     break;
+                // V
                 case PowerUpType.HolePos:
                     HoleManager.changeAllHolesPlace();
                     break;
+                // V
                 case PowerUpType.PlayerSize:
-                    player.changeSize(2);
+                    player.changeSize();
                     break;
+                // V
                 case PowerUpType.PlayerPos:
-                    player.changePos(new Random().Next(100, 1100), new Random().Next(50, 550));
+                    player.changePos(new Random().Next(-25, 25));
                     break;
                 case PowerUpType.SplitPlayer:
                     player.changePlayerType("duplicate", (int)worldPosition.X, (int)worldPosition.Y);
