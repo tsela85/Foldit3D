@@ -27,7 +27,17 @@ namespace Foldit3D
         {
             foreach (IDictionary<string, string> item in data)
             {
-                powerups.Add(new PowerUp(texture, ConvertType(Convert.ToInt32(item["type"])), Convert.ToInt32(item["x"]), Convert.ToInt32(item["y"]), effect));
+                List<List<Vector3>> lst = new List<List<Vector3>>();
+                for (int i = 1; i < 7; i++)
+                {
+                    List<Vector3> pointsData = new List<Vector3>();
+                    Vector3 point = new Vector3((float)Convert.ToDouble(item["x" + i]), (float)Convert.ToDouble(item["y" + i]), (float)Convert.ToDouble(item["z" + i]));
+                    Vector3 texLoc = new Vector3(Convert.ToInt32(item["tX" + i]), Convert.ToInt32(item["tY" + i]), 0);
+                    pointsData.Add(point);
+                    pointsData.Add(texLoc);
+                    lst.Add(pointsData);
+                }
+                powerups.Add(new PowerUp(texture, ConvertType(Convert.ToInt32(item["type"])), lst, effect));
             }
         }
 
@@ -54,17 +64,13 @@ namespace Foldit3D
         #endregion
 
         #region Public Methods
-        public void calcBeforeFolding(Vector2 point1, Vector2 point2, int direction)
-        {
-            foreach (PowerUp p in powerups)
-                p.calcBeforeFolding(point1, point2, direction);
-        }
 
-        public void foldData(Vector3 vec, Vector3 point, float angle)
+        public void foldData(Vector3 vec, Vector3 point, float angle, Board b)
         {
             foreach (PowerUp p in powerups)
             {
-                p.foldData(vec, point, angle);
+                if (b.PointInBeforeFold(p.getCenter()))
+                    p.foldData(vec, point, angle);
             }
         }
         #endregion
@@ -72,13 +78,26 @@ namespace Foldit3D
         #region Collision
         public static void checkCollision(Player player)
         {
+            PowerUp pToRemove = null;
             foreach (PowerUp p in powerups)
             {
-                if (p.getBox().Contains(player.getBox()) == ContainmentType.Contains)
+                BoundingBox b1 = p.getBox();
+                b1.Max.X += 0.0001f;
+                b1.Max.Y += 0.0001f;
+                b1.Max.Z += 0.0001f;
+                b1.Min.X -= 0.0001f;
+                b1.Min.Y -= 0.0001f;
+                b1.Min.Z -= 0.0001f;
+                BoundingBox b2 = player.getBox();
+                if (b2.Intersects(b1))
                 {
                     p.doYourThing(player);
+                    pToRemove = p;
+                    break;
                 }
             }
+            if (pToRemove!=null)
+                powerups.Remove(pToRemove);
         }
         #endregion
 
