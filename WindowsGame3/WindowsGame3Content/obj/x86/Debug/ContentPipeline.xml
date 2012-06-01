@@ -35,7 +35,7 @@
       <Processor>FontDescriptionProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\Tom\Documents\Visual Studio 2010\Projects\Foldit3D\WindowsGame3\WindowsGame3\bin\x86\Debug\Content\font.xnb</Output>
-      <Time>2012-06-01T19:59:13.2200769+03:00</Time>
+      <Time>2012-06-01T20:15:02.0188572+03:00</Time>
     </Item>
     <Item>
       <Source>scoreFont.spritefont</Source>
@@ -98,7 +98,7 @@
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\Tom\Documents\Visual Studio 2010\Projects\Foldit3D\WindowsGame3\WindowsGame3\bin\x86\Debug\Content\hole2.xnb</Output>
-      <Time>2012-06-01T19:59:13.4228772+03:00</Time>
+      <Time>2012-06-01T20:15:02.0188572+03:00</Time>
     </Item>
     <Item>
       <Source>gumball.png</Source>
@@ -107,7 +107,7 @@
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\Tom\Documents\Visual Studio 2010\Projects\Foldit3D\WindowsGame3\WindowsGame3\bin\x86\Debug\Content\gumball.xnb</Output>
-      <Time>2012-06-01T19:59:13.2356769+03:00</Time>
+      <Time>2012-06-01T20:15:02.0188572+03:00</Time>
     </Item>
     <Item>
       <Source>inkspot2.png</Source>
@@ -116,7 +116,7 @@
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\Tom\Documents\Visual Studio 2010\Projects\Foldit3D\WindowsGame3\WindowsGame3\bin\x86\Debug\Content\inkspot2.xnb</Output>
-      <Time>2012-06-01T19:59:13.266877+03:00</Time>
+      <Time>2012-06-01T20:15:02.0344572+03:00</Time>
     </Item>
     <Item>
       <Source>gummy2.png</Source>
@@ -125,7 +125,7 @@
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\Tom\Documents\Visual Studio 2010\Projects\Foldit3D\WindowsGame3\WindowsGame3\bin\x86\Debug\Content\gummy2.xnb</Output>
-      <Time>2012-06-01T19:59:13.2356769+03:00</Time>
+      <Time>2012-06-01T20:15:02.0188572+03:00</Time>
     </Item>
     <Item>
       <Source>hole.jpg</Source>
@@ -134,7 +134,7 @@
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\Tom\Documents\Visual Studio 2010\Projects\Foldit3D\WindowsGame3\WindowsGame3\bin\x86\Debug\Content\hole.xnb</Output>
-      <Time>2012-06-01T19:59:13.2512769+03:00</Time>
+      <Time>2012-06-01T20:15:02.0188572+03:00</Time>
     </Item>
     <Item>
       <Source>hole1.png</Source>
@@ -143,7 +143,7 @@
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\Tom\Documents\Visual Studio 2010\Projects\Foldit3D\WindowsGame3\WindowsGame3\bin\x86\Debug\Content\hole1.xnb</Output>
-      <Time>2012-06-01T19:59:13.2512769+03:00</Time>
+      <Time>2012-06-01T20:15:02.0188572+03:00</Time>
     </Item>
     <Item>
       <Source>inkspot1.png</Source>
@@ -152,7 +152,7 @@
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\Tom\Documents\Visual Studio 2010\Projects\Foldit3D\WindowsGame3\WindowsGame3\bin\x86\Debug\Content\inkspot1.xnb</Output>
-      <Time>2012-06-01T19:59:13.266877+03:00</Time>
+      <Time>2012-06-01T20:15:02.0188572+03:00</Time>
     </Item>
     <BuildSuccessful>true</BuildSuccessful>
     <Settings>
