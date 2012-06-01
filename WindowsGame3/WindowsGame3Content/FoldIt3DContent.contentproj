@@ -120,7 +120,7 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="gummy.jpg">
+    <Compile Include="gummy.png">
       <Name>gummy</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
