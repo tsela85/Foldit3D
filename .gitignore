@@ -29,8 +29,7 @@
 *.lib
 *.sbr
 *.sdf
-*.xnb
-.txt
+*.txt
 ipch/
 obj/
 [Bb]in
