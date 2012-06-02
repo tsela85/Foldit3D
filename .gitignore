@@ -30,6 +30,7 @@
 *.sbr
 *.sdf
 *.txt
+*.xnb
 ipch/
 obj/
 [Bb]in
