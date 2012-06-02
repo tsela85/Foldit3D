@@ -104,8 +104,7 @@ namespace Foldit3D
         {
             foreach (Player p in players)
             {
-                if (b.PointInBeforeFold(p.getCenter()))
-                    p.foldData(vec, point, angle);
+                    p.foldData(vec, point, angle, b.PointInBeforeFold(p.getCenter()), b.PointInAfterFold(p.getCenter()));
             }
         }
 
