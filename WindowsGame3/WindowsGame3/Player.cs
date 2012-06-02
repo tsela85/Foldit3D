@@ -179,6 +179,8 @@ namespace Foldit3D
             Vector3[] p = new Vector3[2];
             p[0] = vertices[2].Position;
             p[1] = vertices[5].Position;
+            p[0].Y = 0;
+            p[1].Y = 0;
             return BoundingBox.CreateFromPoints(p);
         }
 

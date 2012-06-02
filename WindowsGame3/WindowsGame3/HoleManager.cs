@@ -81,12 +81,10 @@ namespace Foldit3D
             foreach (Hole h in holes)
             {
                 BoundingBox b1 = h.getBox();
-                b1.Max.X += 0.0001f;
-                b1.Max.Y += 0.0001f;
-                b1.Max.Z += 0.0001f;
-                b1.Min.X -= 0.0001f;
-                b1.Min.Y -= 0.0001f;
-                b1.Min.Z -= 0.0001f;
+                b1.Max.X -= 1.0f;
+                b1.Max.Z -= 1.0f;
+                b1.Min.X += 1.0f;
+                b1.Min.Z += 1.0f; 
                 BoundingBox b2 = player.getBox();
                 if (b1.Intersects(b2))
                 {

@@ -203,8 +203,9 @@ namespace Foldit3D
 
         public Vector3 getCenter()
         {
-            float xz = (vertices[0].Position.X+vertices[0].Position.Z) / 2;
-            return new Vector3(xz,0,xz);
+            float x = (vertices[2].Position.X + vertices[5].Position.X) / 2;
+            float z = (vertices[2].Position.Z + vertices[5].Position.Z) / 2;
+            return new Vector3(x, 0, z);
         }
         #endregion
     }
