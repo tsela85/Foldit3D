@@ -2,22 +2,13 @@
 <XnaContent xmlns:Pipeline="Microsoft.Xna.Framework.Content.Pipeline">
   <Asset Type="Pipeline:BuildItemCollection">
     <Item>
-      <Source>ball.png</Source>
-      <Name>ball</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>C:\Users\Tom\Documents\Visual Studio 2010\Projects\Foldit3D\WindowsGame3\WindowsGame3\bin\x86\Debug\Content\ball.xnb</Output>
-      <Time>2012-05-28T23:39:39.3252502+03:00</Time>
-    </Item>
-    <Item>
       <Source>edged.png</Source>
       <Name>edged</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\Tom\Documents\Visual Studio 2010\Projects\Foldit3D\WindowsGame3\WindowsGame3\bin\x86\Debug\Content\edged.xnb</Output>
-      <Time>2012-05-18T17:07:09.589819+03:00</Time>
+      <Time>2012-06-02T20:29:56.4853628+03:00</Time>
     </Item>
     <Item>
       <Source>empty.png</Source>
@@ -26,16 +17,88 @@
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\Tom\Documents\Visual Studio 2010\Projects\Foldit3D\WindowsGame3\WindowsGame3\bin\x86\Debug\Content\empty.xnb</Output>
-      <Time>2012-05-18T17:07:09.5948193+03:00</Time>
+      <Time>2012-06-02T20:29:56.4873629+03:00</Time>
     </Item>
     <Item>
-      <Source>hole.png</Source>
+      <Source>paper2.jpg</Source>
+      <Name>paper2</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Tom\Documents\Visual Studio 2010\Projects\Foldit3D\WindowsGame3\WindowsGame3\bin\x86\Debug\Content\paper2.xnb</Output>
+      <Time>2012-06-02T20:29:56.5123643+03:00</Time>
+    </Item>
+    <Item>
+      <Source>paper1.jpg</Source>
+      <Name>paper1</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Tom\Documents\Visual Studio 2010\Projects\Foldit3D\WindowsGame3\WindowsGame3\bin\x86\Debug\Content\paper1.xnb</Output>
+      <Time>2012-06-02T20:29:56.5103642+03:00</Time>
+    </Item>
+    <Item>
+      <Source>paper.png</Source>
+      <Name>paper</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Tom\Documents\Visual Studio 2010\Projects\Foldit3D\WindowsGame3\WindowsGame3\bin\x86\Debug\Content\paper.xnb</Output>
+      <Time>2012-06-02T20:29:56.5083641+03:00</Time>
+    </Item>
+    <Item>
+      <Source>inkspot.png</Source>
+      <Name>inkspot</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Tom\Documents\Visual Studio 2010\Projects\Foldit3D\WindowsGame3\WindowsGame3\bin\x86\Debug\Content\inkspot.xnb</Output>
+      <Time>2012-06-02T20:29:56.4973634+03:00</Time>
+    </Item>
+    <Item>
+      <Source>gumball.png</Source>
+      <Name>gumball</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Tom\Documents\Visual Studio 2010\Projects\Foldit3D\WindowsGame3\WindowsGame3\bin\x86\Debug\Content\gumball.xnb</Output>
+      <Time>2012-06-02T20:29:56.490363+03:00</Time>
+    </Item>
+    <Item>
+      <Source>gummy2.png</Source>
+      <Name>gummy2</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Tom\Documents\Visual Studio 2010\Projects\Foldit3D\WindowsGame3\WindowsGame3\bin\x86\Debug\Content\gummy2.xnb</Output>
+      <Time>2012-06-02T20:29:56.4913631+03:00</Time>
+    </Item>
+    <Item>
+      <Source>hole.jpg</Source>
       <Name>hole</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\Tom\Documents\Visual Studio 2010\Projects\Foldit3D\WindowsGame3\WindowsGame3\bin\x86\Debug\Content\hole.xnb</Output>
-      <Time>2012-05-18T17:07:09.6138204+03:00</Time>
+      <Time>2012-06-02T20:29:56.4923632+03:00</Time>
+    </Item>
+    <Item>
+      <Source>hole1.png</Source>
+      <Name>hole1</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Tom\Documents\Visual Studio 2010\Projects\Foldit3D\WindowsGame3\WindowsGame3\bin\x86\Debug\Content\hole1.xnb</Output>
+      <Time>2012-06-02T20:29:56.4933632+03:00</Time>
+    </Item>
+    <Item>
+      <Source>hole2.png</Source>
+      <Name>hole2</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Tom\Documents\Visual Studio 2010\Projects\Foldit3D\WindowsGame3\WindowsGame3\bin\x86\Debug\Content\hole2.xnb</Output>
+      <Time>2012-06-02T20:29:56.4963634+03:00</Time>
     </Item>
     <Item>
       <Source>font.spritefont</Source>
@@ -44,7 +107,7 @@
       <Processor>FontDescriptionProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\Tom\Documents\Visual Studio 2010\Projects\Foldit3D\WindowsGame3\WindowsGame3\bin\x86\Debug\Content\font.xnb</Output>
-      <Time>2012-05-18T17:07:09.60682+03:00</Time>
+      <Time>2012-06-02T20:29:56.4883629+03:00</Time>
     </Item>
     <Item>
       <Source>scoreFont.spritefont</Source>
@@ -53,16 +116,7 @@
       <Processor>FontDescriptionProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\Tom\Documents\Visual Studio 2010\Projects\Foldit3D\WindowsGame3\WindowsGame3\bin\x86\Debug\Content\scoreFont.xnb</Output>
-      <Time>2012-05-18T17:07:09.6268212+03:00</Time>
-    </Item>
-    <Item>
-      <Source>paper3.jpg</Source>
-      <Name>paper3</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>C:\Users\Tom\Documents\Visual Studio 2010\Projects\Foldit3D\WindowsGame3\WindowsGame3\bin\x86\Debug\Content\paper3.xnb</Output>
-      <Time>2012-05-28T23:27:08.2985575+03:00</Time>
+      <Time>2012-06-02T20:29:56.5123643+03:00</Time>
     </Item>
     <Item>
       <Source>effects.fx</Source>
@@ -71,7 +125,7 @@
       <Processor>EffectProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\Tom\Documents\Visual Studio 2010\Projects\Foldit3D\WindowsGame3\WindowsGame3\bin\x86\Debug\Content\effects.xnb</Output>
-      <Time>2012-05-28T23:27:08.2985575+03:00</Time>
+      <Time>2012-06-02T20:29:56.4863628+03:00</Time>
     </Item>
     <BuildSuccessful>true</BuildSuccessful>
     <Settings>

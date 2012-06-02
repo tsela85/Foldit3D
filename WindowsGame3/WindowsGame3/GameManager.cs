@@ -8,23 +8,25 @@ using Microsoft.Xna.Framework.Input;
 
 namespace Foldit3D
 {
-    enum GameState { chooseEdge1, onEdge1, chooseEdge2, onEdge2, prepreFolding, folding, ballMoved, scored };
+    enum GameState { normal, folding, scored };
+    //public enum BoardState { chooseEdge1, onEdge1, chooseEdge2, onEdge2, preFold, folding1, folding2 };
 
     class GameManager
     {
         SpriteFont font, scoreFont;
         //Board board;
         static GameState gamestate;
+        Board.BoardState boardstate;
         HoleManager holeManager;
         PlayerManager playerManager;
         PowerUpManager powerupManager;
         Board board;
 
-
+        string win = "      EXCELLENT!!!\n you did it with: ";
         int level;
         int endLevel;
         int folds;
-
+        int first = 1;
 
         ///////////////////////////
         List<IDictionary<string, string>> levels = new List<IDictionary<string, string>>();
@@ -39,7 +41,7 @@ namespace Foldit3D
             playerManager = p;
             powerupManager = pu;
             board = bo;
-            gamestate = GameState.chooseEdge1;
+            gamestate = GameState.normal;
             folds = 0;
             level = 1;
             endLevel = 1;
@@ -47,6 +49,7 @@ namespace Foldit3D
 
         public void loadCurrLevel() 
         {
+            folds = 0;
             playerManager.restartLevel();
             playerManager.initLevel(XMLReader.Get(level, "player"));
             holeManager.restartLevel();
@@ -54,10 +57,10 @@ namespace Foldit3D
             powerupManager.restartLevel();
             powerupManager.initLevel(XMLReader.Get(level, "powerups"));
             Vector3[] points = new Vector3[4] {
-                new Vector3(-25f, 0f, 20f),
-                new Vector3(25f, 0f, 20f),
-                new Vector3(25f, 0f, -20f),
-                new Vector3(-25f, 0f, -20f)
+                new Vector3(-40f, 0f, 25f),
+                new Vector3(40f, 0f, 25f),
+                new Vector3(40f, 0f, -25f),
+                new Vector3(-40f, 0f, -25f)
              };
             Vector2[] texCords = new Vector2[4] {
                 new Vector2(0,0),
@@ -72,29 +75,47 @@ namespace Foldit3D
         #region Update
         public void Update(GameTime gameTime)
         {
-            playerManager.Update(gameTime, gamestate);
-            board.update();
-            Game1.input.Update(gameTime);
-            Game1.camera.UpdateCamera(gameTime);
-            if (Keyboard.GetState().IsKeyDown(Keys.R))
+            if (gamestate != GameState.scored)
             {
-                folds = 0;
-                gamestate = GameState.chooseEdge1;
+                playerManager.Update(gameTime, gamestate);
+                //gamestate = board.update();
+                boardstate = board.update();
+                if (boardstate == Board.BoardState.folding1 || boardstate == Board.BoardState.folding2)
+                    gamestate = GameState.folding;
+                else if (gamestate != GameState.scored)
+                    gamestate = GameState.normal;
+                Game1.input.Update(gameTime);
+                Game1.camera.UpdateCamera(gameTime);
+                if (Keyboard.GetState().IsKeyDown(Keys.R))
+                {
+                    folds = 0;
+                }
+                if (gamestate == GameState.folding)
+                {
+                    Vector3 v = board.getAxis();
+                    Vector3 p = board.getAxisPoint();
+                    float a = board.getAngle();
+                   // if (boardstate == Board.BoardState.folding1)
+                        playerManager.foldData(v, p, a, board);
+                  //  if (boardstate == Board.BoardState.folding2)
+                  //      playerManager.foldDataAfter(v, p, a, board);
+                    holeManager.foldData(v, p, a, board);
+                    powerupManager.foldData(v, p, a, board);
+                    if (first == 1)
+                    {
+                        folds++;
+                        first = 0;
+                    }
+                }
+                else first = 1;
             }
             if ((gamestate == GameState.scored) && (Mouse.GetState().LeftButton == ButtonState.Pressed))
             {
+                gamestate = GameState.normal;
                 folds = 0;
                 level++;
-                gamestate = GameState.chooseEdge1;
-                if (level<=endLevel)
+                if (level <= endLevel)
                     loadCurrLevel();
-            }
-            if (gamestate == GameState.prepreFolding)
-            {
-                // NEED to recive points from the bord
-                //playerManager.calcBeforeFolding(Vector2 point1, Vector2 point2);
-                gamestate = GameState.folding;
-                folds++;
             }
         }
         #endregion
@@ -104,14 +125,24 @@ namespace Foldit3D
         {
             Game1.device.Clear(ClearOptions.Target | ClearOptions.DepthBuffer, Color.DarkSlateBlue, 1.0f, 0);
             RasterizerState rs = new RasterizerState();
-            rs.CullMode = CullMode.None;
-         //   rs.FillMode = FillMode.WireFrame;
+          //  rs.CullMode = CullMode.None;
+
+          //  rs.FillMode = FillMode.WireFrame;            
             Game1.device.RasterizerState = rs;
 
-            //holeManager.Draw(spriteBatch);
-            //powerupManager.Draw(spriteBatch);
-            playerManager.Draw(spriteBatch);
+            //rs.FillMode = FillMode.WireFrame;
+            Game1.device.RasterizerState = rs;
+
             board.Draw();
+            holeManager.Draw();                        
+            powerupManager.Draw();
+            playerManager.Draw();
+            board.DrawfoldPart();
+
+            if (gamestate == GameState.scored)
+            {
+                spriteBatch.DrawString(font,win + folds.ToString() +" folds!", new Vector2(350, 250), Color.Black);
+            }
 
             //spriteBatch.DrawString(font, "Fold the page, till the ink-stain is in the hole", new Vector2(50, 15), Color.Black);
             //spriteBatch.DrawString(font, "Mouse Left Button - choose, Mouse Right Button - cancel", new Vector2(50, graphics.PreferredBackBufferHeight - 50), Color.Black);

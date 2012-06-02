@@ -2,22 +2,13 @@
 <XnaContent xmlns:Pipeline="Microsoft.Xna.Framework.Content.Pipeline">
   <Asset Type="Pipeline:BuildItemCollection">
     <Item>
-      <Source>ball.png</Source>
-      <Name>ball</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>C:\Users\Tzipi\Desktop\WindowsGame3\WindowsGame3\WindowsGame3\bin\x86\Debug\Content\ball.xnb</Output>
-      <Time>2012-04-09T12:51:32+03:00</Time>
-    </Item>
-    <Item>
       <Source>edged.png</Source>
       <Name>edged</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Tzipi\Desktop\WindowsGame3\WindowsGame3\WindowsGame3\bin\x86\Debug\Content\edged.xnb</Output>
-      <Time>2012-05-18T17:07:09.589819+03:00</Time>
+      <Output>C:\Users\Tzipi\Desktop\FoldIt!\Foldit3D\WindowsGame3\WindowsGame3\bin\x86\Debug\Content\edged.xnb</Output>
+      <Time>2012-05-29T21:28:33.9481608+03:00</Time>
     </Item>
     <Item>
       <Source>empty.png</Source>
@@ -25,8 +16,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Tzipi\Desktop\WindowsGame3\WindowsGame3\WindowsGame3\bin\x86\Debug\Content\empty.xnb</Output>
-      <Time>2012-05-18T17:07:09.5948193+03:00</Time>
+      <Output>C:\Users\Tzipi\Desktop\FoldIt!\Foldit3D\WindowsGame3\WindowsGame3\bin\x86\Debug\Content\empty.xnb</Output>
+      <Time>2012-05-29T21:28:33.9551612+03:00</Time>
     </Item>
     <Item>
       <Source>font.spritefont</Source>
@@ -34,8 +25,8 @@
       <Importer>FontDescriptionImporter</Importer>
       <Processor>FontDescriptionProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Tzipi\Desktop\WindowsGame3\WindowsGame3\WindowsGame3\bin\x86\Debug\Content\font.xnb</Output>
-      <Time>2012-05-18T17:07:09.60682+03:00</Time>
+      <Output>C:\Users\Tzipi\Desktop\FoldIt!\Foldit3D\WindowsGame3\WindowsGame3\bin\x86\Debug\Content\font.xnb</Output>
+      <Time>2012-06-02T18:24:25.1722069+03:00</Time>
     </Item>
     <Item>
       <Source>scoreFont.spritefont</Source>
@@ -43,29 +34,110 @@
       <Importer>FontDescriptionImporter</Importer>
       <Processor>FontDescriptionProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Tzipi\Desktop\WindowsGame3\WindowsGame3\WindowsGame3\bin\x86\Debug\Content\scoreFont.xnb</Output>
-      <Time>2012-05-18T17:07:09.6268212+03:00</Time>
+      <Output>C:\Users\Tzipi\Desktop\FoldIt!\Foldit3D\WindowsGame3\WindowsGame3\bin\x86\Debug\Content\scoreFont.xnb</Output>
+      <Time>2012-05-29T21:28:34.0341657+03:00</Time>
     </Item>
     <Item>
-      <Source>hole.png</Source>
+      <Source>effects.fx</Source>
+      <Name>effects</Name>
+      <Importer>EffectImporter</Importer>
+      <Processor>EffectProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Tzipi\Desktop\FoldIt!\Foldit3D\WindowsGame3\WindowsGame3\bin\x86\Debug\Content\effects.xnb</Output>
+      <Time>2012-05-29T21:28:33.952161+03:00</Time>
+    </Item>
+    <Item>
+      <Source>paper2.jpg</Source>
+      <Name>paper2</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Tzipi\Desktop\FoldIt!\Foldit3D\WindowsGame3\WindowsGame3\bin\x86\Debug\Content\paper2.xnb</Output>
+      <Time>2012-05-31T00:58:06.219635+03:00</Time>
+    </Item>
+    <Item>
+      <Source>paper1.jpg</Source>
+      <Name>paper1</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Tzipi\Desktop\FoldIt!\Foldit3D\WindowsGame3\WindowsGame3\bin\x86\Debug\Content\paper1.xnb</Output>
+      <Time>2012-05-31T00:58:06.1226295+03:00</Time>
+    </Item>
+    <Item>
+      <Source>paper.png</Source>
+      <Name>paper</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Tzipi\Desktop\FoldIt!\Foldit3D\WindowsGame3\WindowsGame3\bin\x86\Debug\Content\paper.xnb</Output>
+      <Time>2012-05-31T00:58:06.0456251+03:00</Time>
+    </Item>
+    <Item>
+      <Source>inkspot.png</Source>
+      <Name>inkspot</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Tzipi\Desktop\FoldIt!\Foldit3D\WindowsGame3\WindowsGame3\bin\x86\Debug\Content\inkspot.xnb</Output>
+      <Time>2012-06-02T19:06:47.3516112+03:00</Time>
+    </Item>
+    <Item>
+      <Source>gumball.png</Source>
+      <Name>gumball</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Tzipi\Desktop\FoldIt!\Foldit3D\WindowsGame3\WindowsGame3\bin\x86\Debug\Content\gumball.xnb</Output>
+      <Time>2012-06-02T18:24:25.2322103+03:00</Time>
+    </Item>
+    <Item>
+      <Source>gummy2.png</Source>
+      <Name>gummy2</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Tzipi\Desktop\FoldIt!\Foldit3D\WindowsGame3\WindowsGame3\bin\x86\Debug\Content\gummy2.xnb</Output>
+      <Time>2012-06-02T19:12:16.0634125+03:00</Time>
+    </Item>
+    <Item>
+      <Source>hole.jpg</Source>
       <Name>hole</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Tzipi\Desktop\WindowsGame3\WindowsGame3\WindowsGame3\bin\x86\Debug\Content\hole.xnb</Output>
-      <Time>2012-05-18T17:07:09.6138204+03:00</Time>
+      <Output>C:\Users\Tzipi\Desktop\FoldIt!\Foldit3D\WindowsGame3\WindowsGame3\bin\x86\Debug\Content\hole.xnb</Output>
+      <Time>2012-06-02T18:24:25.2852133+03:00</Time>
+    </Item>
+    <Item>
+      <Source>hole1.png</Source>
+      <Name>hole1</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Tzipi\Desktop\FoldIt!\Foldit3D\WindowsGame3\WindowsGame3\bin\x86\Debug\Content\hole1.xnb</Output>
+      <Time>2012-06-02T19:13:06.7383109+03:00</Time>
+    </Item>
+    <Item>
+      <Source>hole2.png</Source>
+      <Name>hole2</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Tzipi\Desktop\FoldIt!\Foldit3D\WindowsGame3\WindowsGame3\bin\x86\Debug\Content\hole2.xnb</Output>
+      <Time>2012-06-02T19:24:54.210776+03:00</Time>
     </Item>
     <BuildSuccessful>true</BuildSuccessful>
     <Settings>
       <ContentProjectGUID>{853DACAC-7ABD-4794-8903-58D4697B8538}</ContentProjectGUID>
       <TargetPlatform>Windows</TargetPlatform>
-      <TargetProfile>HiDef</TargetProfile>
+      <TargetProfile>Reach</TargetProfile>
       <BuildConfiguration>Debug</BuildConfiguration>
       <CompressContent>false</CompressContent>
-      <RootDirectory>C:\Users\Tzipi\Desktop\WindowsGame3\WindowsGame3\WindowsGame3Content\</RootDirectory>
-      <LoggerRootDirectory>C:\Users\Tzipi\Desktop\WindowsGame3\WindowsGame3\WindowsGame3\</LoggerRootDirectory>
-      <IntermediateDirectory>C:\Users\Tzipi\Desktop\WindowsGame3\WindowsGame3\WindowsGame3\obj\x86\Debug\</IntermediateDirectory>
-      <OutputDirectory>C:\Users\Tzipi\Desktop\WindowsGame3\WindowsGame3\WindowsGame3\bin\x86\Debug\Content\</OutputDirectory>
+      <RootDirectory>C:\Users\Tzipi\Desktop\FoldIt!\Foldit3D\WindowsGame3\WindowsGame3Content\</RootDirectory>
+      <LoggerRootDirectory>C:\Users\Tzipi\Desktop\FoldIt!\Foldit3D\WindowsGame3\WindowsGame3\</LoggerRootDirectory>
+      <IntermediateDirectory>C:\Users\Tzipi\Desktop\FoldIt!\Foldit3D\WindowsGame3\WindowsGame3\obj\x86\Debug\</IntermediateDirectory>
+      <OutputDirectory>C:\Users\Tzipi\Desktop\FoldIt!\Foldit3D\WindowsGame3\WindowsGame3\bin\x86\Debug\Content\</OutputDirectory>
     </Settings>
     <Assemblies>
       <Assembly>

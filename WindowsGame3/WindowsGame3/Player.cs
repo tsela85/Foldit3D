@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using System.Diagnostics;
 
 namespace Foldit3D
 {
@@ -15,8 +16,6 @@ namespace Foldit3D
         protected Texture2D texture;
         protected float ROTATION_DEGREE = 0.01f;
         protected Vector2 center = Vector2.Zero;
-        protected double radius;
-        protected float angle; //angle between ball and center
         protected float rotAngle;
         protected bool reverse = false;
         protected Color color = Color.White;
@@ -25,10 +24,9 @@ namespace Foldit3D
         protected PlayerManager playerManager;
         protected bool dataWasCalced = false;
         protected VertexPositionTexture[] vertices;
-        //protected Matrix viewMatrix;
-        //protected Matrix projectionMatrix;
-        protected Matrix worldMatrix;
+        protected Matrix worldMatrix = Matrix.Identity;
         protected Effect effect;
+        protected bool isDraw = true;
 
         #region Properties
 
@@ -70,94 +68,57 @@ namespace Foldit3D
 
         #endregion
 
-        public Player(Texture2D texture, int x, int y, PlayerManager pm, Effect effect)
+        public Player(Texture2D texture, List<List<Vector3>> points, PlayerManager pm, Effect effect)
         {
             this.texture = texture;
-            worldPosition.X = x;
-            worldPosition.Y = y;
             frameHeight = texture.Height;
             frameWidth = texture.Width;
             playerManager = pm;
             this.effect = effect;
-            setUpVertices();
+            setUpVertices(points);
         }
 
         #region Update and Draw
         public void Update(GameTime gameTime, GameState state)
         {
-          /*  if (state == GameState.folding && dataWasCalced)
+            HoleManager.checkCollision(this);
+            PowerUpManager.checkCollision(this);
+            if (state != GameState.folding)
             {
-                rotate();
-            }*/
+                moving = true;
+              //  for(int i=0;i<vertices.Length; i++)
+              //      vertices[i].Position = Vector3.Transform(vertices[i].Position, worldMatrix);
+            }
         }
 
-        public void Draw(SpriteBatch spriteBatch)
+        public void Draw()
         {
-            //spriteBatch.Draw(texture, new Rectangle((int)WorldPosition.X, (int)WorldPosition.Y, frameWidth, frameHeight), color);
-            effect.CurrentTechnique = effect.Techniques["TexturedNoShading"];
-            effect.Parameters["xWorld"].SetValue(worldMatrix);
-            effect.Parameters["xView"].SetValue(Game1.camera.View);
-            effect.Parameters["xProjection"].SetValue(Game1.camera.Projection);
-            effect.Parameters["xTexture"].SetValue(texture);
-
-            foreach (EffectPass pass in effect.CurrentTechnique.Passes)
+            if (isDraw)
             {
-                pass.Apply();
+                effect.CurrentTechnique = effect.Techniques["TexturedNoShading"];
+                effect.Parameters["xWorld"].SetValue(worldMatrix);
+                effect.Parameters["xView"].SetValue(Game1.camera.View);
+                effect.Parameters["xProjection"].SetValue(Game1.camera.Projection);
+                effect.Parameters["xTexture"].SetValue(texture);
 
-                Game1.device.DrawUserPrimitives(PrimitiveType.TriangleList, vertices, 0, 2, VertexPositionTexture.VertexDeclaration);
+                foreach (EffectPass pass in effect.CurrentTechnique.Passes)
+                {
+                    pass.Apply();
+
+                    Game1.device.DrawUserPrimitives(PrimitiveType.TriangleList, vertices, 0, 2, VertexPositionTexture.VertexDeclaration);
+                }
             }
         }
 
         #endregion Update and Draw
 
         #region Fold
-        public void foldData(Vector3 axis, Vector3 point)
-        {
-            if (rotAngle < 180)
-            {
-                worldMatrix = Matrix.Identity;
-                worldMatrix *= Matrix.CreateTranslation(-point);
-                worldMatrix *= Matrix.CreateFromAxisAngle(axis, angle);
-                worldMatrix *= Matrix.CreateTranslation(point);
-                rotAngle += ROTATION_DEGREE;
-            }
-        }
 
-        public void foldOver()
-        {
-            rotAngle = 0;
-            reverse = false;
-            center = Vector2.Zero;
-            dataWasCalced = false;
-            HoleManager.checkCollision(this);
-            PowerUpManager.checkCollision(this);
-        }
 
-        public void calcBeforeFolding(Vector2 loc1, Vector2 loc2)
-        {
-            double m1 = (((double)(loc2.Y)) - loc1.Y) / (loc2.X - loc1.X);
-            double m2 = (-1) / m1;
-            double pointX = ((-m2 * worldPosition.X) + worldPosition.Y + (m1 * loc1.X) - loc1.Y) / (m1 - m2);
-            double pointY = m1 * pointX + (-loc1.X * m1) + loc1.Y;
-            double test = m2 * pointX + (-worldPosition.X * m2) + worldPosition.Y;
-            center = new Vector2((int)pointX, (int)pointY);
-            radius = Math.Sqrt(Math.Pow((center.X - worldPosition.X), 2) + Math.Pow((center.Y - worldPosition.Y), 2));
-            angle = (float)Math.Atan((center.Y - worldPosition.Y) / (center.X - worldPosition.X));
-            dataWasCalced = true;
-        }
         #region Virtual Methods
 
-        protected virtual void rotate() { }
+        public virtual void foldData(Vector3 axis, Vector3 point, float a,bool beforeFold,bool afterFold) { }
 
-        protected virtual void reverseRotation()
-        {
-            if (rotAngle > 0)
-            {
-                rotAngle -= ROTATION_DEGREE;
-                worldPosition.X = (int)(center.X - radius * Math.Cos(rotAngle + angle));
-                worldPosition.Y = (int)(center.Y - radius * Math.Sin(rotAngle + angle));
-            }
-        }
         #endregion
 
         #endregion
@@ -166,15 +127,29 @@ namespace Foldit3D
 
         //factor - by how much to inlarge (or to make smaller) the player
         //for example:  factor = 2 means that the player will be twice as big, factor = 0.5 half of the size 
-        public void changeSize(double factor)
+        public void changeSize()
         {
-            frameHeight = (int)(frameHeight * factor);
-            frameWidth = (int)(frameWidth * factor);
+            vertices[0].Position.X += -3;
+            //vertices[0].Position.Z += 3;
+            vertices[1].Position.X += 3;
+            //vertices[1].Position.Z += -3;
+            vertices[2].Position.X += -3;
+            //vertices[2].Position.Z += -3;
+            vertices[3].Position.X += 3;
+            //vertices[3].Position.Z += -3;
+            vertices[4].Position.X += -3;
+            //vertices[4].Position.Z += 3;
+            vertices[5].Position.X += 3;
+            //vertices[5].Position.Z += 3;
+
         }
 
-        public void changePos(int newX, int newY){
-            worldPosition.X = newX;
-            worldPosition.Y = newY;
+        public void changePos(int random){
+            for (int i = 0; i < 6; i++)
+            {
+                vertices[i].Position.X -= random;
+                vertices[i].Position.Z += random;
+            }
         }
 
         //!!!! i think that posx and posy need to be the postion of the powerup that the player took
@@ -186,33 +161,34 @@ namespace Foldit3D
         #endregion
 
         #region 3D 
-        private void setUpVertices()
+        private void setUpVertices(List<List<Vector3>> points)
         {
             vertices = new VertexPositionTexture[6];
 
-            vertices[0].Position = new Vector3(-10.5f, 0f, -9.5f);
-            vertices[0].TextureCoordinate.X = 0;
-            vertices[0].TextureCoordinate.Y = 0;
+            for (int i = 0; i < 6; i++)
+            {
+                vertices[i].Position = points.ElementAt(i).ElementAt(0);
+                vertices[i].TextureCoordinate.X = points.ElementAt(i).ElementAt(1).X;
+                vertices[i].TextureCoordinate.Y = points.ElementAt(i).ElementAt(1).Y;
+            }
 
-            vertices[1].Position = new Vector3(-9.5f, 0f, -10.5f);
-            vertices[1].TextureCoordinate.X = 1;
-            vertices[1].TextureCoordinate.Y = 1;
+        }
 
-            vertices[2].Position = new Vector3(-10.5f, 0f, -10.5f);
-            vertices[2].TextureCoordinate.X = 0;
-            vertices[2].TextureCoordinate.Y = 1;
+        public BoundingBox getBox()
+        {
+            Vector3[] p = new Vector3[2];
+            p[0] = vertices[2].Position;
+            p[1] = vertices[5].Position;
+            p[0].Y = 0;
+            p[1].Y = 0;
+            return BoundingBox.CreateFromPoints(p);
+        }
 
-            vertices[3].Position = new Vector3(-9.5f, 0f, -10.5f);
-            vertices[3].TextureCoordinate.X = 1;
-            vertices[3].TextureCoordinate.Y = 1;
-
-            vertices[4].Position = new Vector3(-10.5f, 0f, -9.5f);
-            vertices[4].TextureCoordinate.X = 0;
-            vertices[4].TextureCoordinate.Y = 0;
-
-            vertices[5].Position = new Vector3(-9.5f, 0f, -9.5f);
-            vertices[5].TextureCoordinate.X = 1;
-            vertices[5].TextureCoordinate.Y = 0;
+        public Vector3 getCenter()
+        {
+            float x = (vertices[2].Position.X + vertices[5].Position.X) / 2;
+            float z = (vertices[2].Position.Z + vertices[5].Position.Z) / 2;
+            return new Vector3(x, 0, z);
         }
         #endregion
     }
