@@ -107,15 +107,6 @@ namespace Foldit3D
                     p.foldData(vec, point, angle, b.PointInBeforeFold(p.getCenter()), b.PointInAfterFold(p.getCenter()));
             }
         }
-
-     /*   public void foldDataAfter(Vector3 vec, Vector3 point, float angle, Board b)
-        {
-            foreach (Player p in players)
-            {
-                if (b.PointInAfterFold(p.getCenter())) { }
-                    p.foldData(vec, point, angle);
-            }
-        }*/
         #endregion
 
     }

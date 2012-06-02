@@ -12,6 +12,7 @@ namespace Foldit3D
     {
         protected bool enabled;
         protected bool moving = true;
+        protected bool foldBack = false;
         protected Vector2 worldPosition;
         protected Texture2D texture;
         protected float ROTATION_DEGREE = 0.01f;
@@ -86,6 +87,7 @@ namespace Foldit3D
             if (state != GameState.folding)
             {
                 moving = true;
+                foldBack = false;
               //  for(int i=0;i<vertices.Length; i++)
               //      vertices[i].Position = Vector3.Transform(vertices[i].Position, worldMatrix);
             }

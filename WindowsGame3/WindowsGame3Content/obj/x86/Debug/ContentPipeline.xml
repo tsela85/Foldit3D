@@ -2,15 +2,6 @@
 <XnaContent xmlns:Pipeline="Microsoft.Xna.Framework.Content.Pipeline">
   <Asset Type="Pipeline:BuildItemCollection">
     <Item>
-      <Source>ball.png</Source>
-      <Name>ball</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>C:\Users\Dina\Documents\Visual Studio 2010\Projects\FoldIt 3D\Foldit3D\WindowsGame3\WindowsGame3\bin\x86\Debug\Content\ball.xnb</Output>
-      <Time>2012-06-02T18:29:44.2788657+03:00</Time>
-    </Item>
-    <Item>
       <Source>edged.png</Source>
       <Name>edged</Name>
       <Importer>TextureImporter</Importer>
@@ -35,7 +26,7 @@
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\Dina\Documents\Visual Studio 2010\Projects\FoldIt 3D\Foldit3D\WindowsGame3\WindowsGame3\bin\x86\Debug\Content\hole2.xnb</Output>
-      <Time>2012-06-02T18:31:28.8578473+03:00</Time>
+      <Time>2012-06-02T19:31:38.6451665+03:00</Time>
     </Item>
     <Item>
       <Source>paper2.jpg</Source>
@@ -71,7 +62,7 @@
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\Dina\Documents\Visual Studio 2010\Projects\FoldIt 3D\Foldit3D\WindowsGame3\WindowsGame3\bin\x86\Debug\Content\inkspot.xnb</Output>
-      <Time>2012-06-02T18:31:28.8588473+03:00</Time>
+      <Time>2012-06-02T19:31:38.6451665+03:00</Time>
     </Item>
     <Item>
       <Source>gumball.png</Source>
@@ -83,22 +74,13 @@
       <Time>2012-06-02T18:31:28.853847+03:00</Time>
     </Item>
     <Item>
-      <Source>inkspot2.png</Source>
-      <Name>inkspot2</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>C:\Users\Dina\Documents\Visual Studio 2010\Projects\FoldIt 3D\Foldit3D\WindowsGame3\WindowsGame3\bin\x86\Debug\Content\inkspot2.xnb</Output>
-      <Time>2012-06-02T18:31:28.8608474+03:00</Time>
-    </Item>
-    <Item>
       <Source>gummy2.png</Source>
       <Name>gummy2</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\Dina\Documents\Visual Studio 2010\Projects\FoldIt 3D\Foldit3D\WindowsGame3\WindowsGame3\bin\x86\Debug\Content\gummy2.xnb</Output>
-      <Time>2012-06-02T18:31:28.8558472+03:00</Time>
+      <Time>2012-06-02T19:31:38.6451665+03:00</Time>
     </Item>
     <Item>
       <Source>hole.jpg</Source>
@@ -117,15 +99,6 @@
       <Options>None</Options>
       <Output>C:\Users\Dina\Documents\Visual Studio 2010\Projects\FoldIt 3D\Foldit3D\WindowsGame3\WindowsGame3\bin\x86\Debug\Content\hole1.xnb</Output>
       <Time>2012-06-02T18:31:28.8568472+03:00</Time>
-    </Item>
-    <Item>
-      <Source>inkspot1.png</Source>
-      <Name>inkspot1</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>C:\Users\Dina\Documents\Visual Studio 2010\Projects\FoldIt 3D\Foldit3D\WindowsGame3\WindowsGame3\bin\x86\Debug\Content\inkspot1.xnb</Output>
-      <Time>2012-06-02T18:31:28.8598474+03:00</Time>
     </Item>
     <Item>
       <Source>font.spritefont</Source>
