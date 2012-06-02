@@ -114,7 +114,10 @@ namespace Foldit3D
                 else isDraw = true;
                 worldMatrix = Matrix.Identity;
                 worldMatrix *= Matrix.CreateTranslation(-point);
+                // if right or up
                 worldMatrix *= Matrix.CreateFromAxisAngle(new Vector3(Math.Abs(axis.X), axis.Y, -1 * Math.Abs(axis.Z)), -a);
+                // if left or down
+                // worldMatrix *= Matrix.CreateFromAxisAngle(new Vector3(-1 * Math.Abs(axis.X), axis.Y, Math.Abs(axis.Z)), -a);
                 worldMatrix *= Matrix.CreateTranslation(point);
             }
             

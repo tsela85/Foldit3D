@@ -108,10 +108,13 @@ namespace Foldit3D
 
         #region fold
 
+
         public void foldData(Vector3 axis, Vector3 point, float a)
         {
             float angle = MathHelper.ToDegrees(a);
             drawInFold = true;
+            Vector3 center = getCenter();
+            float test = MathHelper.ToDegrees((float)Math.Atan2(axis.X - getCenter().X, axis.Z - getCenter().Z));
 
             //  if (angle > -167 && angle < 0 && moving)
             if ((a > -MathHelper.Pi + Game1.closeRate) && (moving))
@@ -120,8 +123,11 @@ namespace Foldit3D
                 else isDraw = true;
                 worldMatrix = Matrix.Identity;
                 worldMatrix *= Matrix.CreateTranslation(-point);
-               // worldMatrix *= Matrix.CreateFromAxisAngle(axis, -a);
-                worldMatrix *= Matrix.CreateFromAxisAngle(new Vector3(Math.Abs(axis.X), axis.Y, -1 * Math.Abs(axis.Z)), -a);
+                // worldMatrix *= Matrix.CreateFromAxisAngle(axis, -a);
+                // if right or up
+                //worldMatrix *= Matrix.CreateFromAxisAngle(new Vector3(Math.Abs(axis.X), axis.Y, -1 * Math.Abs(axis.Z)), -a);
+                // if left or down
+                worldMatrix *= Matrix.CreateFromAxisAngle(new Vector3(-1 * Math.Abs(axis.X), axis.Y, Math.Abs(axis.Z)), -a);
                 worldMatrix *= Matrix.CreateTranslation(point);
             }
           /*  else if (moving)
