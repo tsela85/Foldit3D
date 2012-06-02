@@ -48,6 +48,16 @@ namespace Foldit3D
         #endregion
 
         #region Draw
+        public void setDrawInFold()
+        {
+            foreach (PowerUp p in powerups)
+                p.setDrawInFold();
+        }
+        public void DrawInFold()
+        {
+            foreach (PowerUp p in powerups)
+                p.DrawInFold();
+        }
         public void Draw()
         {
             foreach (PowerUp p in powerups)

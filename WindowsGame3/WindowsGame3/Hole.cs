@@ -20,6 +20,9 @@ namespace Foldit3D
         bool moving = true;
         bool isDraw = true;
 
+        bool drawInFold = false;
+
+
         Texture2D texture;
         Vector2 worldPosition;
         Rectangle worldRectangle;
@@ -53,6 +56,15 @@ namespace Foldit3D
         #endregion
 
         #region Draw
+        public void setDrawInFold()
+        {
+            drawInFold = false;
+        }
+        public void DrawInFold()
+        {
+            if (drawInFold)
+                Draw();
+        }
         public void Draw()
         {
             if (isDraw)
@@ -93,6 +105,7 @@ namespace Foldit3D
         public void foldData(Vector3 axis, Vector3 point, float a)
         {
             float angle = MathHelper.ToDegrees(a);
+            drawInFold = true;
 
             //  if (angle > -167 && angle < 0 && moving)
             if ((a > -MathHelper.Pi + Game1.closeRate) && (moving))

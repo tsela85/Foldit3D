@@ -89,16 +89,19 @@ namespace Foldit3D
                 if (Keyboard.GetState().IsKeyDown(Keys.R))
                 {
                     folds = 0;
+                    loadCurrLevel();
+
                 }
                 if (gamestate == GameState.folding)
                 {
                     Vector3 v = board.getAxis();
                     Vector3 p = board.getAxisPoint();
                     float a = board.getAngle();
-                   // if (boardstate == Board.BoardState.folding1)
-                        playerManager.foldData(v, p, a, board);
-                  //  if (boardstate == Board.BoardState.folding2)
-                  //      playerManager.foldDataAfter(v, p, a, board);
+                    // if (boardstate == Board.BoardState.folding1)
+                    playerManager.foldData(v, p, a, board);
+                    //  if (boardstate == Board.BoardState.folding2)
+                    //      playerManager.foldDataAfter(v, p, a, board);
+
                     holeManager.foldData(v, p, a, board);
                     powerupManager.foldData(v, p, a, board);
                     if (first == 1)
@@ -107,7 +110,13 @@ namespace Foldit3D
                         first = 0;
                     }
                 }
-                else first = 1;
+                else
+                {
+                    first = 1;
+                    powerupManager.setDrawInFold();
+                    holeManager.setDrawInFold();
+                }
+
             }
             if ((gamestate == GameState.scored) && (Mouse.GetState().LeftButton == ButtonState.Pressed))
             {
@@ -125,7 +134,13 @@ namespace Foldit3D
         {
             Game1.device.Clear(ClearOptions.Target | ClearOptions.DepthBuffer, Color.DarkSlateBlue, 1.0f, 0);
             RasterizerState rs = new RasterizerState();
+<<<<<<< HEAD
             //rs.CullMode = CullMode.None;
+=======
+
+            rs.CullMode = CullMode.None;
+
+>>>>>>> tzipi
 
           //  rs.FillMode = FillMode.WireFrame;            
             Game1.device.RasterizerState = rs;
@@ -134,9 +149,12 @@ namespace Foldit3D
             Game1.device.RasterizerState = rs;
 
             board.Draw();
-            holeManager.Draw();
+            holeManager.Draw();                        
             powerupManager.Draw();
             playerManager.Draw();
+            board.DrawfoldPart();
+            holeManager.DrawInFold();
+            powerupManager.DrawInFold();
 
             if (gamestate == GameState.scored)
             {
