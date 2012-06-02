@@ -48,6 +48,7 @@ namespace Foldit3D
         #endregion
 
         #region Draw
+<<<<<<< HEAD
         public void setDrawInFold()
         {
             foreach (PowerUp p in powerups)
@@ -69,6 +70,19 @@ namespace Foldit3D
         public void Update(GameState state)
         {
             foreach (PowerUp p in powerups)
+=======
+        public void Draw()
+        {
+            foreach (PowerUp p in powerups)
+                p.Draw();
+        }
+        #endregion
+
+        #region Update
+        public void Update(GameState state)
+        {
+            foreach (PowerUp p in powerups)
+>>>>>>> tom
                 p.Update(state);
         }
         #endregion

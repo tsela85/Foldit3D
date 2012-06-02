@@ -48,6 +48,7 @@ namespace Foldit3D
         #endregion
 
         #region Draw
+<<<<<<< HEAD
         public void setDrawInFold()
         {
             foreach (Hole h in holes)
@@ -58,6 +59,8 @@ namespace Foldit3D
             foreach (Hole h in holes)
                 h.DrawInFold();
         }
+=======
+>>>>>>> tom
         public void Draw()
         {
             foreach (Hole hole in holes)
