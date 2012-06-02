@@ -27,7 +27,7 @@ namespace Foldit3D
         private Texture2D texture;
         private Vector3 pointOnEdge;
         private DividingVert[] p;        
-        private VertexPositionTexture[] ver;
+        private VertexPositionColor[] verOnEdge;
         public Board one, two;
         private float angle = 0;
         private Vector3 center;
@@ -104,8 +104,8 @@ namespace Foldit3D
             vertices = new VertexPositionNormalTexture[vNum];
             //lineList = new List<VertexPositionColor>();
             lineList = new VertexPositionColor[2];
-            lineList[0].Color = Color.Green;
-            lineList[1].Color = Color.Green;
+            lineList[0].Color = Color.Orange;
+            lineList[1].Color = Color.Orange;
             lineIndices = new List<short>();
             camera = Game1.camera;
             device = Game1.device;
@@ -130,7 +130,10 @@ namespace Foldit3D
                 invertIndices[iCount - (i + 1) - 2] = indices[i + 2] = (short)(((j != 4 ? j : 5) + 2) % vNum);
                 j += 2;
             }
-            ver = new VertexPositionTexture[3];
+            verOnEdge = new VertexPositionColor[3];
+            verOnEdge[0].Color = Color.Black;
+            verOnEdge[1].Color = Color.Black;
+            verOnEdge[2].Color = Color.Black;
             p = new DividingVert[2];
 
         }
@@ -185,25 +188,26 @@ namespace Foldit3D
                             vertices.Length, indices, 0, indices.Length / 3, VertexPositionNormalTexture.VertexDeclaration);
                         //invert board
                         device.DrawUserIndexedPrimitives(PrimitiveType.TriangleList, vertices, 0,
-                           vertices.Length, invertIndices, 0, indices.Length / 3, VertexPositionNormalTexture.VertexDeclaration);
-
-                        device.DrawUserPrimitives(PrimitiveType.TriangleList, ver, 0, 1, VertexPositionNormalTexture.VertexDeclaration);
-
+                           vertices.Length, invertIndices, 0, indices.Length / 3, VertexPositionNormalTexture.VertexDeclaration);                        
                     }
-                    if ((state == BoardState.chooseEdge2) || (state == BoardState.onEdge2))
+                    effect.CurrentTechnique = effect.Techniques["ColoredNoShading"];
+                    effect.Parameters["xWorld"].SetValue(worldMatrix);
+                    effect.Parameters["xView"].SetValue(camera.View);
+                    effect.Parameters["xProjection"].SetValue(camera.Projection);
+                    foreach (EffectPass pass in effect.CurrentTechnique.Passes)
                     {
-                        effect.CurrentTechnique = effect.Techniques["ColoredNoShading"];
-                        effect.Parameters["xWorld"].SetValue(worldMatrix);
-                        effect.Parameters["xView"].SetValue(camera.View);
-                        effect.Parameters["xProjection"].SetValue(camera.Projection);
-                        foreach (EffectPass pass in effect.CurrentTechnique.Passes)
+                        pass.Apply();
+                        //Draw line
+                        if ((state == BoardState.chooseEdge2) || (state == BoardState.onEdge2))
                         {
-                            pass.Apply();
                             device.DrawUserIndexedPrimitives<VertexPositionColor>(PrimitiveType.LineList,
                             lineList, 0, 2, new short[2] {0,1}, 0
                             , 1, VertexPositionColor.VertexDeclaration);
                         }
-
+                        if ((state == BoardState.onEdge1) || (state == BoardState.onEdge2))
+                        {
+                            device.DrawUserPrimitives(PrimitiveType.TriangleList, verOnEdge, 0, 1,        VertexPositionColor.VertexDeclaration);
+                        }                                                    
                     }
                 }
         }
@@ -227,12 +231,9 @@ namespace Foldit3D
             if (minVert.distance < 2f)
             {
                 pointOnEdge = minVert.position;
-                ver[0].Position = new Vector3(pointOnEdge.X - 0.5f, 0, pointOnEdge.Z - 0.5f);
-                ver[0].TextureCoordinate = Vector2.Zero;
-                ver[1].Position = new Vector3(pointOnEdge.X, 0f, pointOnEdge.Z + 0.5f);
-                ver[1].TextureCoordinate = Vector2.Zero;
-                ver[2].Position = new Vector3(pointOnEdge.X + 0.5f, 0f, pointOnEdge.Z - 0.5f);
-                ver[2].TextureCoordinate = Vector2.Zero;
+                verOnEdge[0].Position = new Vector3(pointOnEdge.X - 0.3f, 0, pointOnEdge.Z - 0.3f);                
+                verOnEdge[1].Position = new Vector3(pointOnEdge.X, 0f, pointOnEdge.Z + 0.3f);                
+                verOnEdge[2].Position = new Vector3(pointOnEdge.X + 0.3f, 0f, pointOnEdge.Z - 0.3f);                
                 if ((state == BoardState.chooseEdge1) || (state == BoardState.onEdge1))
                     p[0] = minVert;
                 else
@@ -399,7 +400,7 @@ namespace Foldit3D
             for (int i = 0; i < one.vertNum; i++)
                 folded[i] = Vector3.Transform(one.vertices[i].Position, foldMatrix);                        
             
-            for (int i = 0; i < one.indices.Length / 3; i += 3)
+            for (int i = 0; i < one.indices.Length; i += 3)
             {
                 Vector2 a = new Vector2(folded[one.indices[i]].X ,folded[one.indices[i]].Z);
                 Vector2 b = new Vector2(folded[one.indices[i + 1]].X, folded[one.indices[i + 1]].Z);
@@ -410,6 +411,24 @@ namespace Foldit3D
             }
             return false;
         }
+
+        public bool PointInBoard(Vector3 p)
+        {
+            for (int i = 0; i < two.indices.Length; i += 3)
+            {
+                Vector2 a = new Vector2(two.vertices[two.indices[i + 2]].Position.X,
+                    two.vertices[two.indices[i + 2]].Position.Z);
+                Vector2 b = new Vector2(two.vertices[two.indices[i + 1]].Position.X,
+                    two.vertices[two.indices[i + 1]].Position.Z);
+                Vector2 c = new Vector2(two.vertices[two.indices[i]].Position.X,
+                    two.vertices[two.indices[i]].Position.Z);
+                Vector2 point = new Vector2(p.X, p.Z);
+                if (PointInTriangle(point, a, b, c))
+                    return true;
+            }
+            return false;
+        }
+
         #endregion
 
         #region Divide Shape
@@ -519,10 +538,11 @@ namespace Foldit3D
         public BoardState update()
         {
             Vector3 mouse = GetPickedPosition(
-                new Vector2((float)input.MouseHandler.MouseState.X, (float)input.MouseHandler.MouseState.Y));
-            lineList[1].Position = mouse;
+                new Vector2((float)input.MouseHandler.MouseState.X, (float)input.MouseHandler.MouseState.Y));            
             bool onEdge = collideWithEdge(mouse);
-            lineList[1].Color = Color.Black;
+            lineList[1].Position = mouse;
+            lineList[0].Color = Color.OrangeRed;
+            lineList[1].Color = Color.OrangeRed;
             if ((state == BoardState.chooseEdge1) && (onEdge))
             {               
                     if (input.MouseHandler.WasLeftButtonClicked())
@@ -561,7 +581,8 @@ namespace Foldit3D
             if ((state == BoardState.onEdge2))
             {
                 lineList[1].Position = p[1].position;
-                lineList[1].Color = Color.Red;
+                lineList[0].Color = Color.Green;
+                lineList[1].Color = Color.Green;
                 if (onEdge)
                     {
                         if (input.MouseHandler.WasLeftButtonClicked())
