@@ -86,8 +86,8 @@ namespace Foldit3D
             if (state != GameState.folding)
             {
                 moving = true;
-                for(int i=0;i<vertices.Length; i++)
-                    vertices[i].Position = Vector3.Transform(vertices[i].Position, worldMatrix);
+              //  for(int i=0;i<vertices.Length; i++)
+              //      vertices[i].Position = Vector3.Transform(vertices[i].Position, worldMatrix);
             }
         }
 
@@ -114,19 +114,10 @@ namespace Foldit3D
 
         #region Fold
 
-       /* public void foldOver()
-        {
-            rotAngle = 0;
-            reverse = false;
-            center = Vector2.Zero;
-            dataWasCalced = false;
-            HoleManager.checkCollision(this);
-            PowerUpManager.checkCollision(this);
-        }*/
 
         #region Virtual Methods
 
-        public virtual void foldData(Vector3 axis, Vector3 point, float a) { }
+        public virtual void foldData(Vector3 axis, Vector3 point, float a,bool beforeFold,bool afterFold) { }
 
         #endregion
 
@@ -193,8 +184,9 @@ namespace Foldit3D
 
         public Vector3 getCenter()
         {
-            float xz = (vertices[0].Position.X + vertices[0].Position.Z) / 2;
-            return new Vector3(xz, 0, xz);
+            float x = (vertices[2].Position.X + vertices[5].Position.X) / 2;
+            float z = (vertices[2].Position.Z + vertices[5].Position.Z) / 2;
+            return new Vector3(x, 0, z);
         }
         #endregion
     }

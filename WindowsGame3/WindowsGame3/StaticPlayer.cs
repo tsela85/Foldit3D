@@ -14,7 +14,7 @@ namespace Foldit3D
 
         #region fold
 
-        public override void foldData(Vector3 axis, Vector3 point, float a)
+       /* public override void foldData(Vector3 axis, Vector3 point, float a)
         {
             worldMatrix = Matrix.Identity;
             float angle = MathHelper.ToDegrees(a);
@@ -24,7 +24,7 @@ namespace Foldit3D
                 worldMatrix *= Matrix.CreateFromAxisAngle(axis, -a);
                 worldMatrix *= Matrix.CreateTranslation(point);
             }
-        }
+        }*/
 
         #endregion
     }
