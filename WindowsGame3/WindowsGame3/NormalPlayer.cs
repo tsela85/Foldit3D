@@ -10,7 +10,12 @@ namespace Foldit3D
 {
     class NormalPlayer : Player
     {
+        private float lastAngle = 0;
         
+        private bool needToStop = false;
+        private bool dataSet = false;
+        private bool before = false;
+        private bool after = false;
         public NormalPlayer(Texture2D texture, List<List<Vector3>> points, PlayerManager pm, Effect effect) : base(texture, points, pm, effect) { }
 
         #region fold
@@ -18,45 +23,84 @@ namespace Foldit3D
         public override void foldData(Vector3 axis, Vector3 point, float a,bool beforeFold,bool afterFold)
         {
             float angle = MathHelper.ToDegrees(a);
-            if (beforeFold)
-            {
 
-                if ((a > -MathHelper.Pi + Game1.closeRate) && (moving))
+            if (!dataSet)
+            {
+                dataSet = true;
+                before = beforeFold;
+                after = afterFold;
+            }
+
+            if (before && moving)
+            {
+                if (a > -MathHelper.Pi + Game1.closeRate)
                 {
-                    if (angle < -90) isDraw = false;
                     worldMatrix = Matrix.Identity;
                     worldMatrix *= Matrix.CreateTranslation(-point);
                     worldMatrix *= Matrix.CreateFromAxisAngle(axis, -a);
                     worldMatrix *= Matrix.CreateTranslation(point);
                 }
-                else if (moving)
-                {
-                    isDraw = true;
+                else if(a<-MathHelper.Pi+Game1.closeRate){
+                    moving = false;
+                    worldMatrix = Matrix.Identity;
+                    worldMatrix *= Matrix.CreateTranslation(-point);
+                    worldMatrix *= Matrix.CreateFromAxisAngle(axis, MathHelper.Pi);
+                    worldMatrix *= Matrix.CreateTranslation(point);
                     for (int i = 0; i < vertices.Length; i++)
+                    {
+                        vertices[i].Position = Vector3.Transform(vertices[i].Position, worldMatrix);
+                    }
+                    switchPoints();
+                    worldMatrix = Matrix.Identity;
+                    needToStop = true;
+                }
+            }
+            else if (after)
+            {
+                if(!foldBack &&lastAngle!=0 &&  (lastAngle<angle)){
+                    foldBack = true;
+                    switchPoints();
+                }
+                else if (foldBack)
+                {
+
+                    if (a > -Game1.openRate)
+                    {
+                         worldMatrix = Matrix.Identity;
+                         worldMatrix *= Matrix.CreateTranslation(-point);
+                         worldMatrix *= Matrix.CreateFromAxisAngle(axis, a + MathHelper.Pi);
+                         worldMatrix *= Matrix.CreateTranslation(point);
+                         //switchPoints();
+                        for (int i = 0; i < vertices.Length; i++)
+                        {
+                           // vertices[i].Position = Vector3.Transform(vertices[i].Position, worldMatrix);
+                        }
+                        //switchPoints();
+                    }
+                    else
                     {
                         worldMatrix = Matrix.Identity;
                         worldMatrix *= Matrix.CreateTranslation(-point);
-                        worldMatrix *= Matrix.CreateFromAxisAngle(axis, MathHelper.Pi);
+                        worldMatrix *= Matrix.CreateFromAxisAngle(-axis, a + MathHelper.Pi);
                         worldMatrix *= Matrix.CreateTranslation(point);
-                        vertices[i].Position = Vector3.Transform(vertices[i].Position, worldMatrix);
-
                     }
-                    for (int j = 0; j < Math.Floor((double)vertices.Length / 2); j++)
-                    {
-                        VertexPositionTexture temp = new VertexPositionTexture();
-                        temp = vertices[j];
-                        vertices[j] = vertices[vertices.Length - j - 1];
-                        vertices[vertices.Length - j - 1] = temp;
-                    }
-                    worldMatrix = Matrix.Identity;
-                    moving = false;
                 }
 
-
+                lastAngle = angle;
+      
             }
-           
+        }
 
-            
+
+        private void switchPoints()
+        {
+            for (int j = 0; j < Math.Floor((double)vertices.Length / 2); j++)
+            {
+                VertexPositionTexture temp = new VertexPositionTexture();
+                temp = vertices[j];
+                vertices[j] = vertices[vertices.Length - j - 1];
+                vertices[vertices.Length - j - 1] = temp;
+            }
         }
 
         #endregion
