@@ -18,10 +18,10 @@ namespace Foldit3D
         {
             worldMatrix = Matrix.Identity;
             float angle = MathHelper.ToDegrees(a);
-            if (angle < 167 && angle >= 0 )
+            if (a > -MathHelper.Pi + Game1.closeRate)
             {
                 worldMatrix *= Matrix.CreateTranslation(-point);
-                worldMatrix *= Matrix.CreateFromAxisAngle(axis, a);
+                worldMatrix *= Matrix.CreateFromAxisAngle(axis, -a);
                 worldMatrix *= Matrix.CreateTranslation(point);
             }
         }

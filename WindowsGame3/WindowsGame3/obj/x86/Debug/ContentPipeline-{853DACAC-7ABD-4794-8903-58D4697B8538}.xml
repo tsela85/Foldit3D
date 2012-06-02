@@ -29,31 +29,13 @@
       <Time>2012-05-29T21:28:33.9551612+03:00</Time>
     </Item>
     <Item>
-      <Source>hole.png</Source>
-      <Name>hole</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>C:\Users\Tzipi\Desktop\FoldIt!\Foldit3D\WindowsGame3\WindowsGame3\bin\x86\Debug\Content\hole.xnb</Output>
-      <Time>2012-05-29T23:49:52.0390798+03:00</Time>
-    </Item>
-    <Item>
-      <Source>paper3.jpg</Source>
-      <Name>paper3</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>C:\Users\Tzipi\Desktop\FoldIt!\Foldit3D\WindowsGame3\WindowsGame3\bin\x86\Debug\Content\paper3.xnb</Output>
-      <Time>2012-05-29T21:28:34.0301655+03:00</Time>
-    </Item>
-    <Item>
       <Source>font.spritefont</Source>
       <Name>font</Name>
       <Importer>FontDescriptionImporter</Importer>
       <Processor>FontDescriptionProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\Tzipi\Desktop\FoldIt!\Foldit3D\WindowsGame3\WindowsGame3\bin\x86\Debug\Content\font.xnb</Output>
-      <Time>2012-05-29T21:28:33.9571613+03:00</Time>
+      <Time>2012-05-31T16:09:57.0737474+03:00</Time>
     </Item>
     <Item>
       <Source>scoreFont.spritefont</Source>
@@ -72,6 +54,114 @@
       <Options>None</Options>
       <Output>C:\Users\Tzipi\Desktop\FoldIt!\Foldit3D\WindowsGame3\WindowsGame3\bin\x86\Debug\Content\effects.xnb</Output>
       <Time>2012-05-29T21:28:33.952161+03:00</Time>
+    </Item>
+    <Item>
+      <Source>paper2.jpg</Source>
+      <Name>paper2</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Tzipi\Desktop\FoldIt!\Foldit3D\WindowsGame3\WindowsGame3\bin\x86\Debug\Content\paper2.xnb</Output>
+      <Time>2012-05-31T00:58:06.219635+03:00</Time>
+    </Item>
+    <Item>
+      <Source>paper1.jpg</Source>
+      <Name>paper1</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Tzipi\Desktop\FoldIt!\Foldit3D\WindowsGame3\WindowsGame3\bin\x86\Debug\Content\paper1.xnb</Output>
+      <Time>2012-05-31T00:58:06.1226295+03:00</Time>
+    </Item>
+    <Item>
+      <Source>paper.png</Source>
+      <Name>paper</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Tzipi\Desktop\FoldIt!\Foldit3D\WindowsGame3\WindowsGame3\bin\x86\Debug\Content\paper.xnb</Output>
+      <Time>2012-05-31T00:58:06.0456251+03:00</Time>
+    </Item>
+    <Item>
+      <Source>inkspot.png</Source>
+      <Name>inkspot</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Tzipi\Desktop\FoldIt!\Foldit3D\WindowsGame3\WindowsGame3\bin\x86\Debug\Content\inkspot.xnb</Output>
+      <Time>2012-05-31T00:58:05.9136175+03:00</Time>
+    </Item>
+    <Item>
+      <Source>gumball.png</Source>
+      <Name>gumball</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Tzipi\Desktop\FoldIt!\Foldit3D\WindowsGame3\WindowsGame3\bin\x86\Debug\Content\gumball.xnb</Output>
+      <Time>2012-05-31T00:58:56.9065342+03:00</Time>
+    </Item>
+    <Item>
+      <Source>gummy.png</Source>
+      <Name>gummy</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Tzipi\Desktop\FoldIt!\Foldit3D\WindowsGame3\WindowsGame3\bin\x86\Debug\Content\gummy.xnb</Output>
+      <Time>2012-05-31T01:01:40.7259041+03:00</Time>
+    </Item>
+    <Item>
+      <Source>inkspot2.png</Source>
+      <Name>inkspot2</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Tzipi\Desktop\FoldIt!\Foldit3D\WindowsGame3\WindowsGame3\bin\x86\Debug\Content\inkspot2.xnb</Output>
+      <Time>2012-05-31T10:58:05.3354972+03:00</Time>
+    </Item>
+    <Item>
+      <Source>gummy2.png</Source>
+      <Name>gummy2</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Tzipi\Desktop\FoldIt!\Foldit3D\WindowsGame3\WindowsGame3\bin\x86\Debug\Content\gummy2.xnb</Output>
+      <Time>2012-05-31T11:02:35.4459466+03:00</Time>
+    </Item>
+    <Item>
+      <Source>hole2.png</Source>
+      <Name>hole2</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Tzipi\Desktop\FoldIt!\Foldit3D\WindowsGame3\WindowsGame3\bin\x86\Debug\Content\hole2.xnb</Output>
+      <Time>2012-05-29T23:49:52.0390798+03:00</Time>
+    </Item>
+    <Item>
+      <Source>hole.jpg</Source>
+      <Name>hole</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Tzipi\Desktop\FoldIt!\Foldit3D\WindowsGame3\WindowsGame3\bin\x86\Debug\Content\hole.xnb</Output>
+      <Time>2012-05-31T11:47:56.0255549+03:00</Time>
+    </Item>
+    <Item>
+      <Source>hole1.png</Source>
+      <Name>hole1</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Tzipi\Desktop\FoldIt!\Foldit3D\WindowsGame3\WindowsGame3\bin\x86\Debug\Content\hole1.xnb</Output>
+      <Time>2012-05-31T12:14:51.5819594+03:00</Time>
+    </Item>
+    <Item>
+      <Source>inkspot1.png</Source>
+      <Name>inkspot1</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Tzipi\Desktop\FoldIt!\Foldit3D\WindowsGame3\WindowsGame3\bin\x86\Debug\Content\inkspot1.xnb</Output>
+      <Time>2012-05-31T12:30:04.4461722+03:00</Time>
     </Item>
     <BuildSuccessful>true</BuildSuccessful>
     <Settings>

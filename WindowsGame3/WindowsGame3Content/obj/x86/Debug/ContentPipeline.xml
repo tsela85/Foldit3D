@@ -7,8 +7,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Dina\Documents\Visual Studio 2010\Projects\FoldIt 3D\Foldit3D\WindowsGame3\WindowsGame3\bin\x86\Debug\Content\ball.xnb</Output>
-      <Time>2012-05-29T20:18:54.1152759+03:00</Time>
+      <Output>C:\Users\Tom\Documents\Visual Studio 2010\Projects\Foldit3D\WindowsGame3\WindowsGame3\bin\x86\Debug\Content\ball.xnb</Output>
+      <Time>2012-05-29T13:45:03.7215131+03:00</Time>
     </Item>
     <Item>
       <Source>edged.png</Source>
@@ -16,8 +16,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Dina\Documents\Visual Studio 2010\Projects\FoldIt 3D\Foldit3D\WindowsGame3\WindowsGame3\bin\x86\Debug\Content\edged.xnb</Output>
-      <Time>2012-05-28T15:16:37.0399473+03:00</Time>
+      <Output>C:\Users\Tom\Documents\Visual Studio 2010\Projects\Foldit3D\WindowsGame3\WindowsGame3\bin\x86\Debug\Content\edged.xnb</Output>
+      <Time>2012-05-18T17:07:09.589819+03:00</Time>
     </Item>
     <Item>
       <Source>empty.png</Source>
@@ -25,26 +25,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Dina\Documents\Visual Studio 2010\Projects\FoldIt 3D\Foldit3D\WindowsGame3\WindowsGame3\bin\x86\Debug\Content\empty.xnb</Output>
-      <Time>2012-05-28T15:16:37.0399473+03:00</Time>
-    </Item>
-    <Item>
-      <Source>hole.png</Source>
-      <Name>hole</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>C:\Users\Dina\Documents\Visual Studio 2010\Projects\FoldIt 3D\Foldit3D\WindowsGame3\WindowsGame3\bin\x86\Debug\Content\hole.xnb</Output>
-      <Time>2012-05-30T13:48:25.60282+03:00</Time>
-    </Item>
-    <Item>
-      <Source>paper3.jpg</Source>
-      <Name>paper3</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>C:\Users\Dina\Documents\Visual Studio 2010\Projects\FoldIt 3D\Foldit3D\WindowsGame3\WindowsGame3\bin\x86\Debug\Content\paper3.xnb</Output>
-      <Time>2012-05-29T20:18:54.1152759+03:00</Time>
+      <Output>C:\Users\Tom\Documents\Visual Studio 2010\Projects\Foldit3D\WindowsGame3\WindowsGame3\bin\x86\Debug\Content\empty.xnb</Output>
+      <Time>2012-05-18T17:07:09.5948193+03:00</Time>
     </Item>
     <Item>
       <Source>font.spritefont</Source>
@@ -52,8 +34,8 @@
       <Importer>FontDescriptionImporter</Importer>
       <Processor>FontDescriptionProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Dina\Documents\Visual Studio 2010\Projects\FoldIt 3D\Foldit3D\WindowsGame3\WindowsGame3\bin\x86\Debug\Content\font.xnb</Output>
-      <Time>2012-05-28T15:16:37.0399473+03:00</Time>
+      <Output>C:\Users\Tom\Documents\Visual Studio 2010\Projects\Foldit3D\WindowsGame3\WindowsGame3\bin\x86\Debug\Content\font.xnb</Output>
+      <Time>2012-06-01T20:35:48.7789927+03:00</Time>
     </Item>
     <Item>
       <Source>scoreFont.spritefont</Source>
@@ -61,8 +43,8 @@
       <Importer>FontDescriptionImporter</Importer>
       <Processor>FontDescriptionProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Dina\Documents\Visual Studio 2010\Projects\FoldIt 3D\Foldit3D\WindowsGame3\WindowsGame3\bin\x86\Debug\Content\scoreFont.xnb</Output>
-      <Time>2012-05-28T15:16:37.0499473+03:00</Time>
+      <Output>C:\Users\Tom\Documents\Visual Studio 2010\Projects\Foldit3D\WindowsGame3\WindowsGame3\bin\x86\Debug\Content\scoreFont.xnb</Output>
+      <Time>2012-05-18T17:07:09.6268212+03:00</Time>
     </Item>
     <Item>
       <Source>effects.fx</Source>
@@ -70,8 +52,107 @@
       <Importer>EffectImporter</Importer>
       <Processor>EffectProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Dina\Documents\Visual Studio 2010\Projects\FoldIt 3D\Foldit3D\WindowsGame3\WindowsGame3\bin\x86\Debug\Content\effects.xnb</Output>
-      <Time>2012-05-29T20:18:54.1152759+03:00</Time>
+      <Output>C:\Users\Tom\Documents\Visual Studio 2010\Projects\Foldit3D\WindowsGame3\WindowsGame3\bin\x86\Debug\Content\effects.xnb</Output>
+      <Time>2012-05-29T13:45:03.7371131+03:00</Time>
+    </Item>
+    <Item>
+      <Source>paper2.jpg</Source>
+      <Name>paper2</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Tom\Documents\Visual Studio 2010\Projects\Foldit3D\WindowsGame3\WindowsGame3\bin\x86\Debug\Content\paper2.xnb</Output>
+      <Time>2012-05-31T02:19:50.2651764+03:00</Time>
+    </Item>
+    <Item>
+      <Source>paper1.jpg</Source>
+      <Name>paper1</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Tom\Documents\Visual Studio 2010\Projects\Foldit3D\WindowsGame3\WindowsGame3\bin\x86\Debug\Content\paper1.xnb</Output>
+      <Time>2012-05-31T02:19:50.2641763+03:00</Time>
+    </Item>
+    <Item>
+      <Source>paper.png</Source>
+      <Name>paper</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Tom\Documents\Visual Studio 2010\Projects\Foldit3D\WindowsGame3\WindowsGame3\bin\x86\Debug\Content\paper.xnb</Output>
+      <Time>2012-05-31T02:19:50.2371748+03:00</Time>
+    </Item>
+    <Item>
+      <Source>inkspot.png</Source>
+      <Name>inkspot</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Tom\Documents\Visual Studio 2010\Projects\Foldit3D\WindowsGame3\WindowsGame3\bin\x86\Debug\Content\inkspot.xnb</Output>
+      <Time>2012-05-31T02:19:50.2291743+03:00</Time>
+    </Item>
+    <Item>
+      <Source>hole2.png</Source>
+      <Name>hole2</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Tom\Documents\Visual Studio 2010\Projects\Foldit3D\WindowsGame3\WindowsGame3\bin\x86\Debug\Content\hole2.xnb</Output>
+      <Time>2012-06-01T20:35:48.8569928+03:00</Time>
+    </Item>
+    <Item>
+      <Source>gumball.png</Source>
+      <Name>gumball</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Tom\Documents\Visual Studio 2010\Projects\Foldit3D\WindowsGame3\WindowsGame3\bin\x86\Debug\Content\gumball.xnb</Output>
+      <Time>2012-06-01T20:35:48.7945927+03:00</Time>
+    </Item>
+    <Item>
+      <Source>inkspot2.png</Source>
+      <Name>inkspot2</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Tom\Documents\Visual Studio 2010\Projects\Foldit3D\WindowsGame3\WindowsGame3\bin\x86\Debug\Content\inkspot2.xnb</Output>
+      <Time>2012-06-01T20:35:48.8569928+03:00</Time>
+    </Item>
+    <Item>
+      <Source>gummy2.png</Source>
+      <Name>gummy2</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Tom\Documents\Visual Studio 2010\Projects\Foldit3D\WindowsGame3\WindowsGame3\bin\x86\Debug\Content\gummy2.xnb</Output>
+      <Time>2012-06-01T20:35:48.7945927+03:00</Time>
+    </Item>
+    <Item>
+      <Source>hole.jpg</Source>
+      <Name>hole</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Tom\Documents\Visual Studio 2010\Projects\Foldit3D\WindowsGame3\WindowsGame3\bin\x86\Debug\Content\hole.xnb</Output>
+      <Time>2012-06-01T20:35:48.8101927+03:00</Time>
+    </Item>
+    <Item>
+      <Source>hole1.png</Source>
+      <Name>hole1</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Tom\Documents\Visual Studio 2010\Projects\Foldit3D\WindowsGame3\WindowsGame3\bin\x86\Debug\Content\hole1.xnb</Output>
+      <Time>2012-06-01T20:35:48.8101927+03:00</Time>
+    </Item>
+    <Item>
+      <Source>inkspot1.png</Source>
+      <Name>inkspot1</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Tom\Documents\Visual Studio 2010\Projects\Foldit3D\WindowsGame3\WindowsGame3\bin\x86\Debug\Content\inkspot1.xnb</Output>
+      <Time>2012-06-01T20:35:48.8569928+03:00</Time>
     </Item>
     <BuildSuccessful>true</BuildSuccessful>
     <Settings>
@@ -79,39 +160,39 @@
       <TargetProfile>Reach</TargetProfile>
       <BuildConfiguration>Debug</BuildConfiguration>
       <CompressContent>false</CompressContent>
-      <RootDirectory>C:\Users\Dina\Documents\Visual Studio 2010\Projects\FoldIt 3D\Foldit3D\WindowsGame3\WindowsGame3Content\</RootDirectory>
-      <LoggerRootDirectory>C:\Users\Dina\Documents\Visual Studio 2010\Projects\FoldIt 3D\Foldit3D\WindowsGame3\WindowsGame3\</LoggerRootDirectory>
-      <IntermediateDirectory>C:\Users\Dina\Documents\Visual Studio 2010\Projects\FoldIt 3D\Foldit3D\WindowsGame3\WindowsGame3Content\obj\x86\Debug\</IntermediateDirectory>
-      <OutputDirectory>C:\Users\Dina\Documents\Visual Studio 2010\Projects\FoldIt 3D\Foldit3D\WindowsGame3\WindowsGame3\bin\x86\Debug\Content\</OutputDirectory>
+      <RootDirectory>C:\Users\Tom\Documents\Visual Studio 2010\Projects\Foldit3D\WindowsGame3\WindowsGame3Content\</RootDirectory>
+      <LoggerRootDirectory>C:\Users\Tom\Documents\Visual Studio 2010\Projects\Foldit3D\WindowsGame3\WindowsGame3\</LoggerRootDirectory>
+      <IntermediateDirectory>C:\Users\Tom\Documents\Visual Studio 2010\Projects\Foldit3D\WindowsGame3\WindowsGame3Content\obj\x86\Debug\</IntermediateDirectory>
+      <OutputDirectory>C:\Users\Tom\Documents\Visual Studio 2010\Projects\Foldit3D\WindowsGame3\WindowsGame3\bin\x86\Debug\Content\</OutputDirectory>
     </Settings>
     <Assemblies>
       <Assembly>
-        <Key>C:\Program Files\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.XImporter.dll</Key>
-        <Value>2010-08-23T12:41:18+03:00</Value>
+        <Key>C:\Program Files (x86)\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.XImporter.dll</Key>
+        <Value>2010-08-23T13:41:18+03:00</Value>
       </Assembly>
       <Assembly>
-        <Key>C:\Program Files\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.VideoImporters.dll</Key>
-        <Value>2010-08-23T12:41:18+03:00</Value>
+        <Key>C:\Program Files (x86)\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.VideoImporters.dll</Key>
+        <Value>2010-08-23T13:41:18+03:00</Value>
       </Assembly>
       <Assembly>
-        <Key>C:\Program Files\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.TextureImporter.dll</Key>
-        <Value>2010-08-23T12:41:18+03:00</Value>
+        <Key>C:\Program Files (x86)\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.TextureImporter.dll</Key>
+        <Value>2010-08-23T13:41:18+03:00</Value>
       </Assembly>
       <Assembly>
-        <Key>C:\Program Files\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.FBXImporter.dll</Key>
-        <Value>2010-08-23T12:41:18+03:00</Value>
+        <Key>C:\Program Files (x86)\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.FBXImporter.dll</Key>
+        <Value>2010-08-23T13:41:18+03:00</Value>
       </Assembly>
       <Assembly>
-        <Key>C:\Program Files\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.EffectImporter.dll</Key>
-        <Value>2010-08-23T12:41:18+03:00</Value>
+        <Key>C:\Program Files (x86)\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.EffectImporter.dll</Key>
+        <Value>2010-08-23T13:41:18+03:00</Value>
       </Assembly>
       <Assembly>
-        <Key>C:\Program Files\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.AudioImporters.dll</Key>
-        <Value>2010-08-23T12:41:18+03:00</Value>
+        <Key>C:\Program Files (x86)\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.AudioImporters.dll</Key>
+        <Value>2010-08-23T13:41:18+03:00</Value>
       </Assembly>
       <Assembly>
         <Key>C:\Windows\Microsoft.Net\assembly\GAC_32\Microsoft.Xna.Framework.Content.Pipeline\v4.0_4.0.0.0__842cf8be1de50553\Microsoft.Xna.Framework.Content.Pipeline.dll</Key>
-        <Value>2012-03-31T13:04:46.8042621+03:00</Value>
+        <Value>2012-03-21T01:14:10.6677034+02:00</Value>
       </Assembly>
     </Assemblies>
   </Asset>

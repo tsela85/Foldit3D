@@ -100,14 +100,23 @@ namespace Foldit3D
             else Trace.WriteLine("changePlayerType Error!");
         }
 
-        public void foldData(Vector3 vec, Vector3 point, float angle)
+        public void foldData(Vector3 vec, Vector3 point, float angle, Board b)
         {
             foreach (Player p in players)
             {
-                p.foldData(vec, point, angle);
+                if (b.PointInBeforeFold(p.getCenter()))
+                    p.foldData(vec, point, angle);
             }
         }
 
+     /*   public void foldDataAfter(Vector3 vec, Vector3 point, float angle, Board b)
+        {
+            foreach (Player p in players)
+            {
+                if (b.PointInAfterFold(p.getCenter())) { }
+                    p.foldData(vec, point, angle);
+            }
+        }*/
         #endregion
 
     }

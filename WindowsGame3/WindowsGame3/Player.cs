@@ -26,6 +26,7 @@ namespace Foldit3D
         protected VertexPositionTexture[] vertices;
         protected Matrix worldMatrix = Matrix.Identity;
         protected Effect effect;
+        protected bool isDraw = true;
 
         #region Properties
 
@@ -80,9 +81,10 @@ namespace Foldit3D
         #region Update and Draw
         public void Update(GameTime gameTime, GameState state)
         {
+            HoleManager.checkCollision(this);
+            PowerUpManager.checkCollision(this);
             if (state != GameState.folding)
             {
-                Trace.WriteLine(state);
                 moving = true;
                 for(int i=0;i<vertices.Length; i++)
                     vertices[i].Position = Vector3.Transform(vertices[i].Position, worldMatrix);
@@ -91,24 +93,26 @@ namespace Foldit3D
 
         public void Draw()
         {
-            effect.CurrentTechnique = effect.Techniques["TexturedNoShading"];
-            effect.Parameters["xWorld"].SetValue(worldMatrix);
-            effect.Parameters["xView"].SetValue(Game1.camera.View);
-            effect.Parameters["xProjection"].SetValue(Game1.camera.Projection);
-            effect.Parameters["xTexture"].SetValue(texture);
-
-            foreach (EffectPass pass in effect.CurrentTechnique.Passes)
+            if (isDraw)
             {
-                pass.Apply();
+                effect.CurrentTechnique = effect.Techniques["TexturedNoShading"];
+                effect.Parameters["xWorld"].SetValue(worldMatrix);
+                effect.Parameters["xView"].SetValue(Game1.camera.View);
+                effect.Parameters["xProjection"].SetValue(Game1.camera.Projection);
+                effect.Parameters["xTexture"].SetValue(texture);
 
-                Game1.device.DrawUserPrimitives(PrimitiveType.TriangleList, vertices, 0, 2, VertexPositionTexture.VertexDeclaration);
+                foreach (EffectPass pass in effect.CurrentTechnique.Passes)
+                {
+                    pass.Apply();
+
+                    Game1.device.DrawUserPrimitives(PrimitiveType.TriangleList, vertices, 0, 2, VertexPositionTexture.VertexDeclaration);
+                }
             }
         }
 
         #endregion Update and Draw
 
         #region Fold
-
 
        /* public void foldOver()
         {
@@ -132,15 +136,29 @@ namespace Foldit3D
 
         //factor - by how much to inlarge (or to make smaller) the player
         //for example:  factor = 2 means that the player will be twice as big, factor = 0.5 half of the size 
-        public void changeSize(double factor)
+        public void changeSize()
         {
-            frameHeight = (int)(frameHeight * factor);
-            frameWidth = (int)(frameWidth * factor);
+            vertices[0].Position.X += -3;
+            //vertices[0].Position.Z += 3;
+            vertices[1].Position.X += 3;
+            //vertices[1].Position.Z += -3;
+            vertices[2].Position.X += -3;
+            //vertices[2].Position.Z += -3;
+            vertices[3].Position.X += 3;
+            //vertices[3].Position.Z += -3;
+            vertices[4].Position.X += -3;
+            //vertices[4].Position.Z += 3;
+            vertices[5].Position.X += 3;
+            //vertices[5].Position.Z += 3;
+
         }
 
-        public void changePos(int newX, int newY){
-            worldPosition.X = newX;
-            worldPosition.Y = newY;
+        public void changePos(int random){
+            for (int i = 0; i < 6; i++)
+            {
+                vertices[i].Position.X -= random;
+                vertices[i].Position.Z += random;
+            }
         }
 
         //!!!! i think that posx and posy need to be the postion of the powerup that the player took
@@ -155,12 +173,14 @@ namespace Foldit3D
         private void setUpVertices(List<List<Vector3>> points)
         {
             vertices = new VertexPositionTexture[6];
+
             for (int i = 0; i < 6; i++)
             {
                 vertices[i].Position = points.ElementAt(i).ElementAt(0);
                 vertices[i].TextureCoordinate.X = points.ElementAt(i).ElementAt(1).X;
                 vertices[i].TextureCoordinate.Y = points.ElementAt(i).ElementAt(1).Y;
             }
+
         }
 
         public BoundingBox getBox()
@@ -169,6 +189,12 @@ namespace Foldit3D
             p[0] = vertices[2].Position;
             p[1] = vertices[5].Position;
             return BoundingBox.CreateFromPoints(p);
+        }
+
+        public Vector3 getCenter()
+        {
+            float xz = (vertices[0].Position.X + vertices[0].Position.Z) / 2;
+            return new Vector3(xz, 0, xz);
         }
         #endregion
     }
