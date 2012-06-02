@@ -149,18 +149,8 @@ namespace Foldit3D
 
         //    }
         //}
-<<<<<<< HEAD
+                                   
 
-        public void Draw()
-        {
-            if (state == BoardState.folding1)
-            {
-                one.foldShape(angle);
-                two.Draw();
-                one.Draw();            
-                angle -= Game1.closeRate;
-                if (angle < -MathHelper.Pi + Game1.closeRate)                                    
-=======
         public void DrawfoldPart()
         {
             if (state == BoardState.folding1)
@@ -169,24 +159,17 @@ namespace Foldit3D
                 one.Draw();
                 angle -= Game1.closeRate;
                 if (angle < -MathHelper.Pi + Game1.closeRate)
->>>>>>> tom
                     state = BoardState.folding2;
             }
             else
                 if (state == BoardState.folding2)
                 {
                     one.foldShape(angle);
-<<<<<<< HEAD
-                    two.Draw();
-=======
->>>>>>> tom
                     one.Draw();
                     angle += Game1.openRate;
                     if (angle > 0)
                         state = BoardState.chooseEdge1;
                 }
-<<<<<<< HEAD
-=======
         }
 
         
@@ -196,7 +179,6 @@ namespace Foldit3D
             {       
                 two.Draw();    
                 }
->>>>>>> tom
                 else
                 {
 

@@ -21,10 +21,8 @@ namespace Foldit3D
         bool dataWasCalced = false;
         bool moving = true;
         bool isDraw = true;
-<<<<<<< HEAD
         bool drawInFold = false;
-=======
->>>>>>> tom
+
 
         Texture2D texture;
         Vector2 worldPosition;
@@ -113,11 +111,7 @@ namespace Foldit3D
         public void foldData(Vector3 axis, Vector3 point, float a)
         {
             float angle = MathHelper.ToDegrees(a);
-<<<<<<< HEAD
             drawInFold = true;
-=======
-
->>>>>>> tom
 
             //  if (angle > -167 && angle < 0 && moving)
             if ((a > -MathHelper.Pi + Game1.closeRate) && (moving))
@@ -126,13 +120,8 @@ namespace Foldit3D
                 else isDraw = true;
                 worldMatrix = Matrix.Identity;
                 worldMatrix *= Matrix.CreateTranslation(-point);
-<<<<<<< HEAD
-                //worldMatrix *= Matrix.CreateFromAxisAngle(new Vector3(Math.Abs(axis.X),axis.Y,-1*Math.Abs(axis.Z)), -a);
-               
-                worldMatrix *= Matrix.CreateFromAxisAngle(axis, -a);
-=======
-                worldMatrix *= Matrix.CreateFromAxisAngle(new Vector3(Math.Abs(axis.X),axis.Y,-1*Math.Abs(axis.Z)), -a);
->>>>>>> tom
+               // worldMatrix *= Matrix.CreateFromAxisAngle(axis, -a);
+                worldMatrix *= Matrix.CreateFromAxisAngle(new Vector3(Math.Abs(axis.X), axis.Y, -1 * Math.Abs(axis.Z)), -a);
                 worldMatrix *= Matrix.CreateTranslation(point);
             }
           /*  else if (moving)
@@ -182,7 +171,6 @@ namespace Foldit3D
         #endregion
 
         #region Draw
-<<<<<<< HEAD
         public void setDrawInFold()
         {
             drawInFold = false;
@@ -192,8 +180,7 @@ namespace Foldit3D
             if (drawInFold)
                 Draw();
         }
-=======
->>>>>>> tom
+
         public void Draw()
         {
             if (isDraw)

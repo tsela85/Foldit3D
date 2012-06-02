@@ -19,10 +19,9 @@ namespace Foldit3D
         bool dataWasCalced = false;
         bool moving = true;
         bool isDraw = true;
-<<<<<<< HEAD
+
         bool drawInFold = false;
-=======
->>>>>>> tom
+
 
         Texture2D texture;
         Vector2 worldPosition;
@@ -57,7 +56,6 @@ namespace Foldit3D
         #endregion
 
         #region Draw
-<<<<<<< HEAD
         public void setDrawInFold()
         {
             drawInFold = false;
@@ -90,31 +88,6 @@ namespace Foldit3D
         #region Update
         public void Update(GameState state)
         {
-=======
-        public void Draw()
-        {
-            if (isDraw)
-            {
-                effect.CurrentTechnique = effect.Techniques["TexturedNoShading"];
-                effect.Parameters["xWorld"].SetValue(worldMatrix);
-                effect.Parameters["xView"].SetValue(Game1.camera.View);
-                effect.Parameters["xProjection"].SetValue(Game1.camera.Projection);
-                effect.Parameters["xTexture"].SetValue(texture);
-
-                foreach (EffectPass pass in effect.CurrentTechnique.Passes)
-                {
-                    pass.Apply();
-
-                    Game1.device.DrawUserPrimitives(PrimitiveType.TriangleList, vertices, 0, 2, VertexPositionTexture.VertexDeclaration);
-                }
-            }
-        }
-        #endregion
-
-        #region Update
-        public void Update(GameState state)
-        {
->>>>>>> tom
            // if (state == GameState.folding && dataWasCalced)
            //     rotate();
             if (state != GameState.folding)
@@ -132,10 +105,7 @@ namespace Foldit3D
         public void foldData(Vector3 axis, Vector3 point, float a)
         {
             float angle = MathHelper.ToDegrees(a);
-<<<<<<< HEAD
             drawInFold = true;
-=======
->>>>>>> tom
 
             //  if (angle > -167 && angle < 0 && moving)
             if ((a > -MathHelper.Pi + Game1.closeRate) && (moving))
