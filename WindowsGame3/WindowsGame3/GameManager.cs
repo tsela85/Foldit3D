@@ -89,16 +89,17 @@ namespace Foldit3D
                 if (Keyboard.GetState().IsKeyDown(Keys.R))
                 {
                     folds = 0;
+                    loadCurrLevel();
                 }
                 if (gamestate == GameState.folding)
                 {
                     Vector3 v = board.getAxis();
                     Vector3 p = board.getAxisPoint();
                     float a = board.getAngle();
-                   // if (boardstate == Board.BoardState.folding1)
-                        playerManager.foldData(v, p, a, board);
-                  //  if (boardstate == Board.BoardState.folding2)
-                  //      playerManager.foldDataAfter(v, p, a, board);
+                    // if (boardstate == Board.BoardState.folding1)
+                    playerManager.foldData(v, p, a, board);
+                    //  if (boardstate == Board.BoardState.folding2)
+                    //      playerManager.foldDataAfter(v, p, a, board);
                     holeManager.foldData(v, p, a, board);
                     powerupManager.foldData(v, p, a, board);
                     if (first == 1)
@@ -107,7 +108,12 @@ namespace Foldit3D
                         first = 0;
                     }
                 }
-                else first = 1;
+                else
+                {
+                    first = 1;
+                    powerupManager.setDrawInFold();
+                    holeManager.setDrawInFold();
+                }
             }
             if ((gamestate == GameState.scored) && (Mouse.GetState().LeftButton == ButtonState.Pressed))
             {
