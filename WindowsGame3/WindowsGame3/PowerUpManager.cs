@@ -82,14 +82,12 @@ namespace Foldit3D
             foreach (PowerUp p in powerups)
             {
                 BoundingBox b1 = p.getBox();
-                b1.Max.X += 0.0001f;
-                b1.Max.Y += 0.0001f;
-                b1.Max.Z += 0.0001f;
-                b1.Min.X -= 0.0001f;
-                b1.Min.Y -= 0.0001f;
-                b1.Min.Z -= 0.0001f;
+                b1.Max.X -= 1.0f;
+                b1.Max.Z -= 1.0f;
+                b1.Min.X += 1.0f;
+                b1.Min.Z += 1.0f; 
                 BoundingBox b2 = player.getBox();
-                if (b2.Intersects(b1))
+                if (b1.Intersects(b2))
                 {
                     p.doYourThing(player);
                     pToRemove = p;
