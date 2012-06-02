@@ -37,6 +37,9 @@ namespace Foldit3D
         private GraphicsDevice device;
         private InputHandler input;
         private BoardState state;
+        //private List<VertexPositionColor> lineList;
+        VertexPositionColor[] lineList;
+        private List<short> lineIndices;        
 
         public Board(Texture2D tex, Effect eff)
         {
@@ -98,7 +101,12 @@ namespace Foldit3D
             int iCount = (vNum - 3) * 3 + 3;
             vertNum = vNum;
             
-            vertices = new VertexPositionNormalTexture[vNum];            
+            vertices = new VertexPositionNormalTexture[vNum];
+            //lineList = new List<VertexPositionColor>();
+            lineList = new VertexPositionColor[2];
+            lineList[0].Color = Color.Green;
+            lineList[1].Color = Color.Green;
+            lineIndices = new List<short>();
             camera = Game1.camera;
             device = Game1.device;
             input = Game1.input;
@@ -179,12 +187,22 @@ namespace Foldit3D
                         device.DrawUserIndexedPrimitives(PrimitiveType.TriangleList, vertices, 0,
                            vertices.Length, invertIndices, 0, indices.Length / 3, VertexPositionNormalTexture.VertexDeclaration);
 
-                        //device.DrawUserPrimitives<VertexPositionNormalTexture>(PrimitiveType.PointList,pointList,
-                        //    0,  // index of the first vertex to draw
-                        //    9);   // number of primitives
-            
-
                         device.DrawUserPrimitives(PrimitiveType.TriangleList, ver, 0, 1, VertexPositionNormalTexture.VertexDeclaration);
+
+                    }
+                    if ((state == BoardState.chooseEdge2) || (state == BoardState.onEdge2))
+                    {
+                        effect.CurrentTechnique = effect.Techniques["ColoredNoShading"];
+                        effect.Parameters["xWorld"].SetValue(worldMatrix);
+                        effect.Parameters["xView"].SetValue(camera.View);
+                        effect.Parameters["xProjection"].SetValue(camera.Projection);
+                        foreach (EffectPass pass in effect.CurrentTechnique.Passes)
+                        {
+                            pass.Apply();
+                            device.DrawUserIndexedPrimitives<VertexPositionColor>(PrimitiveType.LineList,
+                            lineList, 0, 2, new short[2] {0,1}, 0
+                            , 1, VertexPositionColor.VertexDeclaration);
+                        }
 
                     }
                 }
@@ -502,7 +520,9 @@ namespace Foldit3D
         {
             Vector3 mouse = GetPickedPosition(
                 new Vector2((float)input.MouseHandler.MouseState.X, (float)input.MouseHandler.MouseState.Y));
+            lineList[1].Position = mouse;
             bool onEdge = collideWithEdge(mouse);
+            lineList[1].Color = Color.Black;
             if ((state == BoardState.chooseEdge1) && (onEdge))
             {               
                     if (input.MouseHandler.WasLeftButtonClicked())
@@ -515,19 +535,33 @@ namespace Foldit3D
                 if (onEdge)                
                 {
                     if (input.MouseHandler.WasLeftButtonClicked())
+                    {                        
+                        lineList[0].Position = p[0].position;
+                        //lineList[0].Position = mouse;
+                        
+                        //lineIndices.Add((short)lineList.Count);
+                        //lineList.Add(linePoint);
+                        //lineIndices.Add((short)lineList.Count);
+                        //lineList.Add(linePoint);        
                         state = BoardState.chooseEdge2;
+                    }
                 } else
                     state = BoardState.chooseEdge1;
             } else
             if ((state == BoardState.chooseEdge2) && (onEdge))
             {
+                lineList[1].Position = mouse;
                 if (input.MouseHandler.WasLeftButtonClicked())
+                {                    
                     state = BoardState.preFold;
-                 else
+                }
+                else
                     state = BoardState.onEdge2;
             } else
             if ((state == BoardState.onEdge2))
             {
+                lineList[1].Position = p[1].position;
+                lineList[1].Color = Color.Red;
                 if (onEdge)
                     {
                         if (input.MouseHandler.WasLeftButtonClicked())
@@ -539,10 +573,10 @@ namespace Foldit3D
             {                
                 Divide(p[0], p[1], out one, out two);
                 state = BoardState.folding1;
-                if (PointInBeforeFold(new Vector3(-9, 0, -9)))
-                    Trace.WriteLine("before fold");
-                if (PointInAfterFold(new Vector3(-9, 0, -9)))
-                    Trace.WriteLine("after fold");
+                //if (PointInBeforeFold(new Vector3(-9, 0, -9)))
+                //    Trace.WriteLine("before fold");
+                //if (PointInAfterFold(new Vector3(-9, 0, -9)))
+                //    Trace.WriteLine("after fold");
             }
             if ((input.MouseHandler.WasRightButtonClicked()))
             {
@@ -555,3 +589,4 @@ namespace Foldit3D
         }
     }
 }
+

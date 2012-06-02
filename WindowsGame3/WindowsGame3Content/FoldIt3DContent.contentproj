@@ -120,13 +120,6 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="gummy.png">
-      <Name>gummy</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-  </ItemGroup>
-  <ItemGroup>
     <Compile Include="inkspot2.png">
       <Name>inkspot2</Name>
       <Importer>TextureImporter</Importer>

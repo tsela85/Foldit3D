@@ -8,11 +8,10 @@ Content\paper2.xnb
 Content\paper1.xnb
 Content\paper.xnb
 Content\inkspot.xnb
+Content\hole2.xnb
 Content\gumball.xnb
-Content\gummy.xnb
 Content\inkspot2.xnb
 Content\gummy2.xnb
-Content\hole2.xnb
 Content\hole.xnb
 Content\hole1.xnb
 Content\inkspot1.xnb
